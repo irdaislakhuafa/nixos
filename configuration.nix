@@ -23,11 +23,15 @@
   time.timeZone = "Asia/Jakarta";
 
   # set user groups
+  users.users.i.group = "developer";
+  users.users.i.description = "Irda Islakhu Afa";
+  users.users.i.isNormalUser = true;
   users.groups = {
     developer = {
       members = [ "i" ];
     };
   };
+
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -89,11 +93,16 @@
     bat 
     lsd
     home-manager
+    gnumake
+    i3
   ];
 
   # enable hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
   programs.hyprland.xwayland.enable = true;
+
+  # enable i3
+  services.xserver.windowManager.i3.enable = true;
   
   # enable zsh
   programs.zsh.enable = true;
