@@ -6,5 +6,6 @@
     ./nix/default.nix
     ./zellij/default.nix
     ./pfetch/default.nix
+    ./gh/default.nix
   ];
 }
