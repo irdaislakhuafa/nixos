@@ -3,7 +3,6 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -23,15 +22,17 @@
   time.timeZone = "Asia/Jakarta";
 
   # set user groups
-  users.users.i.group = "developer";
-  users.users.i.description = "Irda Islakhu Afa";
-  users.users.i.isNormalUser = true;
   users.groups = {
-    developer = {
-      members = [ "i" ];
-    };
+    developer = { };
   };
 
+  users.users = {
+    i = {
+      group = "developer";
+      description = "Irda Islakhu Afa";
+      isNormalUser = true;
+    };
+  };
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -95,6 +96,7 @@
     home-manager
     gnumake
     i3
+    zellij
   ];
 
   # enable hyprland
@@ -172,7 +174,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "current"; # Did you read the comment?
 
 }
 
