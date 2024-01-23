@@ -9,5 +9,6 @@
     ./pfetch/default.nix
     ./git/default.nix
     ./docker/default.nix
+    ./neovim/default.nix
   ];
 }
