@@ -7,6 +7,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./users/default.nix
+      ./src/apps/default.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,19 +22,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
-
-  # set user groups
-  users.groups = {
-    developer = { };
-  };
-
-  users.users = {
-    i = {
-      group = "developer";
-      description = "Irda Islakhu Afa";
-      isNormalUser = true;
-    };
-  };
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
