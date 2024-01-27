@@ -10,5 +10,7 @@
     ./git/default.nix
     ./docker/default.nix
     ./neovim/default.nix
+    ./vscodium/default.nix
+    ./hyprland/default.nix
   ];
 }
