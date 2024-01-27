@@ -1,5 +1,6 @@
 {pkgs, ...}:
 {
+  users.defaultUserShell = pkgs.zsh;
   users.groups = {
     developer = { };
   };
@@ -9,6 +10,9 @@
       group = "developer";
       description = "Irda Islakhu Afa";
       isNormalUser = true;
+      extraGroups = [
+        "docker"
+      ];
     };
   };
 }
