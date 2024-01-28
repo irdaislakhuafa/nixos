@@ -63,7 +63,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     alacritty
     doas
-    zsh oh-my-zsh
     wget
     google-chrome epiphany
     git 
@@ -72,6 +71,10 @@
     home-manager
     gnumake
     i3
+    fzf
+    bottom
+    duf
+    jq
   ];
 
   # enable hyprland
@@ -81,11 +84,6 @@
   # enable i3
   services.xserver.windowManager.i3.enable = true;
   
-  # enable zsh
-  programs.zsh.enable = true;
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.ohMyZsh.enable = true;
-
   # enable doas
   security.doas.enable = true;
   security.doas.extraRules = [
