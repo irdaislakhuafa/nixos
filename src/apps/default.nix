@@ -10,5 +10,6 @@
     ./git/default.nix
     ./docker/default.nix
     ./neovim/default.nix
+    ./zsh/default.nix
   ];
 }
