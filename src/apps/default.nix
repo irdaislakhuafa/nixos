@@ -1,15 +1,13 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ./lsd/default.nix
-    ./d2/default.nix
-    ./tree/default.nix
-    ./nix/default.nix
-    ./zellij/default.nix
-    ./pfetch/default.nix
-    ./git/default.nix
-    ./docker/default.nix
-    ./neovim/default.nix
-    ./zsh/default.nix
+    ./cli/default.nix
+    ./shell/default.nix
+    ./ide/default.nix
+    ./container/default.nix
+    ./web-browser/default.nix
+    ./package-manager/default.nix
+    ./terminal/default.nix
+    ./window-manager/default.nix
   ];
 }

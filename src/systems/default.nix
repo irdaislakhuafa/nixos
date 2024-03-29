@@ -5,6 +5,10 @@
     ./users/default.nix
     ./timezone/default.nix
     ./nixpkgs/default.nix
+    ./hardware/default.nix
+    ./security/default.nix
+    ./network/default.nix
+    ./ssh/default.nix
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system

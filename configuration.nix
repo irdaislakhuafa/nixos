@@ -12,7 +12,7 @@
       ./src/apps/default.nix
     ];
 
-  networking.hostName = "developer"; # Define your hostname.
+  # networking.hostName = "developer"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -46,68 +46,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.alice = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     tree
-  #   ];
-  # };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gnome.gdm # gnome display manager
-    hyprland
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    alacritty
-    doas
-    wget
-    google-chrome
-    epiphany
-    git
-    bat
-    lsd
     home-manager
-    gnumake
-    i3
-    fzf
-    bottom
-    duf
-    jq
   ];
-
-  # enable hyprland
-  programs.hyprland.enable = false;
-  programs.hyprland.xwayland.enable = true;
 
   # enable i3
-  services.xserver.windowManager.i3.enable = true;
-
-  # enable doas
-  security.doas.enable = true;
-  security.doas.extraRules = [
-    {
-      groups = [
-        "developer"
-      ];
-      noPass = false;
-      keepEnv = true;
-    }
-  ];
-
-  # disable sudo
-  security.sudo.enable = false;
+  # services.xserver.windowManager.i3.enable = true;
 
   # enable gdm
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-
-  # enable git
-  programs.git.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -120,7 +68,6 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

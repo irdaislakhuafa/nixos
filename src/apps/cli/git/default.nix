@@ -7,4 +7,6 @@
     gh-cal
     gh-eco
   ];
+
+  programs.git.enable = true;
 }
