@@ -9,5 +9,6 @@
     ./package-manager/default.nix
     ./terminal/default.nix
     ./window-manager/default.nix
+    ./fonts/default.nix
   ];
 }
