@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   users.defaultUserShell = pkgs.zsh;
   users.groups = {
@@ -12,6 +12,7 @@
       isNormalUser = true;
       extraGroups = [
         "docker"
+        "developer"
       ];
     };
   };

@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   time.timeZone = "Asia/Jakarta";
 }

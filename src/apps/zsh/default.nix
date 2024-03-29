@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     zsh
@@ -23,7 +23,7 @@
     enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
-    syntaxHighlighting = { 
+    syntaxHighlighting = {
       enable = true;
     };
     autosuggestions = {
@@ -32,11 +32,11 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = [ 
+      plugins = [
         "git"
-	"zsh-autosuggestions"
-	"fast-syntax-highlighting"
-	"fzf-tab"
+        "zsh-autosuggestions"
+        "fast-syntax-highlighting"
+        "fzf-tab"
       ];
       cacheDir = "/tmp";
     };

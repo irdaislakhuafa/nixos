@@ -5,7 +5,8 @@
 { config, lib, pkgs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./src/systems/default.nix
       ./src/apps/default.nix
@@ -64,9 +65,10 @@
     alacritty
     doas
     wget
-    google-chrome epiphany
-    git 
-    bat 
+    google-chrome
+    epiphany
+    git
+    bat
     lsd
     home-manager
     gnumake
@@ -83,7 +85,7 @@
 
   # enable i3
   services.xserver.windowManager.i3.enable = true;
-  
+
   # enable doas
   security.doas.enable = true;
   security.doas.extraRules = [
