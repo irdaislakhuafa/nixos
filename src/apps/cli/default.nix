@@ -12,5 +12,6 @@
     ./jq/default.nix
     ./wget/default.nix
     ./duf/default.nix
+    ./onefetch/default.nix
   ];
 }
