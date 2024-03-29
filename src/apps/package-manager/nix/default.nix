@@ -4,5 +4,6 @@
     nix-search-cli
     direnv
     nix-direnv
+    nixpkgs-fmt
   ];
 }
