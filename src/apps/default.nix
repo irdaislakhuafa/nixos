@@ -10,5 +10,6 @@
     ./terminal/default.nix
     ./window-manager/default.nix
     ./fonts/default.nix
+    ./builder/default.nix
   ];
 }
