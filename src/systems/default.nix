@@ -2,6 +2,7 @@
 {
   imports = [
     ./boot/default.nix
+    ./env/default.nix
     ./users/default.nix
     ./timezone/default.nix
     ./nixpkgs/default.nix
