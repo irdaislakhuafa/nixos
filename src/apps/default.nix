@@ -11,5 +11,6 @@
     ./window-manager/default.nix
     ./fonts/default.nix
     ./builder/default.nix
+    ./display-manager/default.nix
   ];
 }
