@@ -13,5 +13,8 @@
     ./builder/default.nix
     ./display-manager/default.nix
     ./programming-language/default.nix
+    ./image-viewer/default.nix
+    ./video-player/default.nix
+    ./rdp/default.nix
   ];
 }
