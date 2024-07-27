@@ -13,5 +13,6 @@
     ./wget/default.nix
     ./duf/default.nix
     ./onefetch/default.nix
+    ./psmisc/default.nix
   ];
 }
