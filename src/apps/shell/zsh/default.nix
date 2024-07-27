@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: rec {
   environment.systemPackages = with pkgs; [
     zsh
     oh-my-zsh
@@ -18,30 +18,28 @@
   ];
 
   programs.nix-index.enableZshIntegration = true;
-  programs.zsh = {
+
+  programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.enableBashCompletion = true;
+
+  programs.zsh.syntaxHighlighting = {
     enable = true;
-    enableCompletion = true;
-    enableBashCompletion = true;
-    syntaxHighlighting = {
-      enable = true;
-    };
-    autosuggestions = {
-      enable = true;
-      async = true;
-    };
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "zsh-autosuggestions"
-        "fast-syntax-highlighting"
-        "fzf-tab"
-      ];
-      cacheDir = "/tmp";
-    };
-    enableLsColors = true;
-    zsh-autoenv = {
-      enable = true;
-    };
+    highlighters = [ "main" ];
   };
+
+  programs.zsh.autosuggestions.enable = true;
+  programs.zsh.autosuggestions.async = true;
+
+  programs.zsh.ohMyZsh.enable = true;
+  programs.zsh.ohMyZsh.plugins = [
+    "git"
+    "zsh-autosuggestions"
+    "fast-syntax-highlighting"
+    "fzf-tab"
+  ];
+  programs.zsh.ohMyZsh.cacheDir = "/tmp";
+
+  programs.zsh.enableLsColors = true;
+  programs.zsh.zsh-autoenv.enable = true;
 }
