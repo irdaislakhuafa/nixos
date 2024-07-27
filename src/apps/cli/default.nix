@@ -14,6 +14,5 @@
     ./duf/default.nix
     ./onefetch/default.nix
     ./psmisc/default.nix
-    ./udisks/default.nix
   ];
 }
