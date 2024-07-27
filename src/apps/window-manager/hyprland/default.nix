@@ -1,9 +1,11 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }: rec {
   environment.systemPackages = with pkgs;[
     hyprland
     waybar
     xdg-desktop-portal-hyprland
     polkit
+    rofi-wayland
+    hyprpaper
   ];
   programs.hyprland.enable = false;
   programs.hyprland.xwayland.enable = true;
