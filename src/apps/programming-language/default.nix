@@ -1,0 +1,5 @@
+{ ... }: {
+  imports = [
+    ./go/default.nix
+  ];
+}
