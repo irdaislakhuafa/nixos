@@ -6,5 +6,5 @@
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.displayManager.gdm.debug = true;
-  services.xserver.displayManager.defaultSession = "none+hyprland";
+  services.displayManager.defaultSession = "none+hyprland";
 }
