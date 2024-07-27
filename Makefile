@@ -14,3 +14,7 @@ home-add-channel:
 
 use-switch:
 	@ make use && nixos-rebuild switch
+
+use-channel-unstable-small:
+	@ nix-channel --add https://channels.nixos.org/nixos-unstable-small unstable-small
+	@ nix-channel --update
