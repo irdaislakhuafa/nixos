@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: rec {
+{ lib, pkgs, config, ... }:
+let
+  isEnableAutoStart = false;
+in
+rec {
   environment.systemPackages = with pkgs;[
     hyprland
     waybar
@@ -7,17 +11,15 @@
     rofi-wayland
     hyprpaper
   ];
-  programs.hyprland.enable = false;
+
+  programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
   programs.waybar.enable = true;
 
-  services.xserver.displayManager.session = [
-    {
-      manage = "window";
-      name = "hyprland";
-      start = ''
-        ${pkgs.hyprland}/bin/Hyprland
-      '';
-    }
-  ];
+  programs.zsh.loginShellInit = lib.mkIf isEnableAutoStart ''
+    CURRENT_TTY=$(tty)
+    if [ "$CURRENT_TTY" = "/dev/tty1" ]; then
+      ${pkgs.hyprland}/bin/Hyprland
+    fi
+  '';
 }
