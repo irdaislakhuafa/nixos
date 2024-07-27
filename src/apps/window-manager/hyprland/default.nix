@@ -10,11 +10,19 @@ rec {
     polkit
     rofi-wayland
     hyprpaper
+    wl-mirror
+    wl-clipboard-x11
+    wl-clipboard-rs
+    hyprlock
+    swaybg
+    hypridle
   ];
 
-  programs.hyprland.enable = true;
+  programs.hyprlock.enable = isEnableAutoStart;
+  programs.hyprland.enable = isEnableAutoStart;
   programs.hyprland.xwayland.enable = true;
   programs.waybar.enable = true;
+  services.hypridle.enable = true;
 
   programs.zsh.loginShellInit = lib.mkIf isEnableAutoStart ''
     CURRENT_TTY=$(tty)
