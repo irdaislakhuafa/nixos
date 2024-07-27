@@ -9,6 +9,8 @@
       fira-code-symbols
       fira-code-nerdfont
       jetbrains-mono
+      font-awesome
+      line-awesome
     ];
     fontDir = {
       enable = true;
