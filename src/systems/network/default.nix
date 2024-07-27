@@ -19,4 +19,11 @@
     };
   };
   services.resolved.enable = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = false;
+  services.blueman.enable = true;
+  hardware.pulseaudio.extraModules = with pkgs;[
+    pulseaudio-modules-bt
+  ];
 }
