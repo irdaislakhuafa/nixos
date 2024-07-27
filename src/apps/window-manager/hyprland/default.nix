@@ -1,6 +1,6 @@
 { lib, pkgs, config, ... }:
 let
-  isEnableAutoStart = false;
+  isEnableAutoStart = true;
 in
 rec {
   environment.systemPackages = with pkgs;[
