@@ -4,7 +4,10 @@
   hardware.graphics.enable = true;
   xdg.sounds.enable = true;
   hardware.pulseaudio.enable = false;
-  environment.systemPackages = with pkgs; [ pavucontrol ];
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+    alsa-utils
+  ];
   services.pipewire.enable = true;
   services.pipewire.audio.enable = true;
   services.pipewire.wireplumber.enable = true;
