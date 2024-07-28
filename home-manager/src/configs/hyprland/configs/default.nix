@@ -8,6 +8,7 @@
   ${builtins.readFile ./modules/input.conf}
   ${builtins.readFile ./modules/decoration.conf}
   ${builtins.readFile ./modules/animations.conf}
+  ${builtins.readFile ./modules/debug.conf}
   ${builtins.readFile ./modules/binds.conf}
   ${builtins.readFile ./modules/env.conf}
   ${builtins.readFile ./modules/gestures.conf}
@@ -18,4 +19,7 @@
   ${builtins.readFile ./modules/layout.conf}
   ${builtins.readFile ./modules/window.conf}
   ${builtins.readFile ./modules/apps.conf}
+  ${builtins.readFile ./modules/submap.conf}
+  ${builtins.readFile ./modules/window_rules.conf}
+  ${builtins.readFile ./modules/window.conf}
 ''
