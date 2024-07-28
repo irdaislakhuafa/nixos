@@ -14,5 +14,6 @@
     ./duf/default.nix
     ./onefetch/default.nix
     ./psmisc/default.nix
+    ./arch-chroot/default.nix
   ];
 }
