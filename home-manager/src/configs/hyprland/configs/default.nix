@@ -21,5 +21,4 @@
   ${builtins.readFile ./modules/apps.conf}
   ${builtins.readFile ./modules/submap.conf}
   ${builtins.readFile ./modules/window_rules.conf}
-  ${builtins.readFile ./modules/window.conf}
 ''
