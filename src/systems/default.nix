@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   imports = [
     ./boot/default.nix
     ./env/default.nix
@@ -12,6 +11,7 @@
     ./ssh/default.nix
     ./disks/default.nix
     ./graphics/default.nix
+    ./desktop/default.nix
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system
