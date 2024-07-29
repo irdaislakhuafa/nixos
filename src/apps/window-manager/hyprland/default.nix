@@ -16,18 +16,22 @@ rec {
     hyprlock
     swaybg
     hypridle
+    waypipe
+    hyprnotify
+    hyprpicker
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
   programs.hyprland.enable = isEnableAutoStart;
-  programs.hyprland.xwayland.enable = true;
-  programs.waybar.enable = true;
-  services.hypridle.enable = true;
+  programs.hyprland.xwayland.enable = isEnableAutoStart;
+  programs.waybar.enable = isEnableAutoStart;
+  services.hypridle.enable = isEnableAutoStart;
+  programs.hyprland.systemd.setPath.enable = isEnableAutoStart;
 
   programs.zsh.loginShellInit = lib.mkIf isEnableAutoStart ''
     CURRENT_TTY=$(tty)
     if [ "$CURRENT_TTY" = "/dev/tty1" ]; then
-      ${pkgs.hyprland}/bin/Hyprland
+      ${pkgs.hyprland}/bin/Hyprland & ;
     fi
   '';
 }
