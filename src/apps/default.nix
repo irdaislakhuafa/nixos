@@ -16,5 +16,6 @@
     ./image-viewer/default.nix
     ./video-player/default.nix
     ./rdp/default.nix
+    ./file-manager/default.nix
   ];
 }
