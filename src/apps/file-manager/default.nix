@@ -3,4 +3,6 @@
     ranger
     yazi
   ];
+
+  programs.yazi.enable = true;
 }
