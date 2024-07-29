@@ -3,7 +3,7 @@ let
   hyprlandConfigDir = "~/.config/hypr";
   wallpaperPath = builtins.toPath ./assets/wallpaper.png;
   hyprlandAutoStart = import ./configs/modules/autostart.nix { inherit config pkgs; };
-  hyprlandConfig = hyprlandAutoStart + import ./configs/default.nix { };
+  hyprlandConfig = (import ./configs/default.nix { }) + hyprlandAutoStart;
 in
 {
   wayland.windowManager.hyprland.enable = true;
