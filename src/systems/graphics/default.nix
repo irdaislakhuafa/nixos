@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    nvtop
+    nvtopPackages.full
   ];
   imports = [
     ./nvidia/default.nix
