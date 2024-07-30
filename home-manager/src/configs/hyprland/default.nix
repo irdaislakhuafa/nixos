@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   hyprlandConfigDir = builtins.toPath ~/.config/hypr;
-  wallpaperPath = builtins.toPath ./assets/wallpaper.png;
+  wallpaperPath = builtins.toPath ./assets/three.jpg;
   hyprlandAutoStart = import ./configs/modules/autostart.nix { inherit config pkgs; };
   hyprlandConfig = (import ./configs/default.nix { }) + hyprlandAutoStart;
   hyprlandSystem = (import ../../../../src/apps/window-manager/hyprland/default.nix { inherit lib pkgs config; });
@@ -12,7 +12,7 @@ in
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   home.activation = {
     script = ''
-      cp -rv ${wallpaperPath} ${hyprlandConfigDir}
+      cp -rv ${wallpaperPath} ${hyprlandConfigDir}/wallpaper.png
     '';
   };
   systemd.user.services.swaybg = lib.mkIf hyprlandSystem.programs.hyprland.enable {
