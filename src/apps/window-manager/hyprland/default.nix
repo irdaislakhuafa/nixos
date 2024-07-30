@@ -31,7 +31,7 @@ rec {
   programs.zsh.loginShellInit = lib.mkIf isEnableAutoStart ''
     CURRENT_TTY=$(tty)
     if [ "$CURRENT_TTY" = "/dev/tty1" ]; then
-      ${pkgs.hyprland}/bin/Hyprland & ;
+      ${pkgs.hyprland}/bin/Hyprland
     fi
   '';
 }
