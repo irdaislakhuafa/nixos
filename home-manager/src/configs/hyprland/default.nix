@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 let
-  hyprlandConfigDir = "~/.config/hypr";
+  hyprlandConfigDir = builtins.toPath ~/.config/hypr;
   wallpaperPath = builtins.toPath ./assets/wallpaper.png;
   hyprlandAutoStart = import ./configs/modules/autostart.nix { inherit config pkgs; };
   hyprlandConfig = (import ./configs/default.nix { }) + hyprlandAutoStart;
+  hyprlandSystem = (import ../../../../src/apps/window-manager/hyprland/default.nix { inherit lib pkgs config; });
 in
 {
   wayland.windowManager.hyprland.enable = true;
@@ -13,5 +14,18 @@ in
     script = ''
       cp -rv ${wallpaperPath} ${hyprlandConfigDir}
     '';
+  };
+  systemd.user.services.swaybg = lib.mkIf hyprlandSystem.programs.hyprland.enable {
+    Unit = {
+      Description = "Set wallpaper for Hyprland Window Manager";
+      PartOf = "graphical-session.target";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${hyprlandConfigDir}/wallpaper.png";
+      Restart = "on-failure";
+    };
   };
 }
