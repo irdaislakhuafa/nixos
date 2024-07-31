@@ -11,6 +11,7 @@
       ];
       noPass = false;
       keepEnv = true;
+      persist = true;
     }
   ];
 }
