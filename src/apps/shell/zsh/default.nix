@@ -1,4 +1,8 @@
-{ pkgs, ... }: rec {
+{ pkgs, ... }:
+let
+  plugins = import ./plugins/default.nix { inherit pkgs; };
+in
+rec {
   environment.systemPackages = with pkgs; [
     zsh
     oh-my-zsh
@@ -23,6 +27,7 @@
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.enableBashCompletion = true;
+  programs.zsh.interactiveShellInit = plugins;
 
   programs.zsh.syntaxHighlighting = {
     enable = true;
@@ -33,12 +38,6 @@
   programs.zsh.autosuggestions.async = true;
 
   programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.plugins = [
-    "git"
-    "zsh-autosuggestions"
-    "fast-syntax-highlighting"
-    "fzf-tab"
-  ];
   programs.zsh.ohMyZsh.cacheDir = "/tmp";
 
   programs.zsh.enableLsColors = true;
