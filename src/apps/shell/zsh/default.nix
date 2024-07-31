@@ -6,6 +6,7 @@
     zsh-forgit
     zsh-vi-mode
     zsh-fzf-tab
+    fzf-zsh
     zsh-git-prompt
     zsh-completions
     zsh-nix-shell

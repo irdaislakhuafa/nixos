@@ -4,5 +4,6 @@
   ];
   imports = [
     ./nvidia/default.nix
+    ./x11/default.nix
   ];
 }
