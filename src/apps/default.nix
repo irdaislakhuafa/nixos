@@ -7,7 +7,6 @@
     ./container/default.nix
     ./web-browser/default.nix
     ./package-manager/default.nix
-    ./terminal/default.nix
     ./window-manager/default.nix
     ./fonts/default.nix
     ./builder/default.nix
