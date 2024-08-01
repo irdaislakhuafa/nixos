@@ -7,6 +7,7 @@ rec {
     zsh
     oh-my-zsh
     zsh-defer
+    zsh-powerlevel10k
     zsh-forgit
     zsh-vi-mode
     zsh-fzf-tab
@@ -18,8 +19,6 @@ rec {
     zsh-you-should-use
     zsh-fast-syntax-highlighting
     zsh-autoenv
-    zsh-powerlevel10k
-    deer
   ];
 
   programs.nix-index.enableZshIntegration = true;
