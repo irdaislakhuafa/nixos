@@ -5,9 +5,9 @@ in
 rec {
   environment.systemPackages = with pkgs; [
     zsh
-    oh-my-zsh
     zsh-defer
     zsh-powerlevel10k
+    oh-my-zsh
     zsh-forgit
     zsh-vi-mode
     zsh-fzf-tab
