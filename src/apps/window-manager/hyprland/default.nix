@@ -19,6 +19,9 @@ rec {
     waypipe
     hyprnotify
     hyprpicker
+    hyprshot
+    wl-screenrec
+    wf-recorder
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
