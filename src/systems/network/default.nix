@@ -28,7 +28,7 @@
   ];
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
-      if (action.id.startsWith("net.connman.iwd.") && subject.isInGroup("${config.users.users.i.group}")) {
+      if (action.id.startsWith("net.connman.iwd") && subject.isInGroup("${config.users.users.i.group}")) {
         return polkit.Result.YES;
       }
     })
