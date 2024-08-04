@@ -5,10 +5,7 @@
 
   security.polkit.enable = true;
   security.polkit.debug = true;
-  security.polkit.adminIdentities = [
-    "unix-user:${config.users.users.i.name}"
-    "unix-group:${config.users.users.i.group}"
-  ];
+  security.polkit.adminIdentities = [ ];
   programs._1password-gui.polkitPolicyOwners = [
     "${config.users.users.i.name}"
   ];
