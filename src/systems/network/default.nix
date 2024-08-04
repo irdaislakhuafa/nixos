@@ -1,6 +1,9 @@
 { pkgs, config, ... }: {
   environment.systemPackages = with pkgs; [
     iwd
+    openvpn
+    wirelesstools
+    linux-wifi-hotspot
   ];
 
   networking.hostName = "developer";
