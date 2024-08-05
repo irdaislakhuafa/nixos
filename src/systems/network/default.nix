@@ -5,6 +5,7 @@
     wirelesstools
     linux-wifi-hotspot
     haveged
+    bluetuith
   ];
 
   networking.hostName = "developer";
@@ -26,7 +27,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
-  services.blueman.enable = true;
+  services.blueman.enable = false;
   hardware.pulseaudio.extraModules = with pkgs;[
     pulseaudio-modules-bt
   ];
