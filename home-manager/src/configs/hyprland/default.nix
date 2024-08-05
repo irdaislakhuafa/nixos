@@ -28,16 +28,16 @@ in
     };
   };
 
-  systemd.user.services.cliphist = lib.mkIf hyprlandSystem.programs.hyprland.enable {
+  systemd.user.services.clipse = lib.mkIf hyprlandSystem.programs.hyprland.enable {
     Unit = {
-      PartOf = "graphical-session.target";
       Description = "Save clipboard histories in Wayland";
+      PartOf = "graphical-session.target";
     };
     Install = {
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+      ExecStart = "${pkgs.clipse}/bin/clipse -listen-shell";
       Restart = "on-failure";
     };
   };
