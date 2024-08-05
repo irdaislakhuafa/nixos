@@ -12,7 +12,7 @@ rec {
     hyprpaper
     wl-mirror
     wl-clipboard-x11
-    wl-clipboard-rs
+    wl-clipboard
     hyprlock
     swaybg
     hypridle
@@ -22,6 +22,8 @@ rec {
     hyprshot
     wl-screenrec
     wf-recorder
+    clipboard-jh
+    cliphist
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
