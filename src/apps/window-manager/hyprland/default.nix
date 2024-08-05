@@ -23,7 +23,8 @@ rec {
     wl-screenrec
     wf-recorder
     clipboard-jh
-    cliphist
+    yank
+    clipse
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
