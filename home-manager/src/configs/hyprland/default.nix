@@ -11,10 +11,9 @@ in
   wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   home.activation = {
-    script = ''
-      cp -rv ${wallpaperPath} ${hyprlandConfigDir}/wallpaper.png
-    '';
+    script = ''cp -rv ${wallpaperPath} ${hyprlandConfigDir}/wallpaper.png'';
   };
+
   systemd.user.services.swaybg = lib.mkIf hyprlandSystem.programs.hyprland.enable {
     Unit = {
       Description = "Set wallpaper for Hyprland Window Manager";
@@ -25,6 +24,20 @@ in
     };
     Service = {
       ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${hyprlandConfigDir}/wallpaper.png";
+      Restart = "on-failure";
+    };
+  };
+
+  systemd.user.services.cliphist = lib.mkIf hyprlandSystem.programs.hyprland.enable {
+    Unit = {
+      PartOf = "graphical-session.target";
+      Description = "Save clipboard histories in Wayland";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
       Restart = "on-failure";
     };
   };
