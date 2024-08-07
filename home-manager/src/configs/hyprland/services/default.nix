@@ -1,5 +1,9 @@
-{ ... }: {
-  systemd.user.services.swaybg = lib.mkIf hyprlandSystem.programs.hyprland.enable {
+{ pkgs, lib, config, ... }:
+let
+  settings = import ../settings.nix { inherit config; };
+in
+{
+  systemd.user.services.swaybg = lib.mkIf settings.isEnableAutoStart {
     Unit = {
       Description = "Set wallpaper for Hyprland Window Manager";
       PartOf = "graphical-session.target";
@@ -8,12 +12,12 @@
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${hyprlandConfigDir}/wallpaper.png";
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${settings.dir}/wallpaper.png";
       Restart = "on-failure";
     };
   };
 
-  systemd.user.services.clipse = lib.mkIf hyprlandSystem.programs.hyprland.enable {
+  systemd.user.services.clipse = lib.mkIf settings.isEnableAutoStart {
     Unit = {
       Description = "Save clipboard histories in Wayland";
       PartOf = "graphical-session.target";
