@@ -14,6 +14,7 @@
     ./desktop/default.nix
     ./memory/default.nix
     ./power/default.nix
+    ./systemd/default.nix
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system

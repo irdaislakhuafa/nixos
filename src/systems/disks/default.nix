@@ -1,6 +1,8 @@
 { pkgs, config, ... }: {
   environment.systemPackages = with pkgs; [
     udisks
+    fuse
+    fuse3
   ];
   services.udisks2.enable = true;
   services.udisks2.mountOnMedia = false;
@@ -11,4 +13,7 @@
       }
     })
   '';
+
+  programs.fuse.userAllowOther = true;
+  programs.fuse.mountMax = 1024;
 }

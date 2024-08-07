@@ -1,7 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs;[
-    openssh
-    sshfs
+    systemctl-tui
   ];
-  services.openssh.enable = true;
 }
