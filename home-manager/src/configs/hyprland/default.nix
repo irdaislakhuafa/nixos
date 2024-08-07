@@ -38,7 +38,7 @@ in
     };
     Service = {
       ExecStart = "${pkgs.clipse}/bin/clipse -listen-shell";
-      Restart = "on-failure";
+      Restart = "always";
     };
   };
 }
