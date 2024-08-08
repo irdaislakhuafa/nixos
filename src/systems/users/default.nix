@@ -15,6 +15,7 @@
         "docker"
         "developer"
         "wheel"
+        "input"
       ];
       hashedPassword = "$6$0fd5Oge9N2Dl4VQ9$P1a8IpGwqT6DtIooIYUZixCdssDmcndrrpXAGe0PuoufSAu9kZ6zQgCk8p.Pp8iS15VNXpTHiLnuDi5vNsxn8.";
     };
