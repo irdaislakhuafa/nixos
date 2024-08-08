@@ -8,11 +8,13 @@
   ];
 
   # docker
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "overlay2";
   virtualisation.docker.enableOnBoot = false;
   virtualisation.docker.autoPrune.enable = false;
-  virtualisation.docker.daemon.settings = { };
+  virtualisation.docker.daemon.settings = {
+    "data-root" = "/media/Docker";
+  };
 
   # docker rootless
   virtualisation.docker.rootless.enable = true;
