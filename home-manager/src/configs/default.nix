@@ -6,5 +6,6 @@
     ./kitty/default.nix
     ./vscode/default.nix
     ./waybar/default.nix
+    ./rofi/default.nix
   ];
 }
