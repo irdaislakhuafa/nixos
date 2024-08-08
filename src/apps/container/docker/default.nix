@@ -7,11 +7,18 @@
     oxker
   ];
 
-  virtualisation.docker.enable = true;
+  # docker
+  virtualisation.docker.enable = false;
   virtualisation.docker.storageDriver = "overlay2";
   virtualisation.docker.enableOnBoot = false;
-  virtualisation.docker.rootless.enable = true;
   virtualisation.docker.autoPrune.enable = false;
+  virtualisation.docker.daemon.settings = { };
+
+  # docker rootless
+  virtualisation.docker.rootless.enable = true;
+  virtualisation.docker.rootless.daemon.settings = {
+    "data-root" = "/media/Docker";
+  };
 
   services.dockerRegistry.enable = true;
 }
