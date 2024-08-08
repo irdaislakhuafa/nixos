@@ -11,6 +11,8 @@
       jetbrains-mono
       font-awesome
       line-awesome
+      font-awesome_5
+      font-awesome_4
     ];
     fontDir = {
       enable = true;
