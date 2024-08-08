@@ -5,5 +5,6 @@
     ./cursor/default.nix
     ./kitty/default.nix
     ./vscode/default.nix
+    ./waybar/default.nix
   ];
 }
