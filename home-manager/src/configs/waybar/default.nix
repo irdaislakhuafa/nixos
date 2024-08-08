@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: rec {
   home.packages = with pkgs;[
     waybar
   ];

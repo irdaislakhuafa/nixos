@@ -216,7 +216,7 @@
     "custom/clock" = {
       format = "{}";
       interval = 1;
-      exec = "date '+%A, %d %B %Y | %H:%M:%S'";
+      exec = "${pkgs.coreutils-full}/bin/date '+%A, %d %B %Y | %H:%M:%S'";
     };
   }
 ]
