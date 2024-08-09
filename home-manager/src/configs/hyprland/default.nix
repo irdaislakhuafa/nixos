@@ -13,7 +13,5 @@ in
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
-  home.activation = {
-    script = ''cp -rv ${settings.wallpaper.path} ${settings.dir}/wallpaper.png'';
-  };
+  home.file.".config/${settings.dirName}/wallpaper.png".source = settings.wallpaper.path;
 }
