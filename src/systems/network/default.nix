@@ -39,4 +39,7 @@
       }
     })
   '';
+
+  networking.wireless.enable = false;
+  networking.networkmanager.enable = false;
 }
