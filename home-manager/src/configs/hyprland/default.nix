@@ -9,6 +9,7 @@ in
   imports = [
     ./services/default.nix
     ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   wayland.windowManager.hyprland.enable = true;
