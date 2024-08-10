@@ -36,32 +36,32 @@ in
       dormiop = ''
         listID="$(docker images --format="${strFmtImgs}" | fzf -m | cut -d '|' -f 1)";
         if ! [ $listID = "" ]; then
-          ${shell} -c "docker rmi $(echo $listID) && notify-send 'Success remove docker images'" & ;
+          ${shell} -c "docker rmi $(echo $listID | paste -s) && notify-send 'Success remove docker images'" & ;
         fi;
       '';
       dormop = ''
         listID="$(docker ps -a | fzf -m | cut -d ' ' -f 1)"; 
         if ! [ $listID = "" ]; then
-          ${shell} -c "docker rm $(echo $listID) && notify-send 'Success remove docker containers'" & ;
+          ${shell} -c "docker rm $(echo $listID | paste -s) && notify-send 'Success remove docker containers'" & ;
         fi;
       '';
       dormops = ''
         listID="$(docker ps -a --size | fzf -m | cut -d ' ' -f 1)"; 
         if ! [ $listID = "" ]; then
-          ${shell} -c "docker rm $(echo $listID) && notify-send 'Success remove docker containers'" & ;
+          ${shell} -c "docker rm $(echo $listID | paste -s) && notify-send 'Success remove docker containers'" & ;
         fi;
       '';
       doexecit = ''docker exec -it $(docker ps | fzf | cut -d " " -f 1)'';
       dostart = ''
         listID="$(docker ps -a | fzf -m | cut -d ' ' -f 1)"; 
         if ! [ $listID = "" ]; then
-          ${shell} -c "docker start $(echo $listID) && notify-send 'Starting docker container done'" & ;
+          ${shell} -c "docker start $(echo $listID | paste -s) && notify-send 'Starting docker container done'" & ;
         fi;
       '';
       dostop = ''
         listID="$(docker ps | fzf -m | cut -d ' ' -f 1)"; 
         if ! [ $listID = "" ]; then
-          ${shell} -c "docker stop $(echo $listID) && notify-send 'Stoping docker container done'" & ;
+          ${shell} -c "docker stop $(echo $listID | paste -s) && notify-send 'Stoping docker container done'" & ;
         fi;
       '';
     }
