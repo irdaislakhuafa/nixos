@@ -14,4 +14,5 @@ in
   wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   home.file.".config/${settings.dirName}/wallpaper.png".source = settings.wallpaper.path;
+  home.file.".config/${settings.dirName}/hyprlock.conf".source = ./hyprlock.conf;
 }
