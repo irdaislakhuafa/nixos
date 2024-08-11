@@ -17,5 +17,6 @@
     ./rdp/default.nix
     ./file-manager/default.nix
     ./dbms/default.nix
+    ./system-monitor/default.nix
   ];
 }
