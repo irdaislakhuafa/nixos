@@ -16,4 +16,29 @@
 
   programs.fuse.userAllowOther = true;
   programs.fuse.mountMax = 1024;
+  environment.shellAliases = (
+    let
+      getDevices = ''$(lsblk --json --output-all | jq -r '.blockdevices |.[]? | .path, (.children [ ]? | .path + "\t| " + .fstype + "\t| " + .size + " => " + .mountpoints [ ])' | fzf -m | cut -d '|' -f 1)'';
+    in
+    {
+      mounts = ''
+        devices=${getDevices};
+        for device in $(echo $devices); do 
+          udisksctl mount -b  $device & ; 
+        done;
+      '';
+      unmounts = ''
+        devices=${getDevices};
+        for device in $(echo $devices); do 
+          udisksctl unmount -b  $device & ; 
+        done;
+      '';
+      diskoff = ''
+        devices=${getDevices};
+        for device in $(echo $devices); do 
+          udisksctl poweroff -b  $device & ; 
+        done;
+      '';
+    }
+  );
 }
