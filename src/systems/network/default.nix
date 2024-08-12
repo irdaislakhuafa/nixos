@@ -42,4 +42,15 @@
 
   networking.wireless.enable = false;
   networking.networkmanager.enable = false;
+
+  networking.firewall = {
+    enable = false;
+    allowedTCPPorts = [ ];
+    allowedTCPPortRanges = [ ];
+    allowedUDPPorts = [ ];
+    allowedUDPPortRanges = [
+      { from = 32768; to = 61000; } # Chromecast client-to-control communication
+    ];
+  };
+
 }
