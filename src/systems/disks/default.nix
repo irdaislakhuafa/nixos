@@ -3,6 +3,7 @@
     udisks
     fuse
     fuse3
+    simple-mtpfs
   ];
   services.udisks2.enable = true;
   services.udisks2.mountOnMedia = false;
