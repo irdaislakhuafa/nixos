@@ -5,4 +5,7 @@
   ];
 
   programs.yazi.enable = true;
+  environment.shellAliases = {
+    "this" = "yazi .";
+  };
 }
