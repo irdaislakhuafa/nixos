@@ -13,11 +13,11 @@ in
   programs.kitty = {
     enable = true;
     extraConfig = extraModule;
-    theme = "Solarized Dark Higher Contrast";
+    theme = "Nightfly";
     font = {
       name = "FiraCode Nerd Font";
       package = pkgs.fira-code-nerdfont;
-      size = 14;
+      size = 8;
     };
     shellIntegration = {
       mode = "no-rc";

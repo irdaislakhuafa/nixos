@@ -11,5 +11,7 @@
   environment.shellAliases = {
     gst = "git status";
     gad = "git add";
+    gps = "git push";
+    grph = "";
   };
 }
