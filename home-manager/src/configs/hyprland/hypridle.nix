@@ -15,8 +15,8 @@ in
       }
       {
         timeout = (60 * 15); # in seconds
-        on-timeout = ''notify-send -w "You are idle!" && hyprctl dispatch dpms off && systemctl suspend'';
-        on-resume = ''notify-send -w "Welcome back!" && hyprctl dispatch dpms on'';
+        on-timeout = ''notify-send -w "You are idle!" && systemctl suspend'';
+        on-resume = ''notify-send -w "Welcome back!"'';
       }
     ];
   };

@@ -12,7 +12,7 @@ in
     ./hypridle.nix
   ];
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.enable = settings.isEnableAutoStart;
   wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   home.file.".config/${settings.dirName}/wallpaper.png".source = settings.wallpaper.path;
