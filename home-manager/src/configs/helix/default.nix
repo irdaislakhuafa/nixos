@@ -14,6 +14,15 @@ lib.mkIf isEnable {
           auto-format = true;
           roots = [ "go.mod" "go.sum" "go.work" ];
           comment-token = "//";
+          block-comment-tokens = {
+            start = "/*";
+            end = "*/";
+          };
+          language-servers = [ "gopls" ];
+          indent = {
+            tab-width = 2;
+            unit = " ";
+          };
         }
       ];
       language-server = {
@@ -50,10 +59,11 @@ lib.mkIf isEnable {
     settings = {
       theme = "base16";
       editor = {
-        line-number = "relative";
+        line-number = "absolute";
         lsp = {
           display-messages = true;
         };
+        auto-format = true;
       };
     };
     themes = { };
