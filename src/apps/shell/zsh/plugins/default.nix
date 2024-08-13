@@ -1,5 +1,4 @@
-{ pkgs, ... }: ''
-
+{ pkgs, ... }: ''  
   source ${pkgs.zsh-defer}/share/zsh-defer/zsh-defer.plugin.zsh
   
   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
