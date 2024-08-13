@@ -10,5 +10,6 @@
     ./taskwarrior/default.nix
     ./vscode/default.nix
     ./neovim/default.nix
+    ./helix/default.nix
   ];
 }
