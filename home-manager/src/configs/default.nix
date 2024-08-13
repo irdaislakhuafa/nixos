@@ -8,5 +8,7 @@
     ./waybar/default.nix
     ./rofi/default.nix
     ./taskwarrior/default.nix
+    ./vscode/default.nix
+    ./neovim/default.nix
   ];
 }
