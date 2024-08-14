@@ -18,5 +18,6 @@
     ./dbms/default.nix
     ./system-monitor/default.nix
     ./android/default.nix
+    ./api-client/default.nix
   ];
 }
