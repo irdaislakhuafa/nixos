@@ -12,7 +12,7 @@ in
 
   # docker
   virtualisation.docker = {
-    enable = false;
+    enable = true;
     storageDriver = "overlay2";
     enableOnBoot = false;
     autoPrune = {
