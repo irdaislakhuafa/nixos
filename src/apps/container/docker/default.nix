@@ -11,28 +11,31 @@ in
   ];
 
   # docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "overlay2";
-  virtualisation.docker.enableOnBoot = false;
-  virtualisation.docker.autoPrune.enable = false;
-  virtualisation.docker.daemon.settings = {
-    "data-root" = dataRootDir;
+  virtualisation.docker = {
+    enable = false;
+    storageDriver = "overlay2";
+    enableOnBoot = false;
+    autoPrune = {
+      enable = false;
+    };
+    daemon = {
+      settings = {
+        "data-root" = dataRootDir;
+      };
+    };
   };
 
-  # docker rootless
-  virtualisation.docker.rootless.enable = true;
-  virtualisation.docker.rootless.daemon.settings = {
-    "data-root" = dataRootDir;
-  };
-
-  services.dockerRegistry.enable = true;
+  services.dockerRegistry.enable = false;
   environment.shellAliases = (
     let
       delimiter = "|";
       strFmtImgs = "{{.ID}} | {{.Size}}\t| {{.Repository}}:{{.Tag}}";
       shell = "sh";
     in
-    {
+    rec {
+      doi = ''docker images'';
+      dops = ''docker ps'';
+      dopsa = ''${dops} -a'';
       dormiop = ''
         listID="$(docker images --format="${strFmtImgs}" | fzf -m | cut -d '|' -f 1)";
         if ! [ $listID = "" ]; then
