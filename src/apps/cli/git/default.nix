@@ -13,5 +13,6 @@
     gad = "git add";
     gps = "git push";
     grph = "";
+    gpl = "git pull";
   };
 }
