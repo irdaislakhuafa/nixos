@@ -10,11 +10,11 @@ in
     };
     listener = [
       {
-        timeout = (60 * 5);
+        timeout = (60 * 15);
         on-timeout = ''hyprlock'';
       }
       {
-        timeout = (60 * 15); # in seconds
+        timeout = (60 * 60); # in seconds
         on-timeout = ''notify-send -w "You are idle!" && systemctl suspend'';
         on-resume = ''notify-send -w "Welcome back!"'';
       }
