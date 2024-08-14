@@ -3,8 +3,11 @@ let
   isEnable = true;
 in
 lib.mkIf isEnable {
-  programs.neovim.defaultEditor = true;
-  programs.neovim.enable = true;
-  programs.neovim.vimAlias = true;
-  programs.neovim.viAlias = true;
+  programs.neovim = {
+    defaultEditor = true;
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    plugins = with pkgs.vimPlugins; [ ];
+  };
 }
