@@ -11,5 +11,6 @@
     ./vscode/default.nix
     ./neovim/default.nix
     ./helix/default.nix
+    ./ranger/default.nix
   ];
 }

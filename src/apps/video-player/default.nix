@@ -3,5 +3,6 @@
     mpv
     mediainfo
     ffmpeg
+    ytfzf
   ];
 }
