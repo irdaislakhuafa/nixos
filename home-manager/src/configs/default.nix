@@ -1,16 +1,8 @@
 { config, pkgs, ... }: {
-  imports = [
-    ./hyprland/default.nix
-    ./git/default.nix
-    ./cursor/default.nix
-    ./kitty/default.nix
-    ./vscode/default.nix
-    ./waybar/default.nix
-    ./rofi/default.nix
-    ./taskwarrior/default.nix
-    ./vscode/default.nix
-    ./neovim/default.nix
-    ./helix/default.nix
-    ./ranger/default.nix
-  ];
+  imports = (
+    let
+      dirs = builtins.filter (f: f != "default.nix") (builtins.attrNames (builtins.readDir ./.));
+    in
+    builtins.map (dir: "${builtins.toPath ./${dir}}" + "/default.nix") dirs
+  );
 }
