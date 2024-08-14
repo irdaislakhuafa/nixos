@@ -1,8 +1,8 @@
 { ... }: {
   zramSwap = {
     enable = true;
-    priority = 1;
-    memoryMax = 21474836480;
+    priority = -1; # lower value is high priority
+    memoryMax = (1024 * 1024 * 1024 * 20); # in bytes
     algorithm = "zstd";
     swapDevices = 1;
     memoryPercent = 100;
