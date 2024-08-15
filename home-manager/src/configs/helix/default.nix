@@ -1,8 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  isEnable = true;
-in
-lib.mkIf isEnable {
+{ pkgs, lib, ... }: {
   programs.helix = {
     enable = true;
     defaultEditor = false;

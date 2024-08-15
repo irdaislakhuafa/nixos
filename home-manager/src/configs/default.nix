@@ -1,8 +1,3 @@
 { config, pkgs, ... }: {
-  imports = (
-    let
-      dirs = builtins.filter (f: f != "default.nix") (builtins.attrNames (builtins.readDir ./.));
-    in
-    builtins.map (dir: "${builtins.toPath ./${dir}}" + "/default.nix") dirs
-  );
+  imports = import ../../../importer.nix { dir = builtins.toPath ./.; };
 }

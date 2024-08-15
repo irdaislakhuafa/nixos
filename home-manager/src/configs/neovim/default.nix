@@ -1,8 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  isEnable = true;
-in
-lib.mkIf isEnable {
+{ pkgs, lib, ... }: {
   programs.neovim = {
     defaultEditor = true;
     enable = true;

@@ -5,6 +5,5 @@
   home.homeDirectory = "/home/i";
   home.stateVersion = "24.05";
   home.enableNixpkgsReleaseCheck = false;
-
-  imports = [ ./src/configs/default.nix ];
+  imports = import ../importer.nix { dir = builtins.toPath ./src; };
 }

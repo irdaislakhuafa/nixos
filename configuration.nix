@@ -6,8 +6,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./src/systems/default.nix
-    ./src/apps/default.nix
+    ./src/default.nix
   ];
 
   # Select internationalisation properties.
