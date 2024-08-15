@@ -18,5 +18,12 @@
       
       ffmpeg -loglevel quiet -i "$input_file" -c:v h264_qsv -c:a aac -map 0 -segment_time $seg_time -f segment -reset_timestamps 1 "$(echo $prefix)%03d.mp4"
     }
+
+    function ff_convert_qsv() {
+      src_file="$1"; [ "$src_file" = "" ] && echo -n "src file: " && read -n src_file ;
+      dst_file="$2"; [ "$dst_file" = "" ] && echo -n "dst file: " && read -n dst_file ;
+      ffmpeg -loglevel info -i "$src_file" -c:v -c:v h264_qsv -c:a aac "$dst_file";
+    }
   '';
+  environment.shellAliases = { };
 }
