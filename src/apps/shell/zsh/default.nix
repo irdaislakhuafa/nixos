@@ -25,6 +25,9 @@ rec {
 
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
+  programs.zsh.shellInit = ''
+    export ZSH_DISABLE_COMPFIX=true;
+  '';
   programs.zsh.enableBashCompletion = true;
   programs.zsh.interactiveShellInit = plugins;
 
