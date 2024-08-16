@@ -13,7 +13,7 @@ in
   programs.kitty = {
     enable = true;
     extraConfig = extraModule;
-    theme = "Nightfly";
+    theme = "Galaxy";
     font = {
       name = "FiraCode Nerd Font";
       package = pkgs.fira-code-nerdfont;

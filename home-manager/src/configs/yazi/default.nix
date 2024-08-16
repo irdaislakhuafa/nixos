@@ -1,5 +1,9 @@
 { pkgs, ... }: {
-  home.packages = with pkgs;[ glow file ];
+  home.packages = with pkgs;[
+    glow
+    file
+    exiftool
+  ];
   programs.yazi = rec{
     enable = true;
     enableZshIntegration = enable;
