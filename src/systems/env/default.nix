@@ -6,4 +6,7 @@
   environment.shellAliases = {
     x = "exit";
   };
+  environment.shellInit = ''
+    export EDITOR="nvim";
+  '';
 }

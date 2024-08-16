@@ -5,6 +5,7 @@
     gh-dash
     gh-cal
     gh-eco
+    lazygit
   ];
 
   programs.git.enable = true;
@@ -17,13 +18,19 @@
         fi;
       '';
     in
-    {
+    rec{
       gst = "git status";
       gad = "git add";
       gps = "git push";
       grph = "";
+      gout = "git checkout";
       gpl = "git pull";
-      gouts = commandToBranch { cmd = "git checkout $branch"; };
+      gouts = commandToBranch { cmd = "${gout} $branch"; };
       gbrd = commandToBranch { cmd = "git branch -D $branch"; };
+      gmit = "git commit -m";
+      gam = "git add --all && ${gmit}";
+      gsdropc = "git stash && git stash drop";
+      gsply = "git stash apply";
+      gsdrop = "git stash drop";
     };
 }
