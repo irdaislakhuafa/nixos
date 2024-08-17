@@ -4,6 +4,7 @@
     mediainfo
     ffmpeg-full
     ytfzf
+    yt-dlp
   ];
   environment.shellInit = ''
     function ff_convert_segments_qsv() {
