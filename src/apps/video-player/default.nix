@@ -3,7 +3,6 @@
     mpv
     mediainfo
     ffmpeg-full
-    ytfzf
     yt-dlp
   ];
   environment.shellInit = ''

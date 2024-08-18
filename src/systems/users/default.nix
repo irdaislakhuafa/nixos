@@ -17,7 +17,7 @@
         "wheel"
         "input"
       ];
-      hashedPassword = "$6$0fd5Oge9N2Dl4VQ9$P1a8IpGwqT6DtIooIYUZixCdssDmcndrrpXAGe0PuoufSAu9kZ6zQgCk8p.Pp8iS15VNXpTHiLnuDi5vNsxn8."; # hashed with `mkpassword -m sha-512`
+      hashedPassword = "$6$V4KN67wwRfn8/ykm$.Ny0zPHGfRKHZNSreWEPUDGET3LQxPphR7ENwf9hm.9jhxiUAEKfRV1rzSg2EkcQ68EuPhHymhRzf8DLm.uMq0"; # hashed with `mkpassword -m sha-512`
     };
     root = {
       hashedPassword = "${i.hashedPassword}";

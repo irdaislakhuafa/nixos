@@ -8,9 +8,9 @@ home-add-channel:
 	@ nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 	@ nix-channel --update
 
-use-switch:
-	@ make use && nixos-rebuild switch
+switch:
+	@ nixos-rebuild switch
 
-use-channel-unstable-small:
-	@ nix-channel --add https://channels.nixos.org/nixos-unstable-small nixos
+use-channel-unstable:
+	@ nix-channel --add https://channels.nixos.org/nixos-unstable nixos
 	@ nix-channel --update
