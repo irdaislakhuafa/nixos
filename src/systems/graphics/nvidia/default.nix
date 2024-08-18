@@ -2,12 +2,12 @@
 let
   isEnabled = false;
 in
-{
+lib.mkIf (isEnabled) {
   environment.systemPackages = with pkgs;[
     nvidia-vaapi-driver
   ];
   boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-  hardware.nvidiaOptimus.disable = !isEnabled;
+  hardware.nvidiaOptimus.disable = true;
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement = {
