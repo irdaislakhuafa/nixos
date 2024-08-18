@@ -11,4 +11,14 @@
     pkgs.xdg-desktop-portal-hyprland
   ];
   security.rtkit.enable = true;
+
+  xdg.mime = {
+    enable = true;
+    addedAssociations = {
+      "application/pdf" = [ "" ];
+      "video/*" = [ "mpv.desktop" ];
+      "image/*" = [ "imv.desktop" ];
+    };
+  };
+  xdg.sounds.enable = true;
 }
