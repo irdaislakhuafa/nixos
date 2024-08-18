@@ -3,12 +3,12 @@ let
   isEnabled = false;
 in
 {
-  environment.systemPackages = lib.mkIf isEnabled (with pkgs;[
+  environment.systemPackages = with pkgs;[
     nvidia-vaapi-driver
-  ]);
-  boot.kernelModules = lib.mkIf isEnabled [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  ];
+  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
   hardware.nvidiaOptimus.disable = !isEnabled;
-  hardware.nvidia = lib.mkIf isEnabled {
+  hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement = {
       enable = isEnabled;
@@ -29,5 +29,5 @@ in
       intelBusId = "PCI:00:02:0";
     };
   };
-  services.xserver.videoDrivers = lib.mkIf isEnabled [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
