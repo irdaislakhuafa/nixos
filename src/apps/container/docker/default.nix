@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  dataRootDir = "/media/Docker";
+  dataRootDir = "/media/Containers/docker";
 in
 {
   environment.systemPackages = with pkgs; [

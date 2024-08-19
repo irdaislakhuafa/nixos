@@ -1,18 +1,13 @@
-{ pkgs, config, lib, ... }:
-let isEnable = false; in lib.mkIf (isEnable) {
-  home.packages = with pkgs;[
+{ pkgs, lib, config, ... }: {
+  environment.systemPackages = with pkgs;[
     glow
     file
     exiftool
     p7zip
   ];
-  home.sessionVariables = {
-    YAZI_CONFIG_HOME = "${config.home.homeDirectory}/.config/yazi/";
-  };
   programs.yazi = rec{
-    enable = false;
-    enableZshIntegration = enable;
-    settings = {
+    enable = true;
+    settings.yazi = {
       log = { enable = true; };
       manager = {
         show_hidden = true;

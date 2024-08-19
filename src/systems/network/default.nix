@@ -6,6 +6,7 @@
     linux-wifi-hotspot
     haveged
     bluetuith
+    impala
   ];
 
   networking.hostName = "developer";
@@ -52,5 +53,4 @@
       { from = 32768; to = 61000; } # Chromecast client-to-control communication
     ];
   };
-
 }

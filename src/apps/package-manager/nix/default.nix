@@ -6,4 +6,5 @@
     nix-direnv
     nixpkgs-fmt
   ];
+  nix.settings = { };
 }
