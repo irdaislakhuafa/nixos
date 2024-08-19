@@ -15,6 +15,7 @@
         "docker"
         "developer"
         "wheel"
+        "nixbld"
         "input"
       ];
       hashedPassword = "$6$V4KN67wwRfn8/ykm$.Ny0zPHGfRKHZNSreWEPUDGET3LQxPphR7ENwf9hm.9jhxiUAEKfRV1rzSg2EkcQ68EuPhHymhRzf8DLm.uMq0"; # hashed with `mkpassword -m sha-512`

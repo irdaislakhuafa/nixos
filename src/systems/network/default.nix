@@ -6,6 +6,7 @@
     linux-wifi-hotspot
     haveged
     bluetuith
+    impala
   ];
 
   networking.hostName = "developer";
