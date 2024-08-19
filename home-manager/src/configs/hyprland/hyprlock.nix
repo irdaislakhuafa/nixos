@@ -37,7 +37,7 @@ in
         valign = "center";
       };
       label = {
-        text = "Hi there, $DESC ($TIME)";
+        text = "Hi there, $DESC<br/>($TIME)";
         text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
         color = "rgba(200, 200, 200, 1.0)";
         font_size = 20;
@@ -57,7 +57,7 @@ in
         inner_color = "rgb(91, 96, 120)";
         outer_color = "rgb(24, 25, 38)";
         outline_thickness = 1;
-        placeholder_text = ''Password...'';
+        placeholder_text = ''<i>Password...<i/>'';
         shadow_passes = 1;
       }];
     }
