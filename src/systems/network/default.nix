@@ -52,5 +52,4 @@
       { from = 32768; to = 61000; } # Chromecast client-to-control communication
     ];
   };
-
 }
