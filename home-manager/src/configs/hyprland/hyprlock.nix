@@ -32,19 +32,19 @@ in
         rotate = 0; # degrees, counter-clockwise
         reload_time = -1; # seconds between reloading, 0 to reload with SIGUSR2
 
-        position = "0, ${toString (0+globalPosition)}";
+        position = "0, ${toString (0 + globalPosition)}";
         halign = "center";
         valign = "center";
       };
       label = {
-        text = "Hi there, $DESC<br/>($TIME)";
+        text = "Hi there, $DESC";
         text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
         color = "rgba(200, 200, 200, 1.0)";
         font_size = 20;
         font_family = "Noto Sans";
         rotate = 0; # degrees, counter-clockwise
 
-        position = "0, ${toString (-110+globalPosition)}";
+        position = "0, ${toString (-130 + globalPosition)}";
         halign = "center";
         valign = "center";
       };
@@ -57,7 +57,7 @@ in
         inner_color = "rgb(91, 96, 120)";
         outer_color = "rgb(24, 25, 38)";
         outline_thickness = 1;
-        placeholder_text = ''<i>Password...<i/>'';
+        placeholder_text = ''Password...'';
         shadow_passes = 1;
       }];
     }
