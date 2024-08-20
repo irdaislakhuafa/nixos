@@ -36,18 +36,17 @@ in
         halign = "center";
         valign = "center";
       };
-      label = {
+      label = [{
         text = "Hi there, $DESC";
         text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
         color = "rgba(200, 200, 200, 1.0)";
         font_size = 20;
         font_family = "Noto Sans";
         rotate = 0; # degrees, counter-clockwise
-
         position = "0, ${toString (-130 + globalPosition)}";
         halign = "center";
         valign = "center";
-      };
+      }];
       input-field = [{
         size = "200, 40";
         position = "0, ${toString (-190 + globalPosition)}";

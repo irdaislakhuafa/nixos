@@ -9,4 +9,6 @@
     [Settings]
     gtk-theme-name = Mojave-Dark
   '';
+
+  gtk.iconCache.enable = true;
 }

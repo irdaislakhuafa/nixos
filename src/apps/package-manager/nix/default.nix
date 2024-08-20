@@ -5,6 +5,7 @@
     direnv
     nix-direnv
     nixpkgs-fmt
+    nix-inspect
   ];
   nix.settings = { };
 }
