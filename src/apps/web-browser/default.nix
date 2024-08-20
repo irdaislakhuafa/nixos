@@ -1,6 +1,1 @@
-{ ... }: {
-  imports = [
-    ./brave/default.nix
-    ./google-chrome/default.nix
-  ];
-}
+{ ... }: { imports = import ../../../importer.nix { dir = builtins.toPath ./.; }; }

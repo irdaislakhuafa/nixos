@@ -1,6 +1,1 @@
-{ ... }: {
-  imports = [
-    ./zsh/default.nix
-    ./tty/default.nix
-  ];
-}
+{ ... }: { imports = ../../../importer.nix { dir = builtins.toPath ./.; }; }

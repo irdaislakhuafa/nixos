@@ -1,5 +1,1 @@
-{ ... }: {
-  imports = [
-    ./go/default.nix
-  ];
-}
+{ ... }: { imports = import ../../../importer.nix { dir = builtins.toPath ./.; }; }
