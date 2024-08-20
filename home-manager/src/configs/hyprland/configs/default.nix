@@ -4,7 +4,8 @@
   # See https://wiki.hyprland.org/Configuring/Keywords/ for more
   $mod = SUPER
 
-  ${with builtins; let
+  ${
+    with builtins; let
       modulesDir = builtins.toPath ./modules;
       skipFiles = [ "autostart.nix" ];
       modulesFiles = filter (file: any (elem: file != elem) (skipFiles)) (attrNames (readDir "${modulesDir}"));
