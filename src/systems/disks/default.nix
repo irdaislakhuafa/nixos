@@ -20,24 +20,25 @@
   environment.shellAliases = (
     let
       getDevices = ''$(lsblk --json --output-all | jq -r '.blockdevices |.[]? | .path, (.children [ ]? | .path + "\t| " + .fstype + "\t| " + .size + " => " + .mountpoints [ ])' | fzf -m | cut -d '|' -f 1)'';
+      logLocation = ''/dev/null'';
     in
     {
       mounts = ''
         devices=${getDevices};
         for device in $(echo $devices); do 
-          (udisksctl mount -b  $device && notify-send "Success mounting $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") & ; 
+          (udisksctl mount -b  $device 2> ${logLocation} > ${logLocation} && notify-send "Success mounting $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") &! ; 
         done;
       '';
       unmounts = ''
         devices=${getDevices};
         for device in $(echo $devices); do 
-          (udisksctl unmount -b  $device && notify-send "Success unmounting $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") & ; 
+          (udisksctl unmount -b  $device 2> ${logLocation} > ${logLocation} && notify-send "Success unmounting $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") &! ; 
         done;
       '';
       diskoff = ''
         devices=${getDevices};
         for device in $(echo $devices); do 
-          (udisksctl poweroff -b  $device && notify-send "Success poweroff $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") & ; 
+          (udisksctl poweroff -b  $device 2> ${logLocation} > ${logLocation} && notify-send "Success poweroff $device" || notify-send --urgency="critical" --expire-time=${toString (1000 * 15)} "Failed mounting $device") &! ; 
         done;
       '';
     }

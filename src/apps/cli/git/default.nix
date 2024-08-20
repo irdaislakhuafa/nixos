@@ -32,5 +32,6 @@
       gsdropc = "git stash && git stash drop";
       gsply = "git stash apply";
       gsdrop = "git stash drop";
+      gdif = "git diff";
     };
 }
