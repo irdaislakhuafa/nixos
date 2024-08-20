@@ -32,15 +32,15 @@ in
       strFmtImgs = "{{.ID}} | {{.Size}}\t| {{.Repository}}:{{.Tag}}";
       containersActiveCmd = { cmd, args ? "", ... }: ''
         listID="$(docker ps ${args} | fzf -m | cut -d ' ' -f 1 | paste -s)";
-        ! [ "$(echo $listID)" = "" ] && (${cmd}) & ;
+        ! [ "$(echo $listID)" = "" ] && (${cmd}) 2> /dev/null > /dev/null &! ;
       '';
       containersInactiveCmd = { cmd, args ? "", ... }: ''
         listID="$(docker ps -a ${args} | fzf -m | cut -d ' ' -f 1 | paste -s)";
-        ! [ "$(echo $listID)" = "" ] && (${cmd}) & ;
+        ! [ "$(echo $listID)" = "" ] && (${cmd}) 2> /dev/null > /dev/null &! ;
       '';
       imgsCmd = { cmd, args ? "", ... }: ''
         listID="$(docker images ${args} | fzf -m | cut -d '|' -f 1 | paste -s)";
-        ! [ "$(echo $listID)" = "" ] && (${cmd}) & ; 
+        ! [ "$(echo $listID)" = "" ] && (${cmd}) 2> /dev/null > /dev/null &! ; 
       '';
     in
     rec {
@@ -51,8 +51,8 @@ in
       dormop = containersInactiveCmd { cmd = "docker rm $(echo $listID) && notify-send 'Success remove docker containers'"; };
       dormops = containersInactiveCmd { cmd = "docker rm $(echo $listID) && notify-send 'Success remove docker containers'"; args = "--size"; };
       doexecit = ''docker exec -it $(docker ps | fzf | cut -d " " -f 1)'';
-      dostart = containersInactiveCmd { cmd = "docker start $(echo $listID) && notify-send 'Starting docker container done'"; };
-      dostop = containersActiveCmd { cmd = "docker stop $(echo $listID) && notify-send 'Stoping docker container done'"; };
+      dostart = containersInactiveCmd { cmd = ''docker start $(echo $listID) && notify-send "Starting docker container done"''; };
+      dostop = containersActiveCmd { cmd = ''docker stop $(echo $listID) && notify-send "Stoping docker container done"''; };
     }
   );
 }
