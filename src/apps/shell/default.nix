@@ -1,1 +1,1 @@
-{ ... }: { imports = ../../../importer.nix { dir = builtins.toPath ./.; }; }
+{ ... }: { imports = import ../../../importer.nix { dir = builtins.toPath ./.; }; }
