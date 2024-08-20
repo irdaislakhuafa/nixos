@@ -4,21 +4,12 @@
   # See https://wiki.hyprland.org/Configuring/Keywords/ for more
   $mod = SUPER
 
-  ${builtins.readFile ./modules/monitor.conf}
-  ${builtins.readFile ./modules/input.conf}
-  ${builtins.readFile ./modules/decoration.conf}
-  ${builtins.readFile ./modules/animations.conf}
-  ${builtins.readFile ./modules/debug.conf}
-  ${builtins.readFile ./modules/binds.conf}
-  ${builtins.readFile ./modules/env.conf}
-  ${builtins.readFile ./modules/gestures.conf}
-  ${builtins.readFile ./modules/group.conf}
-  ${builtins.readFile ./modules/misc.conf}
-  ${builtins.readFile ./modules/general.conf}
-  ${builtins.readFile ./modules/workspaces.conf}
-  ${builtins.readFile ./modules/layout.conf}
-  ${builtins.readFile ./modules/window.conf}
-  ${builtins.readFile ./modules/apps.conf}
-  ${builtins.readFile ./modules/submap.conf}
-  ${builtins.readFile ./modules/window_rules.conf}
+  ${with builtins; let
+      modulesDir = builtins.toPath ./modules;
+      skipFiles = [ "autostart.nix" ];
+      modulesFiles = filter (file: any (elem: file != elem) (skipFiles)) (attrNames (readDir "${modulesDir}"));
+      modulesContent = map (cfg: (readFile "${modulesDir}/${cfg}") + "\n") (modulesFiles);
+      combinedContent = foldl' (acc: value: acc + value) "" modulesContent;
+    in combinedContent
+  }
 ''
