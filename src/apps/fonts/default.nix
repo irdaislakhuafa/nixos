@@ -13,6 +13,8 @@
       line-awesome
       font-awesome_5
       font-awesome_4
+      fira-go
+      scheherazade-new
     ];
     fontDir = {
       enable = true;
