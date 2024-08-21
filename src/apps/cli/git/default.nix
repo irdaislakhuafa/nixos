@@ -22,7 +22,7 @@
       gst = "git status";
       gad = "git add";
       gps = "git push";
-      grph = "";
+      grph = "git log --oneline --decorate --graph --cumulative --pretty";
       gout = "git checkout";
       gpl = "git pull";
       gouts = commandToBranch { cmd = "${gout} $branch"; };
