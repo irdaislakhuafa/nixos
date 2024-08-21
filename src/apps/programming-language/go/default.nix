@@ -7,4 +7,8 @@
     PATH = "$PATH:$GOPATH/bin/";
     GOME = "github.com/irdaislakhuafa";
   };
+  environment.shellAliases = {
+    gonit = "go mod init $GOME/$(basename $(pwd))";
+    grun = "go run";
+  };
 }
