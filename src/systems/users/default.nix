@@ -1,4 +1,7 @@
 { pkgs, config, ... }: rec {
+  environment.systemPackages = with pkgs; [
+    home-manager
+  ];
   users.defaultUserShell = pkgs.zsh;
   users.groups = {
     developer = { };
