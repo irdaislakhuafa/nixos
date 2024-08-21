@@ -8,12 +8,12 @@
   xdg.portal.xdgOpenUsePortal = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
-    pkgs.xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland
   ];
   security.rtkit.enable = true;
 
   xdg.mime = {
-    enable = true;
+    enable = false;
     addedAssociations = {
       "application/pdf" = [ "" ];
       "video/*" = [ "mpv.desktop" ];
