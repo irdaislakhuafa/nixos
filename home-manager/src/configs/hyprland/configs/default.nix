@@ -6,7 +6,7 @@
 
   ${
     with builtins; let
-      modulesDir = builtins.toPath ./modules;
+      modulesDir = toPath ./modules;
       skipFiles = [ "autostart.nix" ];
       modulesFiles = filter (file: any (elem: file != elem) (skipFiles)) (attrNames (readDir "${modulesDir}"));
       modulesContent = map (cfg: (readFile "${modulesDir}/${cfg}") + "\n") (modulesFiles);
