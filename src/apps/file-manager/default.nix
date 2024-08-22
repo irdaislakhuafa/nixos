@@ -23,29 +23,31 @@
         play-mm = [{ run = ''mpv "$@"''; orphan = true; for = "unix"; }];
         view-md = [{ run = ''glow -p "$@"''; block = true; }];
         open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; }];
+        view-img = [{ run = ''imv "$@"''; desc = "View image"; }];
       };
       open = {
         append_rules = [
-          { mime = "text/*"; use = [ "edit" ]; }
-          { mime = "video/*"; use = [ "play" ]; }
+          { mime = "text/*"; use = [ "edit-text" ]; }
+          { mime = "video/*"; use = [ "play-mm" ]; }
+          { mime = "image/*"; use = [ "view-img" ]; }
 
           # json
-          { name = "*.json"; use = [ "edit" ]; }
+          { name = "*.json"; use = [ "edit-text" ]; }
 
           # golang
-          { name = "*.go"; use = [ "edit" ]; }
-          { name = "*.mod"; use = [ "edit" ]; }
-          { name = "*.sum"; use = [ "edit" ]; }
+          { name = "*.go"; use = [ "edit-text" ]; }
+          { name = "*.mod"; use = [ "edit-text" ]; }
+          { name = "*.sum"; use = [ "edit-text" ]; }
 
           # html and css
-          { name = "*.html"; use = [ "edit" ]; }
-          { name = "*.css"; use = [ "edit" ]; }
+          { name = "*.html"; use = [ "edit-text" ]; }
+          { name = "*.css"; use = [ "edit-text" ]; }
 
           # js
-          { name = "*.js"; use = [ "edit" ]; }
+          { name = "*.js"; use = [ "edit-text" ]; }
 
           # markdown
-          { name = "*.md"; use = [ "view-md" "edit" ]; }
+          { name = "*.md"; use = [ "view-md" "edit-text" ]; }
         ];
       };
     };
