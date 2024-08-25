@@ -19,14 +19,14 @@
         show_symlink = true;
       };
       opener = {
-        edit-text = [{ run = ''nvim "$@"''; block = true; for = "unix"; }];
-        play-mm = [{ run = ''mpv "$@"''; orphan = true; for = "unix"; }];
-        view-md = [{ run = ''glow -p "$@"''; block = true; }];
-        open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; }];
-        view-img = [{ run = ''imv "$@"''; desc = "View image"; }];
+        edit-text = [{ run = ''nvim "$@"''; desc = "Edit with NVIM"; block = true; }];
+        play-mm = [{ run = ''mpv "$@"''; desc = "Play with MPV"; orphan = true; }];
+        view-md = [{ run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }];
+        open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }];
+        view-img = [{ run = ''imv "$@"''; desc = "View Image with IMV"; orphan = true; }];
       };
       open = {
-        append_rules = [
+        rules = [
           { mime = "text/*"; use = [ "edit-text" ]; }
           { mime = "video/*"; use = [ "play-mm" ]; }
           { mime = "image/*"; use = [ "view-img" ]; }
