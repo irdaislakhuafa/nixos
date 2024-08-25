@@ -19,15 +19,21 @@
         show_symlink = true;
       };
       opener = {
-        edit-text = [{ run = ''nvim "$@"''; desc = "Edit with NVIM"; block = true; }];
-        play-mm = [{ run = ''mpv "$@"''; desc = "Play with MPV"; orphan = true; }];
+        edit-text = [
+          { run = ''nvim "$@"''; desc = "Edit with NVIM"; block = true; }
+          { run = ''code "$@"''; desc = "Open with VS Code"; orphan = true; }
+        ];
+        play-mm = [
+          { run = ''mpv "$@"''; desc = "Play with MPV"; orphan = true; }
+          { run = ''mpv --no-vid "$@"''; desc = "Play Audio with MPV"; orphan = false; }
+        ];
         view-md = [{ run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }];
         open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }];
         view-img = [{ run = ''imv "$@"''; desc = "View Image with IMV"; orphan = true; }];
       };
       open = {
-        rules = [
-          { mime = "text/*"; use = [ "edit-text" ]; }
+        prepend_rules = [
+          { mime = "text/*"; use = [ "edit-text" "view-md" ]; }
           { mime = "video/*"; use = [ "play-mm" ]; }
           { mime = "image/*"; use = [ "view-img" ]; }
 
@@ -48,6 +54,9 @@
 
           # markdown
           { name = "*.md"; use = [ "view-md" "edit-text" ]; }
+
+          # directory
+          { mime = "inode/directory"; use = [ "edit-text" ]; }
         ];
       };
     };
