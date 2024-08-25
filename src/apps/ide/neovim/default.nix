@@ -4,6 +4,8 @@
     enable = true;
     vimAlias = true;
     viAlias = true;
-    configure = { };
+    configure = {
+      customRC = builtins.readFile ./neovimrc;
+    };
   };
 }
