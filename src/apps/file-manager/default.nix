@@ -26,6 +26,7 @@
         play-mm = [
           { run = ''mpv "$@"''; desc = "Play with MPV"; orphan = true; }
           { run = ''mpv --no-vid "$@"''; desc = "Play Audio with MPV"; orphan = false; }
+          { run = ''mpv --no-vid --loop=yes "$@"''; desc = "Play Audio Loop with MPV"; orphan = false; }
         ];
         view-md = [{ run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }];
         open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }];
