@@ -1,4 +1,3 @@
 { config, pkgs, ... }: ''
-  exec = ${pkgs.psmisc}/bin/killall ${pkgs.swaybg}/bin/hyprnotify
-  exec = ${pkgs.hyprnotify}/bin/hyprnotify
+  exec = ${pkgs.procps}/bin/pidof hyprnotify || ${pkgs.hyprnotify}/bin/hyprnotify
 ''
