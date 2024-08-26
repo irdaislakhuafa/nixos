@@ -4,6 +4,7 @@
     file
     exiftool
     p7zip
+    unrar
   ];
   programs.yazi = rec{
     enable = true;
@@ -31,6 +32,12 @@
         view-md = [{ run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }];
         open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }];
         view-img = [{ run = ''imv "$@"''; desc = "View Image with IMV"; orphan = true; }];
+        rar = [
+          { run = ''unrar e "$@"''; desc = "Extract to current dir"; orphan = false; }
+          { run = ''unrar x "$@"''; desc = "Extract with full path"; orphan = false; }
+          { run = ''unrar l "$@" && read''; desc = "List files inside rar"; orphan = false; block = true; }
+          { run = ''unrar lb "$@" && read''; desc = "List files inside rar (Bare Format)"; orphan = false; block = true; }
+        ];
       };
       open = {
         prepend_rules = [
@@ -58,6 +65,9 @@
 
           # directory
           { mime = "inode/directory"; use = [ "edit-text" ]; }
+
+          # rar files
+          { mime = "application/x-rar"; use = [ "rar" "play-mm" ]; }
         ];
       };
     };
