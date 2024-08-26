@@ -25,13 +25,19 @@
           { run = ''code "$@"''; desc = "Open with VS Code"; orphan = true; }
         ];
         play-mm = [
-          { run = ''mpv "$@"''; desc = "Play with MPV"; orphan = true; }
+          { run = ''mpv "$@"''; desc = "Play with MPV"; orphan = false; }
           { run = ''mpv --no-vid "$@"''; desc = "Play Audio with MPV"; orphan = false; }
           { run = ''mpv --no-vid --loop=yes "$@"''; desc = "Play Audio Loop with MPV"; orphan = false; }
         ];
-        view-md = [{ run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }];
-        open = [{ run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }];
-        view-img = [{ run = ''imv "$@"''; desc = "View Image with IMV"; orphan = true; }];
+        view-md = [
+          { run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }
+        ];
+        open = [
+          { run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }
+        ];
+        view-img = [
+          { run = ''imv "$@"''; desc = "View Image with IMV"; orphan = true; }
+        ];
         rar = [
           { run = ''unrar e "$@"''; desc = "Extract to current dir"; orphan = false; }
           { run = ''unrar x "$@"''; desc = "Extract with full path"; orphan = false; }
