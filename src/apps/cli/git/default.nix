@@ -6,6 +6,7 @@
     gh-cal
     gh-eco
     lazygit
+    glab
   ];
 
   programs.git.enable = true;
