@@ -7,5 +7,7 @@
     nixpkgs-fmt
     nix-inspect
   ];
-  nix.settings = { };
+  nix.settings = {
+    extra-experimental-features = [ "flakes" "nix-command" ];
+  };
 }
