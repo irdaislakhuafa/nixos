@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    wget
+    wget2
   ];
+  environment.shellAliases = { wget = "wget2"; };
 }
