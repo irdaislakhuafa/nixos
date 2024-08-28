@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }:
+let
+  isEnable = false;
+in
+lib.mkIf (isEnable) {
   environment.systemPackages = with pkgs;[
     gnome.gdm
   ];
