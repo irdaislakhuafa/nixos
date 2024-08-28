@@ -5,9 +5,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     docker
-    docker-slim
     docker-compose
-    oxker
   ];
 
   # docker
@@ -53,6 +51,7 @@ in
       doexecit = ''docker exec -it $(docker ps | fzf | cut -d " " -f 1)'';
       dostart = containersInactiveCmd { cmd = ''docker start $(echo $listID) && notify-send "Starting docker container done"''; };
       dostop = containersActiveCmd { cmd = ''docker stop $(echo $listID) && notify-send "Stoping docker container done"''; };
+      doctx = ''ctx=$(docker context list | fzf | cut -d " " -f 1) && ! [ "$ctx" = "" ] && docker context use $ctx'';
     }
   );
 }
