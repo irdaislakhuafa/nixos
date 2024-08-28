@@ -1,1 +1,6 @@
-{ ... }: { imports = import ../../../importer.nix { dir = builtins.toPath ./.; }; }
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    google-chrome
+    brave
+  ];
+}
