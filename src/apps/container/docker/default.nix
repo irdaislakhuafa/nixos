@@ -45,7 +45,7 @@ in
       doi = ''docker images'';
       dops = ''docker ps'';
       dopsa = ''${dops} -a'';
-      dormiop = imgsCmd { cmd = "docker rmi $(echo $listID) && notify-send 'Success remove docker images'"; args = ''--format="${strFmtImgs}"''; };
+      dormiop = imgsCmd { cmd = "docker rmi -f $(echo $listID) && notify-send 'Success remove docker images'"; args = ''--format="${strFmtImgs}"''; };
       dormop = containersInactiveCmd { cmd = "docker rm $(echo $listID) && notify-send 'Success remove docker containers'"; };
       dormops = containersInactiveCmd { cmd = "docker rm $(echo $listID) && notify-send 'Success remove docker containers'"; args = "--size"; };
       doexecit = ''docker exec -it $(docker ps | fzf | cut -d " " -f 1)'';
