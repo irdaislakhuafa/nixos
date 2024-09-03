@@ -34,5 +34,6 @@
       gsply = "git stash apply";
       gsdrop = "git stash drop";
       gdif = "git diff";
+      gfa = ''git fetch --all --prune-tags --prune --jobs=$(cat /sys/devices/cpu/type)'';
     };
 }
