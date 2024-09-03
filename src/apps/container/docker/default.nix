@@ -52,6 +52,8 @@ in
       dostart = containersInactiveCmd { cmd = ''docker start $(echo $listID) && notify-send "Starting docker container done"''; };
       dostop = containersActiveCmd { cmd = ''docker stop $(echo $listID) && notify-send "Stoping docker container done"''; };
       doctx = ''ctx=$(docker context list | fzf | cut -d " " -f 1) && ! [ "$ctx" = "" ] && docker context use $ctx'';
+      docom = ''docker compose'';
+      dobx = ''docker buildx'';
     }
   );
 }
