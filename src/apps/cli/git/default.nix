@@ -20,20 +20,21 @@
       '';
     in
     rec{
-      gst = "git status";
-      gad = "git add";
-      gps = "git push";
-      grph = "git log --oneline --decorate --graph --cumulative --pretty";
-      gout = "git checkout";
-      gpl = "git pull";
-      gouts = commandToBranch { cmd = "${gout} $branch"; };
-      gbrd = commandToBranch { cmd = "git branch -D $branch"; };
-      gmit = "git commit -m";
-      gam = "git add --all && ${gmit}";
-      gsdropc = "git stash && git stash drop";
-      gsply = "git stash apply";
-      gsdrop = "git stash drop";
-      gdif = "git diff";
+      gst = ''git status'';
+      gad = ''git add'';
+      gps = ''git push'';
+      grph = ''git log --oneline --decorate --graph --cumulative --pretty'';
+      gout = ''git checkout'';
+      gpl = ''git pull'';
+      gouts = commandToBranch { cmd = ''${gout} $branch''; };
+      gbrd = commandToBranch { cmd = ''git branch -D $branch''; };
+      gmit = ''git commit -m'';
+      gam = ''git add --all && ${gmit}'';
+      gsdropc = ''git stash && git stash drop'';
+      gsply = ''git stash apply'';
+      gsdrop = ''git stash drop'';
+      gdif = ''git diff'';
       gfa = ''git fetch --all --prune-tags --prune --jobs=$(cat /sys/devices/cpu/type)'';
+      gbr = ''git branch'';
     };
 }
