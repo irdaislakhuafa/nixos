@@ -6,6 +6,7 @@
     p7zip
     unrar
   ];
+  environment.shellAliases = { here = "yazi ."; };
   programs.yazi = rec{
     enable = true;
     settings.yazi = {
