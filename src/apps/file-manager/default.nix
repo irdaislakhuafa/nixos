@@ -8,6 +8,7 @@
   ];
   environment.shellAliases = { here = "yazi ."; };
   programs.yazi = rec{
+    initLua = ./init.lua;
     enable = true;
     settings.yazi = {
       log = { enable = true; };
@@ -17,7 +18,7 @@
         sort_sensitive = false;
         sort_dir_first = true;
         sort_reverse = false;
-        line_mode = "permissions";
+        line_mode = "permissions_and_size_and_mtime";
         show_symlink = true;
       };
       opener = {
