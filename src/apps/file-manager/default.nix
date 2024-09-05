@@ -24,7 +24,8 @@
       };
       opener = {
         edit-text = [
-          { run = ''nvim "$@"''; desc = "Edit with NVIM"; block = true; }
+          { run = ''nvim "$@"''; desc = "Open with NVIM"; block = true; }
+          { run = ''hx "$@"''; desc = "Open with Helix"; block = true; }
           { run = ''code "$@"''; desc = "Open with VS Code"; orphan = true; }
         ];
         play-mm = [
@@ -71,6 +72,7 @@
 
           # js
           { name = "*.js"; use = [ "edit-text" ]; }
+          { mime = "application/javascript"; use = [ "edit-text" ]; }
 
           # markdown
           { name = "*.md"; use = [ "view-md" "edit-text" ]; }
