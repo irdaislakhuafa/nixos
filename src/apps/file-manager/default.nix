@@ -5,6 +5,7 @@
     exiftool
     p7zip
     unrar
+    zathura
   ];
   environment.shellAliases = { here = "yazi ."; };
   programs.yazi = rec{
@@ -33,6 +34,9 @@
         ];
         view-md = [
           { run = ''glow -p "$@"''; desc = "View with Glow"; block = true; }
+        ];
+        view-pdf = [
+          { run = ''zathura "$@"''; desc = "View with Zathura"; orphan = true; }
         ];
         open = [
           { run = ''xdg-open "$@"''; desc = "Open with XDG"; orphan = true; }
@@ -76,6 +80,9 @@
 
           # rar files
           { mime = "application/x-rar"; use = [ "rar" "play-mm" ]; }
+
+          # pdf files
+          { mime = "application/pdf"; use = [ "view-pdf" ]; }
         ];
       };
     };
