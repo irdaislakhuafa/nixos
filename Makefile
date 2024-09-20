@@ -1,6 +1,6 @@
 ROOT_DIR := /
 NIXOS_CFG_PATH := etc/nixos
-PRIVILEGED_CMD := doas
+PRIVILEGED_CMD := $(command -v doas || command -v sudo)
 NIXOS_CHANNEL := https://channels.nixos.org/nixos-unstable
 HOME_MANAGER_CHANNEL := https://github.com/rycee/home-manager/archive/master.tar.gz
 
