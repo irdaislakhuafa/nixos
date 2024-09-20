@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   environment.systemPackages = with pkgs; [
     libnotify
     notify-osd
@@ -13,7 +13,7 @@
   security.rtkit.enable = true;
 
   xdg.mime = {
-    enable = false;
+    enable = lib.mkForce false;
     addedAssociations = {
       "application/pdf" = [ "" ];
       "video/*" = [ "mpv.desktop" ];
