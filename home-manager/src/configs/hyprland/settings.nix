@@ -3,7 +3,7 @@
   dirName = "hypr";
   dir = builtins.toPath ~/.config/${dirName};
   wallpaper = rec {
-    name = "three.jpg";
+    name = "room.png";
     path = builtins.toPath ./assets/${name};
   };
   locker = {
