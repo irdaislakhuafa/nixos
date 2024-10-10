@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   # enable hardware like wlan and etc
   hardware.enableRedistributableFirmware = true;
-  hardware.graphics.enable = true;
   hardware.pulseaudio.enable = false;
   environment.systemPackages = with pkgs; [
     pavucontrol
     alsa-utils
+    easyeffects
   ];
   services.pipewire.enable = true;
   services.pipewire.audio.enable = true;
