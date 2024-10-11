@@ -8,7 +8,7 @@
   };
   locker = {
     image = rec {
-      name = "nixos_logo_plain.png";
+      name = "arch_chan_logo.jpg";
       path = builtins.toPath ./assets/${name};
     };
   };
