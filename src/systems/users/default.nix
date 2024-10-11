@@ -2,6 +2,10 @@
   environment.systemPackages = with pkgs; [
     home-manager
   ];
+  environment.shellAliases = {
+    hm = "home-manager";
+  };
+
   users.defaultUserShell = pkgs.zsh;
   users.groups = {
     developer = { };
