@@ -195,7 +195,7 @@
           ""
         ];
       };
-      on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+      on-click = "${pkgs.kitty}/bin/kitty -e ${pkgs.pulsemixer}/bin/pulsemixer";
     };
     "custom/memory" = {
       format = "{}";

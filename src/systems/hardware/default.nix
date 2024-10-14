@@ -3,7 +3,7 @@
   hardware.enableRedistributableFirmware = true;
   hardware.pulseaudio.enable = false;
   environment.systemPackages = with pkgs; [
-    pavucontrol
+    pulsemixer
     alsa-utils
     easyeffects
   ];
