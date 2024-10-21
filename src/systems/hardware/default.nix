@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   # enable hardware like wlan and etc
   hardware.enableRedistributableFirmware = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = lib.mkForce false;
   environment.systemPackages = with pkgs; [
     pulsemixer
     alsa-utils

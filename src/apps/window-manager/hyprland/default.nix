@@ -25,6 +25,8 @@ rec {
     clipboard-jh
     yank
     clipse
+    grim
+    slurp
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
