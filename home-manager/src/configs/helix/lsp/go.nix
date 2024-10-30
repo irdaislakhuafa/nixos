@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: rec {
   language = {
     name = "go";
     auto-format = true;
