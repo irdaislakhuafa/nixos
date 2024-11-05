@@ -1,6 +1,6 @@
 { ... }: {
   normal = {
-    w = ":w";
+    w = ":u";
     f = ":format";
   };
   select = {};

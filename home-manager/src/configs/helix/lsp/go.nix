@@ -13,6 +13,7 @@
       tab-width = 2;
       unit = " ";
     };
+    formatter = { command = "goimports"; };
   };
   server = {
     command = "gopls";

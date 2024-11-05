@@ -8,7 +8,7 @@
   };
   locker = {
     image = rec {
-      name = "arch_chan_logo.jpg";
+      name = "gintama.png";
       path = builtins.toPath ./assets/${name};
     };
   };
