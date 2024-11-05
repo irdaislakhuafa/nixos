@@ -19,6 +19,6 @@
       separator = "│";
     };
   };
-  # keys = import ./keys.nix { };
+  keys = import ./keys.nix { };
 }
 
