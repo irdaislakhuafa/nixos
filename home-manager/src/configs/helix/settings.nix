@@ -1,12 +1,32 @@
 { ... }: {
   theme = "dark_plus";
   editor = {
+    whitespace = {
+      render = "all";
+    };
+    indent-guides = {
+      render = true;
+      character = "|";
+      skip-levels = 1;
+    };
+    smart-tab = {
+      enable = false;
+    };
     line-number = "absolute";
     lsp = {
       display-messages = true;
+      display-inlay-hints = true;
     };
     auto-format = true;
     auto-save = true;
+    auto-completion = true;
+    idle-timeout = 250;
+    preview-completion-insert = true;
+    auto-info = true;
+    true-color = true;
+    color-modes = true;
+    default-line-ending  = "native";
+    indent-heuristic = "simple";
     cursorline = true;
     cursorcolumn = true;
     statusline = {
