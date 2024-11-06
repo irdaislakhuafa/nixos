@@ -6,6 +6,7 @@ in
   environment.systemPackages = with pkgs; [
     docker
     docker-compose
+    distrobox
   ];
 
   # docker
@@ -27,7 +28,7 @@ in
   environment.shellAliases = (
     let
       delimiter = "|";
-      strFmtImgs = "{{.ID}} | {{.Size}}\t| {{.Repository}}:{{.Tag}}";
+      strFmtImgs = "{{.ID}} ${delimiter} {{.Size}}\t${delimiter} {{.Repository}}:{{.Tag}}";
       containersActiveCmd = { cmd, args ? "", ... }: ''
         listID="$(docker ps ${args} | fzf -m | cut -d ' ' -f 1 | paste -s)";
         ! [ "$(echo $listID)" = "" ] && (${cmd}) 2> /dev/null > /dev/null &! ;
@@ -54,6 +55,7 @@ in
       doctx = ''ctx=$(docker context list | fzf | cut -d " " -f 1) && ! [ "$ctx" = "" ] && docker context use $ctx'';
       docom = ''docker compose'';
       dobx = ''docker buildx'';
+      disbx = ''distrobox'';
     }
   );
 }
