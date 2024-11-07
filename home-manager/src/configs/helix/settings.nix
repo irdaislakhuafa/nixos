@@ -1,6 +1,11 @@
 { ... }: {
   theme = "dark_plus";
   editor = {
+    cursor-shape = {
+      insert = "bar";
+      normal = "block";
+      select = "underline";
+    };
     whitespace = {
       render = "all";
     };
@@ -14,6 +19,7 @@
     };
     line-number = "absolute";
     lsp = {
+      enable = true;
       display-messages = true;
       display-inlay-hints = true;
     };
