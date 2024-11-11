@@ -3,7 +3,10 @@
     name = "javascript";
     roots = [ "package.json" "node_modules" ];
     language-servers = [ "js" ];
-    auto-format = true;
+    indent = {
+      tab-width = 4;
+      unit = " ";
+    };
   };
   server = {
     command = "typescript-language-server";
