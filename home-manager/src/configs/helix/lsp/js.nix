@@ -1,7 +1,11 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   language = {
     name = "javascript";
-    roots = [ "package.json" "node_modules" ];
+    roots = [
+      "package.json"
+      "node_modules"
+    ];
     language-servers = [ "js" ];
     indent = {
       tab-width = 4;
