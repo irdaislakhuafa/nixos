@@ -23,7 +23,7 @@
       display-messages = true;
       display-inlay-hints = true;
     };
-    auto-format = true;
+    auto-format = false;
     auto-save = true;
     auto-completion = true;
     idle-timeout = 250;
