@@ -28,7 +28,7 @@
       gpl = ''git pull'';
       gouts = commandToBranch { cmd = ''${gout} $branch''; };
       gbrd = commandToBranch { cmd = ''git branch -D $branch''; };
-      gmit = ''git commit -m'';
+      gmit = ''git commit'';
       gam = ''git add --all && ${gmit}'';
       gsdropc = ''git stash && git stash drop'';
       gsply = ''git stash apply'';
