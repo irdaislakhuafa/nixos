@@ -27,7 +27,7 @@
       gout = ''git checkout'';
       gpl = ''git pull'';
       gouts = commandToBranch { cmd = ''${gout} $branch''; };
-      gbrd = commandToBranch { cmd = ''git branch -D $branch''; };
+      gbrd = commandToBranch { cmd = ''for b in $(echo $branch | ${pkgs.coreutils-full}/bin/paste -s); do git branch -D $b; done''; };
       gmit = ''git commit'';
       gam = ''git add --all && ${gmit}'';
       gsdropc = ''git stash && git stash drop'';
