@@ -2,6 +2,9 @@
 let
   isEnable = true;
 in
-lib.mkIf (isEnable) rec {
-  environment.systemPackages = with pkgs; [ gcc ];
+lib.mkIf (isEnable) {
+  environment.systemPackages = with pkgs; [
+    gcc
+    clang-tools
+  ];
 }
