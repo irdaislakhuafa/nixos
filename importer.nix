@@ -1,2 +1,9 @@
-{ dir, ... }: builtins.map (d: "${builtins.toPath "${dir}/${d}"}/default.nix") (builtins.filter (f: f != "default.nix") (builtins.attrNames (builtins.readDir dir)))
+{ dir, ... }:
+let
+  defaultFileName = "default.nix";
+  listDir = builtins.readDir dir;
+  listDirAttrNames = builtins.attrNames (listDir);
+  filteredDir = builtins.filter (f: f != defaultFileName) (listDirAttrNames);
+  mappedDir = builtins.map (d: "${builtins.toPath "${dir}/${d}"}/${defaultFileName}") (filteredDir);
+in mappedDir
 
