@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }: {
   environment.systemPackages = with pkgs; [
     iwd
     openvpn
@@ -33,6 +33,7 @@
     pulseaudio-modules-bt
   ];
   services.haveged.enable = true;
+  systemd.services.haveged.unitConfig.ConditionKernelVersion = lib.mkForce ">5.6";
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (action.id.startsWith("net.connman.iwd") && subject.isInGroup("${config.users.users.i.group}")) {
