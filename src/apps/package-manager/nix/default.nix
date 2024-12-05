@@ -6,8 +6,12 @@
     nix-direnv
     nixpkgs-fmt
     nix-inspect
+    devbox
   ];
   nix.settings = {
-    extra-experimental-features = [ "flakes" "nix-command" ];
+    extra-experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
   };
 }
