@@ -12,13 +12,13 @@ home-add-channel:
 	@ [ "$(nix-channel --list | grep home-managers)" = "" ] && nix-channel --add ${HOME_MANAGER_CHANNEL} home-manager && nix-channel --update
 
 sys-switch:
-	@ ${PRIVILEGED_CMD} nixos-rebuild switch --fast
+	@ ${PRIVILEGED_CMD} nixos-rebuild switch --fast --log-format bar
 
 home-switch:
 	@ home-manager switch
 
 switch:
-	@ ${PRIVILEGED_CMD} nixos-rebuild switch --fast && home-manager switch
+	@ ${PRIVILEGED_CMD} nixos-rebuild switch --log-format bar --fast && home-manager switch
 
 use-channel-unstable:
 	@ nix-channel --add ${NIXOS_CHANNEL} nixos && nix-channel --update
