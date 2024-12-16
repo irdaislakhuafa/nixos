@@ -1,4 +1,10 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
   environment.systemPackages = with pkgs; [
     iwd
     openvpn
@@ -20,7 +26,14 @@
       };
       Network = {
         EnableIPv6 = true;
+        EnableDHCPv6 = true;
         RoutePriorityOffset = 300;
+      };
+      General = {
+        UseDefaultInterface = false;
+        IgnorePeerSignalStrength = true;
+        EnableNetworkConfiguration = true;
+        DisablePowerSave = true;
       };
     };
   };
@@ -29,7 +42,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   services.blueman.enable = false;
-  hardware.pulseaudio.extraModules = with pkgs;[
+  hardware.pulseaudio.extraModules = with pkgs; [
     pulseaudio-modules-bt
   ];
   services.haveged.enable = true;
@@ -51,7 +64,10 @@
     allowedTCPPortRanges = [ ];
     allowedUDPPorts = [ ];
     allowedUDPPortRanges = [
-      { from = 32768; to = 61000; } # Chromecast client-to-control communication
+      {
+        from = 32768;
+        to = 61000;
+      } # Chromecast client-to-control communication
     ];
   };
 }
