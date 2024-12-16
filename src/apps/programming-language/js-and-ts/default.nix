@@ -4,7 +4,6 @@ let
 in
 lib.mkIf (isEnable) rec {
   environment.systemPackages = with pkgs; [
-    nodejs
     typescript-language-server
     bun
   ];
