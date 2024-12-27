@@ -22,3 +22,6 @@ switch:
 
 use-channel-unstable:
 	@ nix-channel --add ${NIXOS_CHANNEL} nixos && nix-channel --update
+
+flake-build-switch:
+	@ nixos-rebuild switch --fast --log-format bar --flake .#developer
