@@ -7,7 +7,7 @@
       google-fonts
       fira-code
       fira-code-symbols
-      fira-code-nerdfont
+      nerd-fonts.fira-code
       jetbrains-mono
       font-awesome
       line-awesome
