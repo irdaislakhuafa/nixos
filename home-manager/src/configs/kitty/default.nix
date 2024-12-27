@@ -15,8 +15,8 @@ in
     extraConfig = extraModule;
     theme = "Galaxy";
     font = {
-      name = "FiraCode Nerd Font";
-      package = pkgs.fira-code-nerdfont;
+      name = "JetBrains Mono";
+      package = pkgs.jetbrains-mono;
       size = 8;
     };
     shellIntegration = {
