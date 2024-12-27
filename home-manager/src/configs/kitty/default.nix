@@ -13,7 +13,7 @@ in
   programs.kitty = {
     enable = true;
     extraConfig = extraModule;
-    theme = "Galaxy";
+    themeFile = "Galaxy";
     font = {
       name = "JetBrains Mono";
       package = pkgs.jetbrains-mono;
