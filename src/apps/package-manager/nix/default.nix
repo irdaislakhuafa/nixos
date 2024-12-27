@@ -8,6 +8,16 @@
     nix-inspect
     devbox
   ];
+  environment.shellAliases =
+    let
+      log = " --log-format bar ";
+      fast = " --fast";
+    in
+    {
+      nos-switch = "nixos-rebuild switch ${fast} ${log}";
+      nix-shell = "nix-shell ${log}";
+      nix-env = "nix-env ${log}";
+    };
   nix.settings = {
     extra-experimental-features = [
       "flakes"
