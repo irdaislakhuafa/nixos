@@ -3,6 +3,8 @@ NIXOS_CFG_PATH := etc/nixos
 PRIVILEGED_CMD := $(command -v doas || command -v sudo)
 NIXOS_CHANNEL := https://channels.nixos.org/nixos-unstable
 HOME_MANAGER_CHANNEL := https://github.com/rycee/home-manager/archive/master.tar.gz
+USERNAME := i
+HOSTNAME := developer
 
 install:
 	@ [ -d ${ROOT_DIR}${NIXOS_CFG_PATH} ] && mv -v ${ROOT_DIR}${NIXOS_CFG_PATH} ${ROOT_DIR}${NIXOS_CFG_PATH}.backup && ln -sfv $(pwd) ${ROOT_DIR}${NIXOS_CFG_PATH} && cp -rv ${ROOT_DIR}${NIXOS_CFG_PATH}.backup/hardware-configuration.nix ${ROOT_DIR}${NIXOS_CFG_PATH}/
@@ -24,4 +26,7 @@ use-channel-unstable:
 	@ nix-channel --add ${NIXOS_CHANNEL} nixos && nix-channel --update
 
 flake-build-switch:
-	@ nixos-rebuild switch --fast --log-format bar --flake .#developer
+	@ nixos-rebuild switch --fast --log-format bar --flake .#${HOSTNAME}
+
+flake-home-switch:
+	@ home-manager switch --flake .#${USERNAME}
