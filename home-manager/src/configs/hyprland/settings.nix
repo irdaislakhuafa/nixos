@@ -1,7 +1,7 @@
 { config, ... }: rec{
   isEnableAutoStart = true;
   dirName = "hypr";
-  dir = builtins.toPath ~/.config/${dirName};
+  dir = builtins.toPath "/home/i/.config/${dirName}";
   wallpaper = rec {
     name = "room.png";
     path = builtins.toPath ./assets/${name};

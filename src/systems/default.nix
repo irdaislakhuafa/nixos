@@ -1,5 +1,5 @@
 { pkgs, ... }: {
   imports = import ../../importer.nix { dir = builtins.toPath ./.; };
-  system.copySystemConfiguration = true;
+  system.copySystemConfiguration = false;
   system.stateVersion = "current";
 }
