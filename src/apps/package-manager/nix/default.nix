@@ -19,6 +19,10 @@
       nix-env = "nix-env ${log}";
     };
   nix.settings = {
+    trusted-users = [
+      "@developer"
+      "root"
+    ];
     extra-experimental-features = [
       "flakes"
       "nix-command"
