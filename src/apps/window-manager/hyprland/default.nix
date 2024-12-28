@@ -21,7 +21,7 @@ rec {
     hyprpicker
     hyprshot
     wl-screenrec
-    wf-recorder
+    # wf-recorder
     clipboard-jh
     yank
     clipse
