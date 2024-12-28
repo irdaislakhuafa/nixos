@@ -2,10 +2,10 @@
 {
   environment.systemPackages = with pkgs; [
     nix-search-cli
-    direnv
-    nix-direnv
+    # direnv
+    # nix-direnv
     nixpkgs-fmt
-    nix-inspect
+    # nix-inspect
     devbox
   ];
   environment.shellAliases =
