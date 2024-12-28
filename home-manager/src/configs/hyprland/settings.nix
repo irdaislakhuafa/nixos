@@ -3,12 +3,12 @@
   dirName = "hypr";
   dir = builtins.toPath "/home/i/.config/${dirName}";
   wallpaper = rec {
-    name = "room.png";
+    name = "three.jpg";
     path = builtins.toPath ./assets/${name};
   };
   locker = {
     image = rec {
-      name = "gintama.png";
+      name = "eh.jpeg";
       path = builtins.toPath ./assets/${name};
     };
   };
