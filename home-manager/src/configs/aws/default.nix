@@ -5,7 +5,7 @@
     package = pkgs.awscli2;
     settings = {
       default = {
-        region = "us-east-1";
+        region = "ap-southeast-1";
         output = "json";
         cli_auto_prompt = "on-partial";
         cli_history = "enabled";
