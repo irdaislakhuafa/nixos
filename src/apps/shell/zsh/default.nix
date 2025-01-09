@@ -27,6 +27,7 @@ rec {
   programs.zsh.enableCompletion = true;
   programs.zsh.shellInit = ''
     export ZSH_DISABLE_COMPFIX=true;
+    export TERM=xterm-256color;
   '';
   programs.zsh.enableBashCompletion = true;
   programs.zsh.interactiveShellInit = plugins;

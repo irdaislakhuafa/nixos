@@ -27,4 +27,7 @@
   zsh-defer source ${pkgs.zsh-autoenv}/share/zsh-autoenv/init.zsh
 
   zsh-defer source ${pkgs.fzf-zsh}/share/zsh/plugins/fzf-zsh/fzf-zsh.plugin.zsh
+
+  # for aws completion
+  zsh-defer complete -C "${pkgs.awscli2}/bin/aws_completer" aws
 ''
