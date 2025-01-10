@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     mpv
     mediainfo
@@ -25,5 +26,7 @@
       ffmpeg -loglevel info -i "$src_file" -c:v -c:v h264_qsv -c:a aac "$dst_file";
     }
   '';
-  environment.shellAliases = { };
+  environment.shellAliases = {
+    wcam = "mpv av://v4l2:/dev/video0 --profile=low-latency --untimed --no-cache --vf=hflip";
+  };
 }
