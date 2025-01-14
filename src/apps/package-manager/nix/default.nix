@@ -10,7 +10,7 @@
   ];
   environment.shellAliases =
     let
-      log = " --log-format bar ";
+      log = " --log-format bar --quiet";
       fast = " --fast";
     in
     {

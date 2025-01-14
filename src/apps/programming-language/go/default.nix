@@ -8,7 +8,7 @@ lib.mkIf (isEnable) rec {
   ];
   environment.variables = {
     GOPATH = "/home/${config.users.users.i.name}/go";
-    PATH = "$PATH:$GOPATH/bin/";
+    PATH = "$PATH:$GOPATH/bin";
     GOME = "github.com/irdaislakhuafa";
   };
   environment.shellAliases = {
