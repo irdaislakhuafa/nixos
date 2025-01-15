@@ -10,7 +10,6 @@
     openvpn
     wirelesstools
     linux-wifi-hotspot
-    haveged
     bluetuith
     impala
   ];
@@ -45,8 +44,10 @@
   hardware.pulseaudio.extraModules = with pkgs; [
     pulseaudio-modules-bt
   ];
-  services.haveged.enable = true;
-  systemd.services.haveged.unitConfig.ConditionKernelVersion = lib.mkForce ">5.6";
+
+  services.haveged.enable = false;
+  # systemd.services.haveged.unitConfig.ConditionKernelVersion = lib.mkIf (config.services.haveged.enable) (lib.mkForce ">5.6");
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (action.id.startsWith("net.connman.iwd") && subject.isInGroup("${config.users.users.i.group}")) {
