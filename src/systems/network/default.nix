@@ -9,7 +9,7 @@
     iwd
     openvpn
     wirelesstools
-    linux-wifi-hotspot
+    # linux-wifi-hotspot
     bluetuith
     impala
   ];
