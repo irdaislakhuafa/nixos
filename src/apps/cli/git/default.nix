@@ -5,7 +5,7 @@
     gh-dash
     gh-cal
     gh-eco
-    lazygit
+    # lazygit
     glab
   ];
 
