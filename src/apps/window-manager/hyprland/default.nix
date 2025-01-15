@@ -10,19 +10,19 @@ rec {
     polkit
     rofi-wayland
     hyprpaper
-    wl-mirror
+    # wl-mirror
     wl-clipboard-x11
     wl-clipboard
     hyprlock
     swaybg
     hypridle
-    waypipe
+    # waypipe
     hyprnotify
     hyprpicker
     hyprshot
     wl-screenrec
     # wf-recorder
-    clipboard-jh
+    # clipboard-jh
     yank
     clipse
     grim

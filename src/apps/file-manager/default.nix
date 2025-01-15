@@ -4,7 +4,7 @@
     file
     exiftool
     p7zip
-    unrar
+    # unrar
     zathura
   ];
   environment.shellAliases = { here = "yazi ."; };
