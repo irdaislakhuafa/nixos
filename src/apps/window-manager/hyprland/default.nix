@@ -27,6 +27,7 @@ rec {
     clipse
     grim
     slurp
+    woomer
   ];
 
   programs.hyprlock.enable = isEnableAutoStart;
