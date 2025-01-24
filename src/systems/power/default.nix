@@ -13,5 +13,6 @@
     PLATFORM_PROFILE_ON_BAT = "low-power";
     CPU_BOOST_ON_BAT = 0;
     CPU_HWP_DYN_BOOST_ON_BAT = 0;
+    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
   };
 }
