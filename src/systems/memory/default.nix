@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   zramSwap = {
     enable = true;
     priority = -1; # lower value is high priority
@@ -15,6 +16,8 @@
     enableDebugInfo = true;
     freeMemThreshold = 30; # Minimum available memory (in percent).
     freeSwapThreshold = 30; # Minimum free swap space (in percent) before sending SIGTERM.
-    extraArgs = [];
+    extraArgs = [
+      "-g"
+    ];
   };
 }
