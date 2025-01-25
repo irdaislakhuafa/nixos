@@ -8,4 +8,13 @@
     memoryPercent = 100;
   };
   services.zram-generator.enable = true;
+  systemd.oomd.enable = false;
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+    enableDebugInfo = true;
+    freeMemThreshold = 30; # Minimum available memory (in percent).
+    freeSwapThreshold = 30; # Minimum free swap space (in percent) before sending SIGTERM.
+    extraArgs = [];
+  };
 }
