@@ -60,15 +60,16 @@
   networking.networkmanager.enable = false;
 
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [ ];
     allowedTCPPortRanges = [ ];
     allowedUDPPorts = [ ];
     allowedUDPPortRanges = [
+      # Chromecast client-to-control communication
       {
         from = 32768;
         to = 61000;
-      } # Chromecast client-to-control communication
+      }
     ];
   };
 }
