@@ -4,6 +4,6 @@
     process-compose
   ];
   environment.shellAliases = {
-    procom = "process-compose";
+    procom = "process-compose -t=false";
   };
 }
