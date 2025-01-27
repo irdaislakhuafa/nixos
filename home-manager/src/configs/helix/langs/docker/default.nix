@@ -5,7 +5,8 @@
   ...
 }:
 let
-  isEnable = true;
+  langs = import ../../langs.nix { };
+  isEnable = langs.docker;
 in
 lib.mkIf (isEnable) {
   home.packages = [

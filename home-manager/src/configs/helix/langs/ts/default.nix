@@ -5,7 +5,8 @@
   ...
 }:
 let
-  isEnable = true;
+  langs = import ../../langs.nix { };
+  isEnable = langs.ts;
 in
 lib.mkIf (isEnable) {
   home.packages = [

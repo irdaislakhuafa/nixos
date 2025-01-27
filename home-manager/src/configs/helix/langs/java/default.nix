@@ -5,7 +5,8 @@
   ...
 }:
 let
-  isEnable = false;
+  langs = import ../../langs.nix { };
+  isEnable = langs.java;
 in
 lib.mkIf (isEnable) {
   home.packages = [
@@ -23,7 +24,7 @@ lib.mkIf (isEnable) {
           "pom.xml"
           "build.gradle"
         ];
-        language-servers = [ "java" ];
+        language-servers = [ "jdtls" ];
         indent = {
           tab-width = 2;
           unit = " ";
@@ -32,12 +33,19 @@ lib.mkIf (isEnable) {
     ];
 
     language-server = {
-      java = {
+      jdtls = {
         command = "jdtls";
         args = [
           "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
         ];
         scope = "source.java";
+        config = {
+          java = {
+            inlayHints = {
+              parameterNames.enabled = "all";
+            };
+          };
+        };
       };
     };
   };
