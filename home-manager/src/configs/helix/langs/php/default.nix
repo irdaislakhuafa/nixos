@@ -12,8 +12,9 @@ lib.mkIf (isEnable) {
   home.packages = [
     pkgs.intelephense
     pkgs.php
-    pkgs.phpactor
-    pkgs.php83Packages.php-codesniffer
+    # pkgs.phpactor
+    # pkgs.php83Packages.php-codesniffer
+    # pkgs.php83Packages.php-cs-fixer
   ];
 
   programs.helix.languages = {
@@ -21,7 +22,7 @@ lib.mkIf (isEnable) {
       {
         name = "php";
         language-servers = [
-          "phpactor"
+          # "phpactor"
           "intelephense"
         ];
         indent = {
@@ -42,6 +43,7 @@ lib.mkIf (isEnable) {
         command = "phpactor";
         args = [
           "language-server"
+          "-vvv"
         ];
         scope = "source.php";
       };
@@ -53,11 +55,12 @@ lib.mkIf (isEnable) {
     text = ''${builtins.toJSON ({
       "language_server_completion.trim_leading_dollar" = true;
       "language_server_php_cs_fixer.enabled" = true;
-      "php_code_sniffer.enabled" = true;
-      "php_code_sniffer.bin" = "${pkgs.php83Packages.php-codesniffer}/bin/phpcbf";
-      "language_server_worse_reflection.inlay_hints.enable" = true;
+      "language_server_php_cs_fixer.bin" = "${pkgs.php83Packages.php-cs-fixer}/bin/php-cs-fixer";
+      "php_code_sniffer.enabled" = false;
+      # "php_code_sniffer.bin" = "${pkgs.php83Packages.php-codesniffer}/bin/phpcbf";
+      "language_server_worse_reflection.inlay_hints.enable" = false;
       "language_server_worse_reflection.inlay_hints.types" = false;
-      "language_server_worse_reflection.inlay_hints.params" = true;
+      "language_server_worse_reflection.inlay_hints.params" = false;
     })}'';
   };
 }
