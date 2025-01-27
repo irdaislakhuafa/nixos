@@ -21,7 +21,7 @@ lib.mkIf (isEnable) {
         name = "php";
         # language-servers = [         "phpactor"];
         indent = {
-          tab-width = 2;
+          tab-width = 4;
           unit = " ";
         };
         # formatter = {
