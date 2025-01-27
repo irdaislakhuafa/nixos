@@ -5,7 +5,7 @@
   ...
 }:
 let
-  isEnable = true;
+  isEnable = false;
 in
 lib.mkIf (isEnable) {
   home.packages = [
