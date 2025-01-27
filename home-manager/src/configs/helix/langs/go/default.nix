@@ -53,6 +53,7 @@ lib.mkIf (isEnable) {
     language-server = {
       gopls = {
         command = "gopls";
+        scope = "source.go";
         config = {
           gofumpt = true;
           local = "goimports";
