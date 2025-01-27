@@ -12,6 +12,7 @@ lib.mkIf (isEnable) {
     pkgs.jdt-language-server
     pkgs.spring-boot-cli
     pkgs.lombok
+    pkgs.jetbrains.jdk
   ];
 
   programs.helix.languages = {
