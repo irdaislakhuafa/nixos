@@ -14,15 +14,23 @@ lib.mkIf (isEnable) {
 
   programs.helix.languages = {
     language = [
-      {
-        name = "kubernetes";
-        indent = {
-          tab-width = 2;
-          unit = " ";
-        };
-      }
+      # {
+      #   name = "kubernetes";
+      #   file-types = ["yaml" "yml"];
+      #   language-servers = [ "kubernetes" ];
+      #   indent = {
+      #     tab-width = 2;
+      #     unit = " ";
+      #   };
+      # }
     ];
 
-    language-server = { };
+    language-server = {
+      # kubernetes = {
+      #   command = "helm_ls";
+      #   args = [ "serve" ];
+      #   scope = "source.yaml";
+      # };
+    };
   };
 }
