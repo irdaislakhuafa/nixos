@@ -11,12 +11,17 @@ lib.mkIf (isEnable) {
   home.packages = [
     pkgs.jdt-language-server
     pkgs.spring-boot-cli
+    pkgs.lombok
   ];
 
   programs.helix.languages = {
     language = [
       {
         name = "java";
+        roots = [
+          "pom.xml"
+          "build.gradle"
+        ];
         language-servers = [ "java" ];
         indent = {
           tab-width = 2;
@@ -28,7 +33,9 @@ lib.mkIf (isEnable) {
     language-server = {
       java = {
         command = "jdtls";
-        args = [ "--stdio" ];
+        args = [
+          "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+        ];
         scope = "source.java";
       };
     };
