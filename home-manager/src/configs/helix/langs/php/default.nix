@@ -38,6 +38,12 @@ lib.mkIf (isEnable) {
         command = "intelephense";
         args = [ "--stdio" ];
         scope = "source.php";
+        config = rec {
+          storagePath = "${config.home.homeDirectory}/.cache/intelephense";
+          globalStoragePath = storagePath;
+          # licenseKey = "";
+          clearCache = false;
+        };
       };
       phpactor = {
         command = "phpactor";
