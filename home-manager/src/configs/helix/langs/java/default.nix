@@ -13,7 +13,7 @@ lib.mkIf (isEnable) {
     pkgs.jdt-language-server
     pkgs.spring-boot-cli
     pkgs.lombok
-    pkgs.jetbrains.jdk
+    pkgs.graalvmPackages.graalvm-ce-musl
   ];
 
   programs.helix.languages = {
@@ -26,7 +26,7 @@ lib.mkIf (isEnable) {
         ];
         language-servers = [ "jdtls" ];
         indent = {
-          tab-width = 2;
+          tab-width = 4;
           unit = " ";
         };
       }

@@ -28,7 +28,7 @@ lib.mkIf (isEnable) {
           "vscode-eslint-language-server"
         ];
         indent = {
-          tab-width = 4;
+          tab-width = 2;
           unit = " ";
         };
       }
