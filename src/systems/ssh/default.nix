@@ -3,6 +3,7 @@
     openssh
     sshfs
     sshx
+    sshed
   ];
   services.openssh.enable = true;
 }
