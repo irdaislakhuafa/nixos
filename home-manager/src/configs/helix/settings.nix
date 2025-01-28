@@ -1,5 +1,5 @@
 { ... }: {
-  theme = "dark_plus";
+  theme = "catppuccin_macchiato";
   editor = {
     cursor-shape = {
       insert = "bar";
@@ -11,11 +11,11 @@
     };
     indent-guides = {
       render = true;
-      character = "|";
+      character = "❙";
       skip-levels = 1;
     };
     smart-tab = {
-      enable = false;
+      enable = true;
     };
     line-number = "absolute";
     lsp = {
@@ -23,7 +23,7 @@
       display-messages = true;
       display-inlay-hints = true;
     };
-    auto-format = false;
+    auto-format = true;
     auto-save = true;
     auto-completion = true;
     idle-timeout = 250;
