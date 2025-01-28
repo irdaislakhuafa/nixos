@@ -26,7 +26,7 @@ lib.mkIf (isEnable) {
         ];
         language-servers = [ "jdtls" ];
         indent = {
-          tab-width = 2;
+          tab-width = 4;
           unit = " ";
         };
       }
