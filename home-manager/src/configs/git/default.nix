@@ -1,4 +1,9 @@
-{ config, ... }: {
+{ pkgs, ... }:
+{
+  home.packages = [
+    pkgs.gitui
+  ];
+
   programs.git = {
     enable = true;
     userName = "Irda Islakhu Afa";
