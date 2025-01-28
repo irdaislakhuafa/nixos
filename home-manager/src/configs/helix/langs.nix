@@ -10,4 +10,8 @@
   nix = true;
   yaml = true;
   kubernetes = false;
+  json = true;
+  css = true;
+  html = true;
+  markdown = true;
 }

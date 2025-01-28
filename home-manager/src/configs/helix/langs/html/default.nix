@@ -6,42 +6,36 @@
 }:
 let
   langs = import ../../langs.nix { };
-  isEnable = langs.ts;
+  isEnable = langs.html;
 in
 lib.mkIf (isEnable) {
   home.packages = [
-    pkgs.typescript-language-server
-    pkgs.bun
     pkgs.vscode-langservers-extracted
   ];
 
   programs.helix.languages = {
     language = [
       {
-        name = "typescript";
-        roots = [
-          "package.json"
-          "node_modules"
-        ];
-        language-servers = [
-          "ts"
-          "vscode-eslint-language-server"
-        ];
+        name = "html";
+        language-servers = [ "html" ];
         indent = {
-          tab-width = 4;
+          tab-width = 2;
           unit = " ";
         };
       }
     ];
 
     language-server = {
-      ts = {
-        command = "typescript-language-server";
+      html = {
+        command = "vscode-html-language-server";
         args = [ "--stdio" ];
         config = {
           provideFormatter = true;
+          keepLines = true;
+          validate = true;
+          format = true;
         };
-        scope = "source.ts";
+        scope = "source.html";
       };
     };
   };
