@@ -12,6 +12,7 @@ lib.mkIf (isEnable) {
   home.packages = [
     pkgs.typescript-language-server
     pkgs.bun
+    pkgs.vscode-langservers-extracted
   ];
 
   programs.helix.languages = {
@@ -22,7 +23,7 @@ lib.mkIf (isEnable) {
           "package.json"
           "node_modules"
         ];
-        language-servers = [ "js" ];
+        language-servers = [ "js" "vscode-eslint-language-server" ];
         indent = {
           tab-width = 4;
           unit = " ";
