@@ -1,17 +1,17 @@
 { ... }:
 {
   java = false;
-  php = true;
+  php = false;
   go = false;
-  js = true;
-  ts = true;
-  docker = true;
+  js = false;
+  ts = false;
+  docker = false;
   cpp = false;
   nix = true;
-  yaml = true;
+  yaml = false;
   kubernetes = false;
-  json = true;
-  css = true;
-  html = true;
-  markdown = true;
+  json = false;
+  css = false;
+  html = false;
+  markdown = false;
 }
