@@ -1,0 +1,3 @@
+{...}:{
+ services.journald.storage = "volatile";
+}
