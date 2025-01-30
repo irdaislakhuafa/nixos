@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config, ... }:
 {
   services.logind.powerKey = "suspend-then-hibernate";
   services.logind.powerKeyLongPress = "poweroff";
@@ -7,7 +7,7 @@
     cpuFreqGovernor = "ondemand";
   };
   services.tlp.enable = false;
-  services.tlp.settings = {
+  services.tlp.settings = lib.mkIf (config.services.tlp.enable) {
     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
     PLATFORM_PROFILE_ON_BAT = "low-power";
