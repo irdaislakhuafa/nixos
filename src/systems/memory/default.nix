@@ -11,7 +11,7 @@
   services.zram-generator.enable = true;
   systemd.oomd.enable = false;
   services.earlyoom = {
-    enable = true;
+    enable = false;
     enableNotifications = true;
     enableDebugInfo = true;
     freeMemThreshold = 30; # Minimum available memory (in percent).
