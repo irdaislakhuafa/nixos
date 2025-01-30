@@ -11,7 +11,7 @@
     "vm.swappiness" = 60;
 
     # Reduce dirty page writeback frequency to save power
-    "vm.dirty_writeback_centisecs" = 6000;
+    # "vm.dirty_writeback_centisecs" = 3000;
 
     # Disable TCP timestamps (saves CPU cycles)
     "net.ipv4.tcp_timestamps" = 0;
@@ -46,7 +46,7 @@
     # For battery saving on laptop (enable it if you are running on battery)
     "vm.laptop_mode" = 1;
 
-    # Reduce default readahead to save memory (useful for SSDs
+    # Reduce default readahead to save memory (useful for SSDs)
     "vm.page-cluster" = 0;
   };
 }
