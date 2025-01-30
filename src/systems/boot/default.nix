@@ -11,14 +11,14 @@
     "vm.swappiness" = 60;
 
     # Reduce dirty page writeback frequency to save power
-    # "vm.dirty_writeback_centisecs" = 3000;
+    "vm.dirty_writeback_centisecs" = 3000;
 
     # Disable TCP timestamps (saves CPU cycles)
     "net.ipv4.tcp_timestamps" = 0;
 
     # Minimize the overcommit ratio for better memory management
     "vm.overcommit_ratio" = 50;
-    "vm.overcommit_memory" = 2;
+    "vm.overcommit_memory" = 1; # 0/1/2
 
     # Decrease VFS cache pressure to reduce I/O
     "vm.vfs_cache_pressure" = 50;
