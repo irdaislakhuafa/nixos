@@ -1,5 +1,5 @@
 { ... }: {
-  theme = "catppuccin_macchiato";
+  theme = "fleet_dark";
   editor = {
     cursor-shape = {
       insert = "bar";
