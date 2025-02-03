@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = [
-    pkgs.gitui
+    # pkgs.gitui
   ];
 
   programs.git = {
