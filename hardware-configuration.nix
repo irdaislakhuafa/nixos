@@ -33,7 +33,7 @@
       "/" = {
         device = "/dev/nvme0n1p2";
         fsType = "btrfs";
-        options = [ "compress=zstd" ];
+        options = [ "compress=zstd" "noatime" "discard" "ssd" ];
       };
 
       "/boot" = {
