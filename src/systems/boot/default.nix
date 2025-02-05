@@ -6,6 +6,16 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "kvm-linux" ];
 
+  # for boot operation
+  environment.shellAliases = rec{
+    zzz = "systemctl suspend";
+    boot = "systemctl reboot";
+    sboot = "systemctl soft-reboot";
+    off = "systemctl poweroff";
+    offf = "${off} -f";
+    bootfw = "${boot} --firmware-setup";
+  };
+
   # systctl config for minimalist system with lower memory cosumtion and power usage
   boot.kernel.sysctl = {
     "vm.swappiness" = 60;
