@@ -26,6 +26,7 @@ lib.mkIf (isEnable) {
           tab-width = 2;
           unit = " ";
         };
+        auto-format = true;
       }
     ];
 
