@@ -2,9 +2,9 @@
   environment.systemPackages = with pkgs; [
     git
     gh
-    gh-dash
-    gh-cal
-    gh-eco
+    # gh-dash
+    # gh-cal
+    # gh-eco
     # lazygit
     glab
   ];
