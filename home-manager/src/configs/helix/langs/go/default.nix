@@ -12,6 +12,7 @@ lib.mkIf (isEnable) {
   home.packages = [
     pkgs.gopls
     pkgs.go
+    pkgs.gotools
   ];
 
   home.sessionVariables = {
