@@ -17,6 +17,7 @@
       nos-switch = "nixos-rebuild switch ${fast} ${log}";
       nix-shell = "nix-shell ${log}";
       nix-env = "nix-env ${log}";
+      nix = "nix ${log}";
     };
   nix.settings = {
     trusted-users = [
