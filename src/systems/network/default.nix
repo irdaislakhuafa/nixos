@@ -41,7 +41,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   services.blueman.enable = false;
-  hardware.pulseaudio.extraModules = with pkgs; [
+  services.pulseaudio.extraModules = with pkgs; [
     pulseaudio-modules-bt
   ];
 
