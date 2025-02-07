@@ -22,6 +22,7 @@
       enable = true;
       display-messages = true;
       display-inlay-hints = true;
+      display-progress-messages = true;
     };
     auto-format = true;
     auto-save = true;
