@@ -44,6 +44,10 @@
       right = [ "diagnostics" "selections" "position" "file-encoding" "file-line-ending" "file-type" ];
       separator = "│";
     };
+    end-of-line-diagnostics = "hint";
+    inline-diagnostics = {
+      cursor-line = "warning";
+    };
   };
   keys = import ./keys.nix { };
 }
