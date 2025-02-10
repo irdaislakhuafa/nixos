@@ -19,6 +19,7 @@ rec {
     zsh-you-should-use
     zsh-fast-syntax-highlighting
     zsh-autoenv
+    thefuck
   ];
 
   programs.nix-index.enableZshIntegration = true;
