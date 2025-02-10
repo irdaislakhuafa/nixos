@@ -49,6 +49,8 @@
     inline-diagnostics = {
       cursor-line = "warning";
     };
+    bufferline = "multiple";
+    popup-border = "all";
   };
   keys = import ./keys.nix { };
 }
