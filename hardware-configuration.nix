@@ -66,30 +66,46 @@
         device = "/dev/disk/by-uuid/f0268e95-ca28-4452-9202-71f2562230c5";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
       # libraries
       "${mediaDir}/Libraries" = {
         device = "/dev/disk/by-uuid/0c3fce54-c4a9-4fbe-b7c8-d967cda5546d";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
       # projects
       "${mediaDir}/Projects" = {
         device = "/dev/disk/by-uuid/c3edf5d8-9a2e-4070-a241-5a50f6297b25";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
       # my files
       "${mediaDir}/MyFiles" = {
         device = "/dev/disk/by-uuid/5d45ad9d-2be3-49cd-a85a-b01048310ed1";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
       # games
       "${mediaDir}/Games" = {
         device = "/dev/disk/by-uuid/ea80b12b-6bfd-49fd-ad88-fecc738d5fe7";
         fsType = "btrfs";
-        options = [ "compress=zstd" ];
+        options = [ "compress=zstd" "async" "noatime" ];
         noCheck = true;
       };
       # virt manager
@@ -97,12 +113,20 @@
         device = "/dev/disk/by-uuid/b3e1fee7-cb4f-47ec-a03c-a89753f626f2";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
       # temporary
       "${mediaDir}/Temporary" = {
         device = "/dev/disk/by-uuid/6331c7d9-3269-486e-bc13-ab7c7e170fe8";
         fsType = "ext4";
         noCheck = true;
+        options = [
+          "async"
+          "noatime"
+        ];
       };
     };
 
