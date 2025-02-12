@@ -10,5 +10,6 @@
     {
       lsd = "lsd ${options}";
       ls = "lsd";
+      tree = "lsd --tree";
     };
 }

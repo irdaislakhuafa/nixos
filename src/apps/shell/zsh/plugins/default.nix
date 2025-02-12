@@ -30,7 +30,4 @@
 
   # for aws completion
   zsh-defer complete -C "${pkgs.awscli2}/bin/aws_completer" aws
-
-  # the fuck plugin
-  zsh-defer eval $(thefuck --alias)
 ''

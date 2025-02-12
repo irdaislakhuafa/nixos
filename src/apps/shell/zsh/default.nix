@@ -2,7 +2,7 @@
 let
   plugins = import ./plugins/default.nix { inherit pkgs; };
 in
-rec {
+{
   environment.systemPackages = with pkgs; [
     zsh
     zsh-defer
@@ -19,7 +19,6 @@ rec {
     zsh-you-should-use
     zsh-fast-syntax-highlighting
     zsh-autoenv
-    thefuck
   ];
 
   programs.nix-index.enableZshIntegration = true;

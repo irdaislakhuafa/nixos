@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs;[
     afterglow-cursors-recolored
-    oreo-cursors-plus
   ];
   home.pointerCursor = rec {
     name = "Afterglow-Recolored-Gruvbox-Black";
