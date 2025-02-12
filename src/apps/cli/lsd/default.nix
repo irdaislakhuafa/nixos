@@ -1,8 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     lsd
   ];
-  environment.shellAliases = {
-    ls = "${pkgs.lsd}/bin/lsd";
-  };
+  environment.shellAliases =
+    let
+      options = ''--header --git --group-dirs=first --gitsort --extensionsort'';
+    in
+    {
+      lsd = "lsd ${options}";
+      ls = "lsd";
+    };
 }
