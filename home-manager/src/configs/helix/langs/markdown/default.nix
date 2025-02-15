@@ -21,6 +21,7 @@ lib.mkIf (isEnable) {
         language-servers = [
           # "markdown"
           "marksman"
+          "scls"
         ];
         indent = {
           tab-width = 2;

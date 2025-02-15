@@ -24,6 +24,7 @@ lib.mkIf (isEnable) {
         language-servers = [
           # "phpactor"
           "intelephense"
+          "scls"
         ];
         indent = {
           tab-width = 4;

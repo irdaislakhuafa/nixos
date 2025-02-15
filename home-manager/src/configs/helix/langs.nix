@@ -1,17 +1,18 @@
 { ... }:
 {
   java = false;
-  php = false;
+  php = true;
   go = false;
   js = false;
   ts = false;
-  docker = false;
+  docker = true;
   cpp = false;
   nix = true;
-  yaml = false;
+  yaml = true;
   kubernetes = false;
-  json = false;
+  json = true;
   css = false;
   html = false;
-  markdown = false;
+  markdown = true;
+  scls = true; # Simple Completion Language Server, a autocomplete for plain text from buffer
 }

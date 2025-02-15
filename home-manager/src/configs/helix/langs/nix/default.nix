@@ -18,7 +18,10 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "nix";
-        language-servers = [ "nix" ];
+        language-servers = [
+          "nix"
+          "scls"
+        ];
         indent = {
           tab-width = 2;
           unit = " ";

@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  inputs,
+  scls,
   ...
 }:
 let
@@ -10,19 +10,10 @@ let
 in
 lib.mkIf (isEnable) {
   home.packages = [
-    inputs.scls.defaultPackage.${pkgs.system}
+    scls.defaultPackage.${pkgs.system}
   ];
 
   programs.helix.languages = {
-    language = [
-      {
-        name = "*";
-        language-servers = [
-          "scls"
-        ];
-      }
-    ];
-
     language-server = {
       scls = {
         command = "simple-completion-language-server";

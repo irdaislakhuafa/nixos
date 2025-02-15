@@ -26,6 +26,7 @@ lib.mkIf (isEnable) {
         language-servers = [
           "ts"
           "vscode-eslint-language-server"
+          "scls"
         ];
         indent = {
           tab-width = 2;
