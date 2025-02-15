@@ -23,7 +23,7 @@ lib.mkIf (isEnable) {
           "package.json"
           "node_modules"
         ];
-        language-servers = [ "js" "vscode-eslint-language-server" ];
+        language-servers = [ "js" "vscode-eslint-language-server" "scls" ];
         indent = {
           tab-width = 2;
           unit = " ";

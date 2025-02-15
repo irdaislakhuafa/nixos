@@ -51,6 +51,7 @@
     };
     bufferline = "multiple";
     popup-border = "all";
+    completion-trigger-len = 1;
   };
   keys = import ./keys.nix { };
 }

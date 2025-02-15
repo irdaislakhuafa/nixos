@@ -17,7 +17,10 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "yaml";
-        language-servers = [ "yaml" ];
+        language-servers = [
+          "yaml"
+          "scls"
+        ];
         indent = {
           tab-width = 2;
           unit = " ";
