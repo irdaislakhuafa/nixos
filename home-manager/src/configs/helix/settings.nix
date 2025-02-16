@@ -11,7 +11,7 @@
     };
     indent-guides = {
       render = true;
-      character = "❙";
+      character = "│"; # ❙, │, ┆
       skip-levels = 1;
     };
     smart-tab = {
@@ -25,7 +25,13 @@
       display-progress-messages = true;
     };
     auto-format = true;
-    auto-save = true;
+    auto-save = {
+      focus-lost = true;
+      after-delay = {
+        enable = true;
+        timeout = 3000;
+      };
+    };
     auto-completion = true;
     idle-timeout = 250;
     preview-completion-insert = true;
@@ -52,6 +58,9 @@
     bufferline = "multiple";
     popup-border = "all";
     completion-trigger-len = 1;
+    file-picker = {
+      hidden = false; # ignore hidden files
+    };
   };
   keys = import ./keys.nix { };
 }
