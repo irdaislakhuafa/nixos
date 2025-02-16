@@ -4,11 +4,10 @@
     file
     exiftool
     p7zip
-    # unrar
     zathura
   ];
   environment.shellAliases = { here = "yazi ."; };
-  programs.yazi = rec{
+  programs.yazi = {
     initLua = ./init.lua;
     enable = true;
     settings.yazi = {
