@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  scls,
+  inputs,
   ...
 }:
 let
@@ -10,7 +10,7 @@ let
 in
 lib.mkIf (isEnable) {
   home.packages = [
-    scls.defaultPackage.${pkgs.system}
+    inputs.scls.defaultPackage.${pkgs.system}
   ];
 
   programs.helix.languages = {
