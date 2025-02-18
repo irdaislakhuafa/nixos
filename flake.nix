@@ -10,33 +10,33 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:estin/simple-completion-language-server";
     };
+    iwmenu = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:e-tho/iwmenu";
+    };
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      scls,
-      ...
-    }:
+    { self, ... }@inputs:
     let
       system = "x86_64-linux";
     in
     {
       nixosConfigurations = {
-        developer = nixpkgs.lib.nixosSystem {
+        developer = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hardware-configuration.nix
             ./configuration.nix
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
           ];
+          specialArgs = { inherit inputs; };
         };
       };
 
       homeConfigurations = {
-        i = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
+        i = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = import inputs.nixpkgs {
             inherit system;
             config.allowUnfree = true;
           };
@@ -50,7 +50,7 @@
               };
             }
           ];
-          extraSpecialArgs = { inherit scls; };
+          extraSpecialArgs = { inherit inputs; };
         };
       };
     };

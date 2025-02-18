@@ -1,17 +1,17 @@
 {
   pkgs,
   config,
-  lib,
+  inputs,
   ...
 }:
 {
   environment.systemPackages = with pkgs; [
     iwd
-    openvpn
+    # openvpn
     wirelesstools
-    # linux-wifi-hotspot
     bluetuith
-    impala
+    # impala
+    inputs.iwmenu.packages.${pkgs.system}.default
   ];
 
   networking.hostName = "developer";

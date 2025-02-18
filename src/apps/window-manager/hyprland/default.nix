@@ -1,9 +1,13 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 let
   isEnableAutoStart = true;
 in
-rec {
-  environment.systemPackages = with pkgs;[
+{
+  environment.systemPackages = with pkgs; [
     hyprland
     waybar
     xdg-desktop-portal-hyprland
