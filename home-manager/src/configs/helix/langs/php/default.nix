@@ -7,22 +7,34 @@
 let
   langs = import ../../langs.nix { };
   isEnable = langs.php;
+  isEnableBladeSupports = false;
+  isUsePhpActor = false;
+  isUseIntelephense = true;
 in
 lib.mkIf (isEnable) {
-  home.packages = [
-    pkgs.intelephense
-    pkgs.php
-    # pkgs.phpactor
-    # pkgs.php83Packages.php-codesniffer
-    # pkgs.php83Packages.php-cs-fixer
-  ];
+  home.packages =
+    [ pkgs.php ]
+    ++ (if (isUseIntelephense) then with pkgs; [ intelephense ] else [ ])
+    ++ (
+      if (isUsePhpActor) then
+        with pkgs;
+        [
+          phpactor
+          php83Packages.php-codesniffer
+          php83Packages.php-cs-fixer
+          php83Packages.psalm
+        ]
+      else
+        [ ]
+    )
+    ++ (if (isEnableBladeSupports) then with pkgs; [ blade-formatter ] else [ ]);
 
   programs.helix.languages = {
     language = [
       {
         name = "php";
         language-servers = [
-          # "phpactor"
+          "phpactor"
           "intelephense"
           "scls"
         ];
@@ -31,6 +43,24 @@ lib.mkIf (isEnable) {
           unit = " ";
         };
         auto-format = true;
+      }
+      {
+        name = "blade";
+        injection-regex = "blade";
+        scope = "source.blade.php";
+        language-servers = [ "scls" ];
+        file-types = [
+          { glob = "*.blade.php"; }
+          "blade"
+        ];
+        formatter = {
+          command = "blade-formatter";
+          args = [
+            "--write"
+            "--progress"
+            "--indent-inner-html"
+          ];
+        };
       }
     ];
 
@@ -42,7 +72,7 @@ lib.mkIf (isEnable) {
         config = rec {
           storagePath = "${config.home.homeDirectory}/.cache/intelephense";
           globalStoragePath = storagePath;
-          # licenseKey = "";
+          # licenseKey = ""; # if your have license
           clearCache = false;
         };
       };
@@ -58,16 +88,26 @@ lib.mkIf (isEnable) {
   };
 
   home.file.".config/phpactor/phpactor.json" = {
-    enable = true;
+    enable = isUsePhpActor;
     text = ''${builtins.toJSON ({
+      # disable xdebug for better performance
+      "xdebug_disable" = true;
+
+      # disable leading dollar
       "language_server_completion.trim_leading_dollar" = true;
       "language_server_php_cs_fixer.enabled" = true;
       "language_server_php_cs_fixer.bin" = "${pkgs.php83Packages.php-cs-fixer}/bin/php-cs-fixer";
       "php_code_sniffer.enabled" = false;
-      # "php_code_sniffer.bin" = "${pkgs.php83Packages.php-codesniffer}/bin/phpcbf";
+
+      # reflections
       "language_server_worse_reflection.inlay_hints.enable" = false;
       "language_server_worse_reflection.inlay_hints.types" = false;
       "language_server_worse_reflection.inlay_hints.params" = false;
+
+      # psalm
+      "language_server_psalm.enabled" = true;
+      "language_server_psalm.show_info" = true;
+      "language_server_psalm.bin" = "${pkgs.php83Packages.psalm}/bin/psalm";
     })}'';
   };
 }
