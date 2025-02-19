@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 let
@@ -17,7 +16,7 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "json";
-        language-servers = [ "json" ];
+        language-servers = [ "json" "scls" ];
         indent = {
           tab-width = 2;
           unit = " ";

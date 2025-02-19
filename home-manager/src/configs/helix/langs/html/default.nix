@@ -17,7 +17,7 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "html";
-        language-servers = [ "html" ];
+        language-servers = [ "html" "scls" ];
         indent = {
           tab-width = 2;
           unit = " ";
