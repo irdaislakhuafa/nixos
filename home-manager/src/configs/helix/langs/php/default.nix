@@ -14,76 +14,94 @@ in
 lib.mkIf (isEnable) {
   home.packages =
     [ pkgs.php ]
-    ++ (if (isUseIntelephense) then with pkgs; [ intelephense ] else [ ])
+    ++ (if (isUseIntelephense) then (with pkgs; [ intelephense ]) else [ ])
     ++ (
       if (isUsePhpActor) then
-        with pkgs;
-        [
+        (with pkgs; [
           phpactor
           php83Packages.php-codesniffer
           php83Packages.php-cs-fixer
           php83Packages.psalm
-        ]
+        ])
       else
         [ ]
     )
-    ++ (if (isEnableBladeSupports) then with pkgs; [ blade-formatter ] else [ ]);
+    ++ (if (isEnableBladeSupports) then (with pkgs; [ blade-formatter ]) else [ ]);
 
   programs.helix.languages = {
-    language = [
-      {
-        name = "php";
-        language-servers = [
-          "phpactor"
-          "intelephense"
-          "scls"
-        ];
-        indent = {
-          tab-width = 4;
-          unit = " ";
-        };
-        auto-format = true;
-      }
-      {
-        name = "blade";
-        injection-regex = "blade";
-        scope = "source.blade.php";
-        language-servers = [ "scls" ];
-        file-types = [
-          { glob = "*.blade.php"; }
-          "blade"
-        ];
-        formatter = {
-          command = "blade-formatter";
-          args = [
-            "--write"
-            "--progress"
-            "--indent-inner-html"
-          ];
-        };
-      }
-    ];
+    language =
+      [
+        {
+          name = "php";
+          language-servers =
+            [ "scls" ]
+            ++ (if (isUsePhpActor) then [ "phpactor" ] else [ ])
+            ++ (if (isUseIntelephense) then [ "intelephense" ] else [ ]);
+          indent = {
+            tab-width = 4;
+            unit = " ";
+          };
+          auto-format = true;
+        }
+      ]
+
+      # if blade support enabled
+      ++ (
+        if (isEnableBladeSupports) then
+          [
+            {
+              name = "blade";
+              injection-regex = "blade";
+              scope = "source.blade.php";
+              language-servers = [ "scls" ];
+              file-types = [
+                { glob = "*.blade.php"; }
+                "blade"
+              ];
+              formatter = {
+                command = "blade-formatter";
+                args = [
+                  "--write"
+                  "--progress"
+                  "--indent-inner-html"
+                ];
+              };
+            }
+          ]
+        else
+          [ ]
+      );
 
     language-server = {
-      intelephense = {
-        command = "intelephense";
-        args = [ "--stdio" ];
-        scope = "source.php";
-        config = rec {
-          storagePath = "${config.home.homeDirectory}/.cache/intelephense";
-          globalStoragePath = storagePath;
-          # licenseKey = ""; # if your have license
-          clearCache = false;
-        };
-      };
-      phpactor = {
-        command = "phpactor";
-        args = [
-          "language-server"
-          "-vvv"
-        ];
-        scope = "source.php";
-      };
+      intelephense = (
+        if (isUseIntelephense) then
+          {
+            command = "intelephense";
+            args = [ "--stdio" ];
+            scope = "source.php";
+            config = rec {
+              storagePath = "${config.home.homeDirectory}/.cache/intelephense";
+              globalStoragePath = storagePath;
+              # licenseKey = ""; # if your have license
+              clearCache = false;
+            };
+          }
+        else
+          { }
+      );
+      phpactor = (
+        if (isUsePhpActor) then
+          {
+            command = "phpactor";
+            args = [
+              "language-server"
+              "-vvv"
+            ];
+            scope = "source.php";
+          }
+        else
+          { }
+      );
     };
   };
 
