@@ -34,7 +34,7 @@ For usage or how to apply this configuration you can use command below.
   if you use `sudo` instead of `doas`.
   
   ```sh
-  $ doas make flake-build-switch
+  $ sudo make flake-build-switch
   ```
 
   if you got error like `"Current user is not owner of this repository"`, you need to add this repository as safe directory with commands below.
