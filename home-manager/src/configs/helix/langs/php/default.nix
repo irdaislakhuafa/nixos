@@ -73,35 +73,25 @@ lib.mkIf (isEnable) {
       );
 
     language-server = {
-      intelephense = (
-        if (isUseIntelephense) then
-          {
-            command = "intelephense";
-            args = [ "--stdio" ];
-            scope = "source.php";
-            config = rec {
-              storagePath = "${config.home.homeDirectory}/.cache/intelephense";
-              globalStoragePath = storagePath;
-              # licenseKey = ""; # if your have license
-              clearCache = false;
-            };
-          }
-        else
-          { }
-      );
-      phpactor = (
-        if (isUsePhpActor) then
-          {
-            command = "phpactor";
-            args = [
-              "language-server"
-              "-vvv"
-            ];
-            scope = "source.php";
-          }
-        else
-          { }
-      );
+      intelephense = {
+        command = "intelephense";
+        args = [ "--stdio" ];
+        scope = "source.php";
+        config = rec {
+          storagePath = "${config.home.homeDirectory}/.cache/intelephense";
+          globalStoragePath = storagePath;
+          # licenseKey = ""; # if your have license
+          clearCache = false;
+        };
+      };
+      phpactor = {
+        command = "phpactor";
+        args = [
+          "language-server"
+          "-vvv"
+        ];
+        scope = "source.php";
+      };
     };
   };
 

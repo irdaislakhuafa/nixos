@@ -15,10 +15,15 @@ lib.mkIf (isEnable) {
       {
         name = "env";
         language-servers = [ "scls" ];
+        scope = "source.env";
         indent = {
           tab-width = 2;
           unit = " ";
         };
+        file-types = [
+          { glob = "*.env"; }
+          ".env"
+        ];
       }
     ];
 

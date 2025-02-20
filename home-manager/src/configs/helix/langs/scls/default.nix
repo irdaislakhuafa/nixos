@@ -14,6 +14,17 @@ lib.mkIf (isEnable) {
   ];
 
   programs.helix.languages = {
+    language = [
+      {
+        name = "text";
+        scope = "scope.*";
+        file-types = [
+          { glob = "*.txt"; }
+          "unknown"
+        ];
+        language-servers = [ "scls" ];
+      }
+    ];
     language-server = {
       scls = {
         command = "simple-completion-language-server";
