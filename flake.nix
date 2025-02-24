@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:estin/simple-completion-language-server";
     };
+
+    # iwd menu with rofi
     iwmenu = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:e-tho/iwmenu";
