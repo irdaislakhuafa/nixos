@@ -22,6 +22,8 @@ lib.mkIf (isEnable) {
         };
         file-types = [
           { glob = "*.env"; }
+          { glob = ".env.*"; }
+          { glob = "*.env.*"; }
           ".env"
         ];
       }

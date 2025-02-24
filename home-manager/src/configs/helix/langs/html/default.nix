@@ -11,13 +11,18 @@ in
 lib.mkIf (isEnable) {
   home.packages = [
     pkgs.vscode-langservers-extracted
+    pkgs.emmet-language-server
   ];
 
   programs.helix.languages = {
     language = [
       {
         name = "html";
-        language-servers = [ "html" "scls" ];
+        language-servers = [
+          "html"
+          "scls"
+          "emmet"
+        ];
         indent = {
           tab-width = 2;
           unit = " ";
@@ -35,7 +40,10 @@ lib.mkIf (isEnable) {
           validate = true;
           format = true;
         };
-        scope = "source.html";
+      };
+      emmet = {
+        command = "emmet-language-server";
+        args = [ "--stdio" ];
       };
     };
   };
