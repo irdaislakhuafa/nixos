@@ -16,12 +16,12 @@ lib.mkIf (isEnable) {
   programs.helix.languages = {
     language = [
       {
-        name = "text";
-        scope = "scope.*";
-        file-types = [
-          { glob = "*.txt"; }
-          "unknown"
-        ];
+        name = "stub";
+        scope = "text.stub";
+        file-types = [ ];
+        shebangs = [ ];
+        roots = [ ];
+        auto-format = false;
         language-servers = [ "scls" ];
       }
     ];
