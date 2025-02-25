@@ -3,7 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/9755fc6210088c24e6a0d95d484776c6dcad4e3d";
-    home-manager.url = "github:nix-community/home-manager/35b98d20ca8f4ca1f6a2c30b8a2c8bb305a36d84";
+
+    # nix home manager
+    home-manager = {
+      url = "github:nix-community/home-manager/35b98d20ca8f4ca1f6a2c30b8a2c8bb305a36d84";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # simple completion language server, used for helix
     scls = {
@@ -16,14 +21,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:e-tho/iwmenu";
     };
+
+    # nix flake utils to build each system
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
   };
 
   outputs =
     { self, ... }@inputs:
-    let
-      system = "x86_64-linux";
-    in
-    {
+    inputs.flake-utils.lib.eachDefaultSystemPassThrough (system: {
+      inherit self;
       nixosConfigurations = {
         developer = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
@@ -55,5 +63,5 @@
           extraSpecialArgs = { inherit inputs; };
         };
       };
-    };
+    });
 }
