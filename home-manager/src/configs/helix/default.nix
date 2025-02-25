@@ -2,7 +2,7 @@
 {
   programs.helix = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     ignores = [ ];
     languages = {
       language = [ ];
