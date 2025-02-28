@@ -1,14 +1,35 @@
 { pkgs, ... }:
+let
+  # search nix packages
+  nixsrch = (
+    pkgs.writeShellScriptBin "nixsrch" (
+      let
+        withKeys = true;
+        jqKeyArgs = if (withKeys) then (''.key + "#"'') else (''""'');
+        jqPackageVersionSep = "@";
+        jqLayout = ''.[] | ${jqKeyArgs} + .value.pname + "${jqPackageVersionSep}" + .value.version + ": " + .value.description'';
+      in
+      ''
+        args="$@";
+        results_json=$(nix search $args --json);
+        if [ "$results_json" = "" ]; then
+          exit;
+        fi
+        
+        results_entries="$(echo $results_json | jq 'to_entries')";
+        selected_pkg=$(echo -n $results_entries | jq '${jqLayout}' | sed -e 's@"@@g' | fzf | cut -d '${jqPackageVersionSep}' -f 1);
+        echo $selected_pkg;
+      ''
+    )
+  );
+in
 {
   environment.systemPackages = with pkgs; [
     nix-search-cli
-    # direnv
-    # nix-direnv
     nixpkgs-fmt
-    # nix-inspect
-    devbox
+    nixsrch
   ];
-  environment.shellAliases =
+  environment.shellAliases = (
     let
       log = " --log-format bar --quiet";
       fast = " --fast";
@@ -18,7 +39,8 @@
       nix-shell = "nix-shell ${log}";
       nix-env = "nix-env ${log}";
       nix = "nix ${log}";
-    };
+    }
+  );
   nix.settings = {
     trusted-users = [
       "@developer"
