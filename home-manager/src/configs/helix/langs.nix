@@ -2,7 +2,7 @@
 {
   java = false;
   php = true;
-  go = false;
+  go = true;
   js = false;
   ts = false;
   docker = true;
@@ -17,4 +17,6 @@
   scls = true; # Simple Completion Language Server, a autocomplete for plain text from buffer
   sql = true; # require scls enable
   env = true; # require scls enable
+  svelte = true;
+  astro = true;
 }
