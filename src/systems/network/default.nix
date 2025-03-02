@@ -60,7 +60,7 @@
   networking.networkmanager.enable = false;
 
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowedTCPPorts = [ ];
     allowedTCPPortRanges = [ ];
     allowedUDPPorts = [ ];

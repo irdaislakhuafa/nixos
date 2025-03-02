@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   theme = "dark_plus";
   editor = {
     cursor-shape = {
@@ -38,7 +39,7 @@
     auto-info = true;
     true-color = true;
     color-modes = true;
-    default-line-ending  = "native";
+    default-line-ending = "native";
     indent-heuristic = "simple";
     cursorline = true;
     cursorcolumn = true;
@@ -46,9 +47,21 @@
       mode.normal = "NORMAL";
       mode.insert = "INSERT";
       mode.select = "SELECT";
-      left = [ "mode" "spinner" ];
+      left = [
+        "mode"
+        "spinner"
+      ];
       center = [ "file-name" ];
-      right = [ "diagnostics" "selections" "position" "file-encoding" "file-line-ending" "file-type" ];
+      right = [
+        "file-modification-indicator"
+        "read-only-indicator"
+        "diagnostics"
+        "selections"
+        "position"
+        "file-encoding"
+        "file-line-ending"
+        "file-type"
+      ];
       separator = "│";
     };
     end-of-line-diagnostics = "hint";
@@ -64,4 +77,3 @@
   };
   keys = import ./keys.nix { };
 }
-
