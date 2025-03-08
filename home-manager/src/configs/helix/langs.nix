@@ -11,8 +11,8 @@
   yaml = true;
   kubernetes = false;
   json = true;
-  css = false;
-  html = false;
+  css = true;
+  html = true;
   markdown = true;
   scls = true; # Simple Completion Language Server, a autocomplete for plain text from buffer
   sql = true; # require scls enable

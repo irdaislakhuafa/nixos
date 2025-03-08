@@ -10,6 +10,6 @@ in
     };
   };
   programs.zsh.initExtra = ''
-    eval $(${pkgs.pueue}/bin/pueue completion zsh);
+    eval $(${pkgs.pueue}/bin/pueue completions zsh);
   '';
 }

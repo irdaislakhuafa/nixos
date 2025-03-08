@@ -6,7 +6,7 @@
     hm = "home-manager";
   };
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.fish;
   users.groups = {
     developer = { };
     docker = { };

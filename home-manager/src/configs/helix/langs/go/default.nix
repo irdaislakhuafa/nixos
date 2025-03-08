@@ -13,6 +13,7 @@ lib.mkIf (isEnable) {
     pkgs.gopls
     pkgs.go
     pkgs.gotools
+    pkgs.gomodifytags
   ];
 
   home.sessionVariables = {
