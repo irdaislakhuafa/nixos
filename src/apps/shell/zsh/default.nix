@@ -1,8 +1,14 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  isEnable = false;
   plugins = import ./plugins/default.nix { inherit pkgs; };
 in
-{
+lib.mkIf (isEnable) {
   environment.systemPackages = with pkgs; [
     zsh
     zsh-defer
@@ -41,7 +47,7 @@ in
   programs.zsh.autosuggestions.async = true;
 
   programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.cacheDir = "/tmp";
+  programs.zsh.ohMyZsh.cacheDir = "${config.home.homeDirectory}";
 
   programs.zsh.enableLsColors = true;
   programs.zsh.zsh-autoenv.enable = true;

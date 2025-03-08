@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 let
@@ -46,5 +47,12 @@ in
     if [ "$CURRENT_TTY" = "/dev/tty1" ]; then
       ${pkgs.hyprland}/bin/Hyprland
     fi
+  '';
+
+  programs.fish.loginShellInit = lib.mkIf isEnableAutoStart ''
+    set CURRENT_TTY $(tty)
+    if [ "$CURRENT_TTY" = "/dev/tty1" ];
+      ${pkgs.hyprland}/bin/Hyprland
+    end
   '';
 }

@@ -9,7 +9,7 @@
     ];
     A-z = ":toggle-option soft-wrap.enable";
     C-q = ":buffer-close";
-    ret = [ ":run-shell-command basename $(pwd)" ];
+    A-ret = [ ":run-shell-command basename $(pwd)" ];
   };
   select = { };
 }

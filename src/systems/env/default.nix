@@ -7,7 +7,4 @@
     x = "exit";
     c = "clear";
   };
-  environment.shellInit = ''
-    export EDITOR="nvim";
-  '';
 }
