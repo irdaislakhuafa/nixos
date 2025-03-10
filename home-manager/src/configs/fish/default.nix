@@ -7,9 +7,11 @@ let
   isEnable = true;
 in
 lib.mkIf (isEnable) {
+  home.packages = [ pkgs.pcre ];
   programs.fish = {
     enable = true;
     shellInit = ''
+      # fish config
       set --universal pure_separate_prompt_on_error true;
       set --universal pure_symbol_ssh_prefix "<=>"
       set --universal pure_enable_nixdevshell true
@@ -57,6 +59,19 @@ lib.mkIf (isEnable) {
           rev = "28447d2e7a4edf3c954003eda929cde31d3621d2";
           sha256 = "8zxqPU9N5XGbKc0b3bZYkQ3yH64qcbakMsHIpHZSne4=";
         };
+      }
+      {
+        name = "fish-insulter";
+        src = fetchFromGitHub {
+          owner = "Alaz-Oz";
+          repo = "fish-insulter";
+          rev = "4c0f22798a7e41f670d606158a06a6fc317f151d";
+          sha256 = "fLG0brTA6FFG+MJHDOHCsr9nQUIBgnvLbH4RZaQ1Dm0=";
+        };
+      }
+      {
+        name = "fifc";
+        src = fishPlugins.fifc.src;
       }
     ];
   };
