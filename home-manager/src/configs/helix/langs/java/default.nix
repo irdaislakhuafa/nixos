@@ -1,20 +1,40 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 let
   langs = import ../../langs.nix { };
   isEnable = langs.java;
+  features = {
+    lombok = {
+      enable = true;
+      args = [ "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar" ];
+      pkgs = [ pkgs.lombok ];
+    };
+    spring-boot-cli = {
+      enable = true;
+      pkgs = [ pkgs.spring-boot-cli ];
+    };
+    javafx = {
+      enable = true;
+      args = [
+        "--jvm-arg=--module-path=${pkgs.javaPackages.openjfx23}/modules/"
+        "--jvm-arg=--add-modules=javafx.controls,javafx.fxml"
+      ];
+      pkgs = [ pkgs.javaPackages.openjfx23 ];
+    };
+  };
 in
 lib.mkIf (isEnable) {
-  home.packages = [
-    pkgs.jdt-language-server
-    pkgs.spring-boot-cli
-    pkgs.lombok
-    pkgs.graalvmPackages.graalvm-ce-musl
-  ];
+  home.packages =
+    [
+      pkgs.jdt-language-server
+      pkgs.graalvmPackages.graalvm-ce-musl
+    ]
+    ++ (if (features.lombok.enable) then features.lombok.pkgs else [ ])
+    ++ (if (features.spring-boot-cli.enable) then features.spring-boot-cli.pkgs else [ ])
+    ++ (if (features.javafx.enable) then features.javafx.pkgs else [ ]);
 
   programs.helix.languages = {
     language = [
@@ -38,9 +58,10 @@ lib.mkIf (isEnable) {
     language-server = {
       jdtls = {
         command = "jdtls";
-        args = [
-          "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
-        ];
+        args =
+          [ ]
+          ++ (if (features.lombok.enable) then features.lombok.args else [ ])
+          ++ (if (features.javafx.enable) then features.javafx.args else [ ]);
         scope = "source.java";
         config = {
           java = {
