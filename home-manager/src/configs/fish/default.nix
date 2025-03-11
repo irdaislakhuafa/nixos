@@ -24,7 +24,12 @@ lib.mkIf (isEnable) {
       }
       {
         name = "forgit";
-        src = fishPlugins.forgit.src;
+        src = fetchFromGitHub{
+          owner = "wfxr";
+          repo = "forgit";
+          rev = "18f1a1e0c3c1d7fddb9161786f61d2c538c5341c";
+          sha256 = "wYCuCxPv3HGEGaze/+an6ZprCtXu5ThsTCwaIquEy3Y=";
+        };
       }
       {
         name = "async-prompt";
@@ -37,10 +42,6 @@ lib.mkIf (isEnable) {
       {
         name = "fish-you-should-use";
         src = fishPlugins.fish-you-should-use.src;
-      }
-      {
-        name = "plugin-git";
-        src = fishPlugins.plugin-git.src;
       }
       {
         name = "git-emojis";
