@@ -1,8 +1,7 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 let
-  isEnable = false;
+  isEnable = true;
 in
 lib.mkIf (isEnable) {
-  environment.systemPackages = with pkgs; [ xrdp ];
-  services.xrdp.audio.enable = true;
+  imports = import ../../../importer.nix { dir = builtins.toPath ./.; };
 }
