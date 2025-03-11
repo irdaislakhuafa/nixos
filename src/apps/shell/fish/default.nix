@@ -3,6 +3,7 @@ let
   isEnable = true;
 in
 lib.mkIf (isEnable) {
+  environment.systemPackages = [ pkgs.fd ];
   programs.fish = {
     enable = true;
     # vendor = {
@@ -16,6 +17,5 @@ lib.mkIf (isEnable) {
     #     enable = true;
     #   };
     # };
-    # useBabelfish = true;
   };
 }
