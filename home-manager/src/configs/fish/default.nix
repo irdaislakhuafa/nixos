@@ -53,15 +53,6 @@ lib.mkIf (isEnable) {
         };
       }
       {
-        name = "pure";
-        src = fetchFromGitHub {
-          owner = "pure-fish";
-          repo = "pure";
-          rev = "28447d2e7a4edf3c954003eda929cde31d3621d2";
-          sha256 = "8zxqPU9N5XGbKc0b3bZYkQ3yH64qcbakMsHIpHZSne4=";
-        };
-      }
-      {
         name = "fish-insulter";
         src = fetchFromGitHub {
           owner = "Alaz-Oz";

@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   settings = import ../settings.nix { inherit config; };
 in
@@ -31,4 +36,17 @@ in
     };
   };
 
+  systemd.user.services.hyprnotify = lib.mkIf settings.isEnableAutoStart {
+    Unit = {
+      Description = "Notification daemon for Hyprland";
+      PartOf = "graphical-session.target";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
+      Restart = "always";
+      ExecStart = "${pkgs.hyprnotify}/bin/hyprnotify";
+    };
+  };
 }

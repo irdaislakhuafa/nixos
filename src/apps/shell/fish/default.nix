@@ -6,16 +6,8 @@ lib.mkIf (isEnable) {
   environment.systemPackages = [ pkgs.fd ];
   programs.fish = {
     enable = true;
-    # vendor = {
-    #   config = {
-    #     enable = true;
-    #   };
-    #   completions = {
-    #     enable = true;
-    #   };
-    #   functions = {
-    #     enable = true;
-    #   };
-    # };
+    shellInit = ''
+      set -x TERM xterm-256color
+    '';
   };
 }

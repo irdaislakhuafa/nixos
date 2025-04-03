@@ -3,8 +3,8 @@
   java = false;
   php = true;
   go = true;
-  js = false;
-  ts = false;
+  js = true;
+  ts = true;
   docker = true;
   cpp = false;
   nix = true;

@@ -10,7 +10,7 @@ let
   hyprlandAutoStart = import ./configs/modules/autostart.nix { inherit config pkgs; };
   hyprlandConfig = (import ./configs/default.nix { }) + hyprlandAutoStart;
 in
-lib.mkIf (isEnable) {
+if (isEnable) then {
   imports = [
     ./services/default.nix
     ./hyprlock.nix
@@ -25,4 +25,4 @@ lib.mkIf (isEnable) {
   wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
   home.file.".config/${settings.dirName}/wallpaper.png".source = settings.wallpaper.path;
-}
+} else {}
