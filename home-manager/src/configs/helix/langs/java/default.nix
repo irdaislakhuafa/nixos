@@ -17,7 +17,7 @@ let
       pkgs = [ pkgs.spring-boot-cli ];
     };
     javafx = {
-      enable = true;
+      enable = false;
       args = [
         "--jvm-arg=--module-path=${pkgs.javaPackages.openjfx23}/modules/"
         "--jvm-arg=--add-modules=javafx.controls,javafx.fxml"
@@ -59,7 +59,7 @@ lib.mkIf (isEnable) {
       jdtls = {
         command = "jdtls";
         args =
-          [ ]
+          [ "--enable-preview" ]
           ++ (if (features.lombok.enable) then features.lombok.args else [ ])
           ++ (if (features.javafx.enable) then features.javafx.args else [ ]);
         scope = "source.java";

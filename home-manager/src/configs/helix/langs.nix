@@ -1,6 +1,6 @@
 { ... }:
 {
-  java = false;
+  java = true;
   php = true;
   go = true;
   js = true;
