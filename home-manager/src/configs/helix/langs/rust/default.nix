@@ -4,7 +4,7 @@ let
   isEnable = langs.rust;
 in
 lib.mkIf (isEnable) {
-  home.packages = [ pkgs.rustup ];
+  home.packages = [ pkgs.rustup pkgs.gcc ];
 
   programs.helix.languages = {
     language = [
