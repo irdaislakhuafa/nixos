@@ -5,6 +5,7 @@
   go = true;
   js = true;
   ts = true;
+  rust = true;
   docker = true;
   cpp = false;
   nix = true;

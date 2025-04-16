@@ -86,6 +86,13 @@ lib.mkIf (isEnable) {
         args = [ "--stdio" ];
         config = {
           provideFormatter = true;
+          format = {
+            semicolon = "insert";
+            convertTabsToSpaces = true;
+          };
+          referencesCodeLens = {
+            enabled = true;
+          };
         };
       };
       emmet = lib.mkIf (features.tsx.enable) {
