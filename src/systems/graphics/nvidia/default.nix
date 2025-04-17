@@ -7,7 +7,7 @@ if (isEnabled) then {
     nvidia-vaapi-driver
   ];
   boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-  hardware.nvidiaOptimus.disable = true;
+  hardware.nvidiaOptimus.disable = false;
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement = {
@@ -24,9 +24,9 @@ if (isEnabled) then {
       #   enable = isEnabled;
       #   enableOffloadCmd = isEnabled;
       # };
-      sync = { enable = isEnabled; };
-      nvidiaBusId = "PCI:02:00:0";
-      intelBusId = "PCI:00:02:0";
+      # sync = { enable = isEnabled; };
+      # nvidiaBusId = "PCI:02:00:0";
+      # intelBusId = "PCI:00:02:0";
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
