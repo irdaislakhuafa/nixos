@@ -67,6 +67,7 @@ lib.mkIf (isEnable) {
                 "vscode-eslint-language-server"
                 "scls"
                 "emmet"
+                "tailwind"
               ];
               indent = {
                 tab-width = 2;
