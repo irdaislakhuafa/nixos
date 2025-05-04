@@ -1,6 +1,6 @@
 { lib, ... }:
 let
-  langs = import ../../settings.nix { };
+  langs = import ../../langs.nix { };
   isEnable = langs.nginx;
 in
 lib.mkIf (isEnable) {
@@ -20,7 +20,7 @@ lib.mkIf (isEnable) {
         comment-token = "#";
         indent = {
           tab-width = 4;
-          unit = "    ";
+          unit = " ";
         };
         language-servers = ["scls"];
       }
