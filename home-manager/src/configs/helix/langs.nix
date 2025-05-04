@@ -20,4 +20,5 @@
   env = true; # require scls enable
   svelte = true;
   astro = true;
+  nginx = true;
 }
