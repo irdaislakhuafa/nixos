@@ -25,9 +25,8 @@ lib.mkIf (isEnable) {
         name = "css";
         language-servers = [
           "css"
-          "scls"
           "tailwind"
-        ];
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";
@@ -50,7 +49,7 @@ lib.mkIf (isEnable) {
       tailwind = {
         command = "tailwindcss-language-server";
         args = [ "--stdio" ];
-        config = {};
+        config = { };
       };
     };
   };

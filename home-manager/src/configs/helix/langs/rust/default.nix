@@ -4,7 +4,10 @@ let
   isEnable = langs.rust;
 in
 lib.mkIf (isEnable) {
-  home.packages = [ pkgs.rustup pkgs.gcc ];
+  home.packages = [
+    pkgs.rustup
+    pkgs.gcc
+  ];
 
   programs.helix.languages = {
     language = [
@@ -41,10 +44,7 @@ lib.mkIf (isEnable) {
             end = "*/";
           }
         ];
-        language-servers = [
-          "rust-analyzer"
-          "scls"
-        ];
+        language-servers = [ "rust-analyzer" ] ++ langs.global.lsp;
         indent = {
           tab-width = 4;
           unit = "    ";

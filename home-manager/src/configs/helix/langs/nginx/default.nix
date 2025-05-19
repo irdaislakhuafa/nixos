@@ -22,7 +22,7 @@ lib.mkIf (isEnable) {
           tab-width = 4;
           unit = " ";
         };
-        language-servers = ["scls"];
+        language-servers = [ ] ++ langs.global.lsp;
       }
     ];
   };

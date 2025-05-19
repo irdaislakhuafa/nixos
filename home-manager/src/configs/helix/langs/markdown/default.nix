@@ -21,8 +21,7 @@ lib.mkIf (isEnable) {
         language-servers = [
           # "markdown"
           "marksman"
-          "scls"
-        ];
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";

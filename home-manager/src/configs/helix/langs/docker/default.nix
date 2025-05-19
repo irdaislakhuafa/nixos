@@ -16,38 +16,69 @@ lib.mkIf (isEnable) {
 
   # TODO: fix it later, currently better use default config
   programs.helix.languages = {
-    # language = [
-    #   {
-    #     name = "docker";
-    #     roots = [
-    #       "Dockerfile"
-    #       ".dockerignore"
-    #       "docker-compose.yaml"
-    #       "docker-compose.yml"
-    #     ];
-     
-    #     language-servers = [
-    #       "docker"
-    #     "docker-compose"
-    #     ];
-    #     indent = {
-    #       tab-width = 2;
-    #       unit = " ";
-    #     };
-    #   }
-    # ];
+    language = [
+      {
+        name = "dockerfile";
+        scope = "source.dockerfile";
+        injection-regex = "docker|dockerfile";
+        roots = [
+          "Dockerfile"
+          "Containerfile"
+        ];
+        file-types = [
+          "Dockerfile"
+          { glob = "Dockerfile"; }
+          { glob = "Dockerfile.*"; }
+          "dockerfile"
+          { glob = "dockerfile"; }
+          { glob = "dockerfile.*"; }
+          "Containerfile"
+          { glob = "Containerfile"; }
+          { glob = "Containerfile.*"; }
+          "containerfile"
+          { glob = "containerfile"; }
+          { glob = "containerfile.*"; }
+        ];
+        comment-token = "#";
+        indent = {
+          tab-width = 2;
+          unit = "  ";
+        };
+        language-servers = [ "docker-langserver" ] ++ langs.global.lsp;
+      }
+      {
+        name = "docker-compose";
+        scope = "source.yaml.docker-compose";
+        roots = [
+          "docker-compose.yaml"
+          "docker-compose.yml"
+        ];
+        language-servers = [
+          "docker-compose-langserver"
+          "yaml-language-server"
+        ] ++ langs.global.lsp;
+        file-types = [
+          { glob = "docker-compose.yaml"; }
+          { glob = "docker-compose.yml"; }
+        ];
+        comment-token = "#";
+        indent = {
+          tab-width = 2;
+          unit = "  ";
+        };
+        grammar = "yaml";
+      }
+    ];
 
-    # language-server = {
-    #   docker = {
-    #     command = "docker-langserver";
-    #     args = [ ];
-    #     scope = "source.dockerfile";
-    #   };
-    #   docker-compose = {
-    #     command = "docker-compose-langserver";
-    #     args = [ ];
-    #     scope = "source.docker-compose";
-    #   };
-    # };
+    language-server = {
+      docker-langserver = {
+        command = "docker-langserver";
+        args = [ "--stdio" ];
+      };
+      docker-compose-langserver = {
+        command = "docker-compose-langserver";
+        args = [ "--stdio" ];
+      };
+    };
   };
 }

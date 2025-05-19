@@ -14,7 +14,7 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "sql";
-        language-servers = [ "scls" ];
+        language-servers = [ ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";
