@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 let
@@ -35,9 +34,8 @@ lib.mkIf (isEnable) {
           language-servers = [
             "ts"
             "vscode-eslint-language-server"
-            "scls"
             "emmet"
-          ];
+          ] ++ langs.global.lsp;
           indent = {
             tab-width = 2;
             unit = " ";

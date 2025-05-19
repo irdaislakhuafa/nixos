@@ -20,9 +20,8 @@ lib.mkIf (isEnable) {
         name = "html";
         language-servers = [
           "html"
-          "scls"
           "emmet"
-        ];
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";

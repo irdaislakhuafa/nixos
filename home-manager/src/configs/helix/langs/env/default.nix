@@ -14,7 +14,7 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "env";
-        language-servers = [ "scls" ];
+        language-servers = [ ] ++ langs.global.lsp;
         scope = "source.env";
         indent = {
           tab-width = 2;

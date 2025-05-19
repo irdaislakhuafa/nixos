@@ -19,8 +19,7 @@ lib.mkIf (isEnable) {
         name = "yaml";
         language-servers = [
           "yaml"
-          "scls"
-        ];
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";

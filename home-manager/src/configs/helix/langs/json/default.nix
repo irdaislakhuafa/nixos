@@ -16,7 +16,7 @@ lib.mkIf (isEnable) {
     language = [
       {
         name = "json";
-        language-servers = [ "json" "scls" ];
+        language-servers = [ "json" ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";

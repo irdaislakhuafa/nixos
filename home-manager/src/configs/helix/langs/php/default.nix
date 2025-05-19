@@ -34,7 +34,7 @@ lib.mkIf (isEnable) {
         {
           name = "php";
           language-servers =
-            [ "scls" ]
+            langs.global.lsp
             ++ (if (isUsePhpActor) then [ "phpactor" ] else [ ])
             ++ (if (isUseIntelephense) then [ "intelephense" ] else [ ]);
           indent = {

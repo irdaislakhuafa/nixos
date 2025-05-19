@@ -20,8 +20,7 @@ lib.mkIf (isEnable) {
         name = "nix";
         language-servers = [
           "nix"
-          "scls"
-        ];
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";
