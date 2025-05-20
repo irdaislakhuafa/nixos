@@ -67,7 +67,7 @@ lib.mkIf (isEnable) {
                 "scls"
                 "emmet"
                 "tailwind"
-              ];
+              ] ++ langs.global.lsp;
               indent = {
                 tab-width = 2;
                 unit = "";

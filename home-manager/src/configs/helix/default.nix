@@ -1,5 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = [
+    pkgs.serpl
+  ];
   programs.helix = {
     enable = true;
     defaultEditor = true;
