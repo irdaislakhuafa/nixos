@@ -6,9 +6,10 @@ in
 lib.mkIf (isEnable) {
   home.packages = [ pkgs.helix-gpt ];
   programs.helix.languages = {
-    language-servers = {
+    language-server = {
       helix-gpt = {
         command = "helix-gpt";
+        args = ["--copilotApiKey" "API_KEY" "--handler" "HANDLER"];
       };
     };
   };
