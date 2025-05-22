@@ -22,7 +22,7 @@ lib.mkIf (isEnable) {
         shebangs = [ ];
         roots = [ ];
         auto-format = false;
-        language-servers = [ "scls" ];
+        language-servers = [ ] ++ langs.global.lsp;
       }
     ];
     language-server = {
