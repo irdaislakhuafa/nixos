@@ -9,7 +9,25 @@ lib.mkIf (isEnable) {
     language-server = {
       helix-gpt = {
         command = "helix-gpt";
-        args = ["--copilotApiKey" "API_KEY" "--handler" "HANDLER"];
+        args = [
+          # github copilot -- get api token with `helix --authCopiot`
+          # "--copilotApiKey"
+          # "API_KEY"
+          # "--handler"
+          # "copilot"
+
+          # openai
+          # "--openaiKey"
+          # "API_KEY"
+          # "--handler"
+          # "openai"
+
+          # codeium - get api token with `helix --authCodeium`
+          "--codeiumApiKey"
+          "API_KEY"
+          "--handler"
+          "codeium"
+        ];
       };
     };
   };
