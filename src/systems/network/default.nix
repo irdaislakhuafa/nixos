@@ -15,6 +15,9 @@
   ];
 
   networking.hostName = "developer";
+  networking.useNetworkd = true;
+  networking.useDHCP = true;
+  networking.nameservers  = ["8.8.8.8" "1.1.1.1"];
 
   networking.wireless.iwd = {
     package = pkgs.iwd;
@@ -23,20 +26,23 @@
       Settings = {
         AutoConnect = true;
       };
-      Network = {
-        EnableIPv6 = true;
-        EnableDHCPv6 = true;
+      Network = rec {
+        EnableIPv6 = false;
+        EnableDHCPv6 = EnableIPv6;
         RoutePriorityOffset = 300;
+        NameResolvingService = "systemd";
       };
       General = {
         UseDefaultInterface = false;
-        IgnorePeerSignalStrength = true;
+        IgnorePeerSignalStrength = false;
         EnableNetworkConfiguration = true;
         DisablePowerSave = true;
       };
     };
   };
-  services.resolved.enable = true;
+  services.resolved = {
+    enable = true;
+  };
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
