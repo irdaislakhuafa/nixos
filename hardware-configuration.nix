@@ -33,7 +33,13 @@
       "/" = {
         device = "/dev/nvme0n1p2";
         fsType = "btrfs";
-        options = [ "compress=zstd" "noatime" "discard" "ssd" ];
+        options = [
+          "compress=zstd"
+          "noatime"
+          "discard"
+          "ssd"
+          "async"
+        ];
       };
 
       "/boot" = {
@@ -50,7 +56,8 @@
         fsType = "tmpfs";
         options = [
           "defaults"
-          "size=${toString (1024 * 4)}M"
+          "async"
+          "size=${toString (1024 * 8)}M"
         ];
       };
 
@@ -105,7 +112,11 @@
       "${mediaDir}/Games" = {
         device = "/dev/disk/by-uuid/ea80b12b-6bfd-49fd-ad88-fecc738d5fe7";
         fsType = "btrfs";
-        options = [ "compress=zstd" "async" "noatime" ];
+        options = [
+          "compress=zstd"
+          "async"
+          "noatime"
+        ];
         noCheck = true;
       };
       # virt manager
