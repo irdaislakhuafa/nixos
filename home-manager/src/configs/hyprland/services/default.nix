@@ -17,7 +17,7 @@ in
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${settings.dir}/wallpaper.png";
+      ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill -i ${settings.dir}/wallpaper.png";
       Restart = "on-failure";
     };
   };
