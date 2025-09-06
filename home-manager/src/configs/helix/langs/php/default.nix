@@ -115,7 +115,8 @@ lib.mkIf (isEnable) {
       # psalm
       "language_server_psalm.enabled" = true;
       "language_server_psalm.show_info" = true;
-      "language_server_psalm.bin" = "${pkgs.php83Packages.psalm}/bin/psalm";
+      # "language_server_psalm.bin" = "${pkgs.php83Packages.psalm}/bin/psalm";
+      "language_server_psalm.bin" = "${pkgs.php83Packages.psalm}/bin/psalm-language-server";
     })}'';
   };
 }

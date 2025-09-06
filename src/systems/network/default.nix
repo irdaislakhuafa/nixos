@@ -17,7 +17,11 @@
   networking.hostName = "developer";
   networking.useNetworkd = true;
   networking.useDHCP = true;
-  networking.nameservers  = ["8.8.8.8" "1.1.1.1"];
+  networking.domain = "~.";
+  networking.nameservers = [
+    "8.8.8.8"
+    "1.1.1.1"
+  ];
 
   networking.wireless.iwd = {
     package = pkgs.iwd;
@@ -27,7 +31,7 @@
         AutoConnect = true;
       };
       Network = rec {
-        EnableIPv6 = false;
+        EnableIPv6 = true;
         EnableDHCPv6 = EnableIPv6;
         RoutePriorityOffset = 300;
         NameResolvingService = "systemd";

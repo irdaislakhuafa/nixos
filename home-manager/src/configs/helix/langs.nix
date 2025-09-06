@@ -1,7 +1,10 @@
 { ... }:
 {
   global = {
-    lsp = [ "scls" "helix-gpt" ];
+    lsp = [
+      "scls"
+      "helix-gpt"
+    ];
   };
   java = true;
   php = true;
