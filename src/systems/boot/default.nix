@@ -6,8 +6,16 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "kvm-linux" ];
 
+  # disable power save for sound driver
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0 power_save_controller=N
+  '';
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x51ca", ATTR{power/control}="on"
+  '';
+
   # for boot operation
-  environment.shellAliases = rec{
+  environment.shellAliases = rec {
     zzz = "systemctl suspend";
     boot = "systemctl reboot";
     sboot = "systemctl soft-reboot";
