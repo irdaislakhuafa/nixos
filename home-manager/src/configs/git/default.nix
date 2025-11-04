@@ -31,6 +31,9 @@
             driver = "${pkgs.helix}/bin/hx --vsplit ${original} ${ancestor} ${conflict}";
           };
       };
+      credential = {
+        helper = "store";
+      };
     };
   };
 }

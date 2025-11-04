@@ -35,6 +35,11 @@ let
 in
 {
   programs.git.enable = true;
+  programs.git.config = {
+    init = {
+      defaultBranch = "master";
+    };
+  };
   environment.systemPackages = [
     pkgs.git
     pkgs.gh
