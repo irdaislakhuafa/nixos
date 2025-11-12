@@ -3,7 +3,7 @@
   global = {
     lsp = [
       "scls"
-      "helix-gpt"
+      # "helix-gpt"
     ];
   };
   java = true;
