@@ -1,7 +1,11 @@
-{pkgs, ...}:{
-  home.packages = with pkgs;[
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
     lunarvim
     lazygit
   ];
-  home.file.".config/lvim/config.lua".source = builtins.readFile ./config.lua;
+  home.file.".config/lvim/config.lua" = {
+    enable = true;
+    text = builtins.readFile ./config.lua;
+  };
 }

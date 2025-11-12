@@ -6,8 +6,8 @@
 -- Create an autocommand to run this function whenever the colorscheme changes
 -- In ~/.config/lvim/config.lua
 
--- Add flash.nvim to your plugins
 lvim.plugins = {
+  -- jump each words with laziness
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -32,5 +32,18 @@ lvim.plugins = {
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
-  -- ... your other plugins
+
+  -- colorscheme dark plus for lunarvim
+  {
+    "lunarvim/darkplus.nvim",
+  }
 }
+
+
+-- lvim.colorscheme = "darkplus"
+
+-- enable matchup
+lvim.builtin.treesitter.matchup.enable = true
+
+-- telescope configuration
+lvim.builtin.telescope.defaults.initial_mode = "insert"
