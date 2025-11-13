@@ -60,6 +60,9 @@ lvim.plugins = {
       })
     end,
   },
+
+  -- rainbow colorized
+  { "luochen1990/rainbow" }
 }
 
 
@@ -73,3 +76,20 @@ lvim.builtin.telescope.defaults.initial_mode = "insert"
 
 -- file explorer config
 lvim.builtin.nvimtree.setup.update_cwd = false;
+lvim.builtin.nvimtree.setup.auto_reload_on_write = true;
+
+-- auto reload file if file changed
+vim.o.autoread = true
+vim.o.autowrite = true
+vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', 'FocusGained' }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { '*' }
+})
+
+-- enable rainbow colorized
+vim.g.rainbow_active = 1
+
+-- shortcut
+-- -> delete
+vim.api.nvim_set_keymap('v', 'D', '"_d', { noremap = true })
+vim.api.nvim_set_keymap('n', 'D', '"_x', { noremap = true })
