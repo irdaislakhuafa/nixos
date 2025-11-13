@@ -1,0 +1,5 @@
+
+layout {
+    // This is the single, main pane that will occupy all available space
+    pane
+}
