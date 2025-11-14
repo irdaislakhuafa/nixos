@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-  home.packages = [ ];
+  home.packages = [
+    pkgs.meld
+  ];
 
   programs.git = {
     enable = true;
@@ -33,6 +35,9 @@
       };
       credential = {
         helper = "store";
+      };
+      diff = {
+        tool = "meld";
       };
     };
   };
