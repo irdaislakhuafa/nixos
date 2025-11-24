@@ -28,4 +28,5 @@
   svelte = true;
   astro = true;
   nginx = true;
+  vue = true;
 }

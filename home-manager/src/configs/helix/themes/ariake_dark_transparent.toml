@@ -1,0 +1,110 @@
+# Based on VSCode Theme Ariake Dark
+
+# General style
+warning = "ariake-warning"
+error = "ariake-error"
+info = "ariake-info"
+hint = "ariake-hint"
+diagnostic = "ariake-diagnostic"
+
+# UI Style
+'ui.background' = { } 
+'ui.window' = "ariake-grey2" 
+'ui.gutter' = "ariake-grey2" 
+'ui.text' = "ariake-grey1"
+'ui.text.focus' = "ariake-purple2"
+'ui.text.info' = "ariake-grey1"
+'ui.cursor' = "ariake-white"
+'ui.cursor.primary' = { fg = "ariake-grey2", modifiers = ["reversed"] }
+'ui.cursor.insert' = { fg = "ariake-grey2", modifiers = ["reversed"] }
+'ui.cursor.select' = { fg = "ariake-grey3", modifiers = ["reversed"] }
+'ui.cursor.match' = { modifiers = ["reversed"] }
+'ui.selection' = { bg = "ariake-grey5", modifiers = ["reversed"] } 
+'ui.selection.primary' = {bg = "ariake-grey5"} 
+'ui.linenr' = "ariake-grey2" 
+'ui.linenr.selected' = "ariake-grey4" 
+'ui.statusline.inactive' = "ariake-grey2" 
+'ui.help' = { fg = "ariake-purple2" } 
+'ui.highlight' = { bg = "ariake-grey5" } 
+'ui.menu' = { fg = "ariake-white", bg = "ariake-grey5" } 
+'ui.menu.selected' = "ariake-purple2" 
+'ui.popup' = { fg = "ariake-purple2", bg = "ariake-grey5"} 
+'ui.popup.info' = "ariake-purple2" 
+
+# Syntax style
+'special' = "ariake-grey1" 
+'attribute' = "ariake-purple1" 
+'type' = "ariake-purple1" 
+'type.builtin' = "ariake-blue1" 
+'constructor' = { fg = "ariake-white", modifiers = ["bold"] } 
+'constant' = "ariake-purple2"  
+'constant.builtin' = "ariake-purple3" 
+'constant.numeric.integer' = "ariake-purple3" 
+'string' = "ariake-blue1" 
+'string.regexp' = "ariake-blue3" 
+'comment' = "ariake-grey2" 
+'variable' = "ariake-blue4" 
+'variable.builtin' = "ariake-blue4" 
+'variable.parameter' = "ariake-grey3" 
+'variable.other.member' = "ariake-blue4" 
+'label' = "ariake-grey1" 
+'punctuation' = "ariake-grey1" 
+'punctuation.delimiter' = "ariake-grey1" 
+'punctuation.bracket' = "ariake-grey1" 
+'keyword' = "ariake-purple2" 
+'keyword.control' = "ariake-purple2" 
+'keyword.control.conditional' = "ariake-purple2" 
+'keyword.control.repeat' = "ariake-purple2" 
+'keyword.control.import' = "ariake-purple2" 
+'keyword.control.return' = "ariake-purple2" 
+'keyword.control.exception' = "ariake-purple2" 
+'keyword.operator' = "ariake-purple2" 
+'keyword.directive' = "ariake-purple2" 
+'keyword.function' = "ariake-purple2" 
+'operator' = { fg = "ariake-blue3", modifiers = ["bold"] } 
+'function' = "ariake-purple2"
+'function.method' = { fg = "ariake-white", modifiers = ["bold"] } 
+'tag' = "ariake-blue2" 
+'tag.error' = "ariake-error" 
+
+# Markup style
+'markup.heading.1' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.2' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.3' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.4' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.5' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.6' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.heading.marker' = { fg = "ariake-white", modifiers = ["bold"] } 
+'markup.bold' = { fg = "ariake-purple3", modifiers = ["bold"] } 
+'markup.italic' = { fg = "ariake-purple2", modifiers = ["italic"] } 
+'markup.link.url' = "ariake-purple3" 
+'markup.link.label' = "ariake-purple3" 
+'markup.link.text' = "ariake-blue4" 
+'markup.quote' = "ariake-purple3" 
+
+# Diff style 
+'diff.plus' = { fg = "ariake-blue4", modifiers = ["bold"] } 
+'diff.minus' = { fg = "ariake-purple2", modifiers = ["bold"]} 
+'diff.delta' = { fg = "ariake-purple2" } 
+'diff.delta.moved' = { fg = "ariake-blue4", modifiers = ["italic"] } 
+
+[palette]
+ariake-warning = "#dc64fdff" 
+ariake-error = "#ff2727ff" 
+ariake-info = "#e5e773ff" 
+ariake-hint = "#7fe37cff" 
+ariake-diagnostic = "#fd0069ff"
+ariake-grey1 = "#B9BED5" 
+ariake-purple1 = "#A96FED" 
+ariake-grey2 = "#666973" #
+ariake-purple2 = "#7F7CE3" 
+ariake-blue1 = "#59CCFAFF" 
+ariake-blue2 = "#73B3E7" 
+ariake-blue3 = "#93DDFB" 
+ariake-purple3 = "#E89DFC" 
+ariake-grey3 = "#555B6EFF" 
+ariake-white = "#FAFAFA" 
+ariake-blue4 = "#85B1DF" 
+ariake-grey4 = "#C6C8CFFF" 
+ariake-grey5 = "#686A70FF" 
+ariake-grey6 = "#2E323E" 
