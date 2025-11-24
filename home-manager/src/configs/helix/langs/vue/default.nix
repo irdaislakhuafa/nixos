@@ -4,7 +4,11 @@ let
   isEnable = langs.vue;
 in
 lib.mkIf (isEnable) {
-  home.packages = [ pkgs.vue-language-server ];
+  home.packages = [
+    pkgs.vue-language-server
+    pkgs.bun
+    pkgs.typescript
+  ];
 
   programs.helix.languages = {
     language = [
@@ -16,12 +20,12 @@ lib.mkIf (isEnable) {
         file-types = [ "vue" ];
         roots = [
           "package.json"
-          "vue.config.js"
+          "tsconfig.json"
           ".prettierrc.json"
         ];
         language-servers = [
           "vuels"
-          "ts"
+          # "ts"
         ];
       }
     ];
@@ -31,7 +35,7 @@ lib.mkIf (isEnable) {
         args = [ "--stdio" ];
         config = {
           typescript = {
-            tsdk = "./node_modules/typescript/lib";
+            tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib/";
           };
         };
       };
