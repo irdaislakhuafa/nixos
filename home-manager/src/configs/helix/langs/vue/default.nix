@@ -25,8 +25,8 @@ lib.mkIf (isEnable) {
         ];
         language-servers = [
           "vuels"
-          # "ts"
-        ];
+          "vtsls"
+        ] ++ langs.global.lsp;
       }
     ];
     language-server = {
@@ -34,6 +34,9 @@ lib.mkIf (isEnable) {
         command = "vue-language-server";
         args = [ "--stdio" ];
         config = {
+          vue = {
+            hybridMode = false;
+          };
           typescript = {
             tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib/";
           };

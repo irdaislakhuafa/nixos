@@ -94,6 +94,13 @@ lib.mkIf (isEnable) {
           referencesCodeLens = {
             enabled = true;
           };
+          plugins = [
+            {
+              name = "@vue/typescript-plugin";
+              location = "${pkgs.vue-language-server}/bin/vue-language-server";
+              languages = [ "vue" ];
+            }
+          ];
         };
       };
       vtsls = {
@@ -101,6 +108,13 @@ lib.mkIf (isEnable) {
         args = [ "--stdio" ];
         config = {
           hostInfo = "helix";
+          plugins = [
+            {
+              name = "@vue/typescript-plugin";
+              location = "${pkgs.vue-language-server}/bin/vue-language-server";
+              languages = [ "vue" ];
+            }
+          ];
           typescript = {
             updateImportsOnFileMove.enabled = "always";
             suggest.completeFunctionCalls = true;
