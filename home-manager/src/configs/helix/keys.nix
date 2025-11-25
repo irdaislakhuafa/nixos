@@ -11,6 +11,7 @@
     C-q = ":buffer-close";
     A-ret = [ ":run-shell-command basename $(pwd)" ];
     C-ret = [ ":run-shell-command echo \"%sh{git blame -L %{cursor_line},+1 %{buffer_name} | cut -d' ' -f1-8}\"" ];
+    A-g = ":run-shell-command git difftool -d";
   };
   select = { };
 }

@@ -33,7 +33,8 @@ lib.mkIf (isEnable) {
           ];
           scope = "source.js";
           language-servers = [
-            "js"
+            # "js"
+            "vtsls"
             "vscode-eslint-language-server"
             "emmet"
           ] ++ langs.global.lsp;

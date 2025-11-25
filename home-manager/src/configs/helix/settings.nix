@@ -50,8 +50,9 @@
       left = [
         "mode"
         "spinner"
+        # "version-control"
       ];
-      center = [ "file-name" ];
+      center = [ "file-name" "file-modification-indicator" ];
       right = [
         "file-modification-indicator"
         "read-only-indicator"

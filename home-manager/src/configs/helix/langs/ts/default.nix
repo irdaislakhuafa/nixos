@@ -20,6 +20,7 @@ lib.mkIf (isEnable) {
     pkgs.typescript-language-server
     pkgs.bun
     pkgs.vscode-langservers-extracted
+    pkgs.vtsls
   ] ++ (if (features.tsx.enable) then features.tsx.pkgs else [ ]);
 
   programs.helix.languages = {
@@ -32,7 +33,7 @@ lib.mkIf (isEnable) {
             "node_modules"
           ];
           language-servers = [
-            "ts"
+            "vtsls"
             "vscode-eslint-language-server"
             "emmet"
           ] ++ langs.global.lsp;
@@ -63,7 +64,8 @@ lib.mkIf (isEnable) {
                 end = "*/";
               };
               language-servers = [
-                "ts"
+                # "ts"
+                "vtsls"
                 "vscode-eslint-language-server"
                 "scls"
                 "emmet"
@@ -91,6 +93,32 @@ lib.mkIf (isEnable) {
           };
           referencesCodeLens = {
             enabled = true;
+          };
+        };
+      };
+      vtsls = {
+        command = "vtsls";
+        args = [ "--stdio" ];
+        config = {
+          hostInfo = "helix";
+          typescript = {
+            updateImportsOnFileMove.enabled = "always";
+            suggest.completeFunctionCalls = true;
+            tsserver.enableTracing = true;
+            inlayHints.parameterNames.enabled = "all";
+            inlayHints.parameterTypes.enabled = true;
+            inlayHints.variableTypes.enabled = true;
+            inlayHints.propertyDeclarationTypes.enabled = true;
+            inlayHints.functionLikeReturnTypes = true;
+            inlayHints.enumMemberValues.enabled = true;
+            format.enable = false;
+            format.semicolons = "remove";
+            preferences.importModuleSpecifier = "non-relative";
+            preferences.importModuleSpecifierEnding = "auto";
+            tsserver.pluginPaths = [
+              "typescript-plugin-css-modules"
+              "./node_modules"
+            ];
           };
         };
       };
