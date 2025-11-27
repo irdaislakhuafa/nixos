@@ -25,7 +25,6 @@ lib.mkIf (isEnable) {
         ];
         language-servers = [
           "vuels"
-          "vtsls"
         ] ++ langs.global.lsp;
       }
     ];
