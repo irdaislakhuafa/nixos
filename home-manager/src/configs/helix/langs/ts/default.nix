@@ -42,6 +42,14 @@ lib.mkIf (isEnable) {
             unit = " ";
           };
           scope = "source.ts";
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+              "--write"
+            ];
+          };
         }
       ]
       ++ (
@@ -64,7 +72,6 @@ lib.mkIf (isEnable) {
                 end = "*/";
               };
               language-servers = [
-                # "ts"
                 "vtsls"
                 "vscode-eslint-language-server"
                 "scls"
@@ -125,7 +132,7 @@ lib.mkIf (isEnable) {
             inlayHints.propertyDeclarationTypes.enabled = true;
             inlayHints.functionLikeReturnTypes = true;
             inlayHints.enumMemberValues.enabled = true;
-            format.enable = false;
+            format.enable = true;
             format.semicolons = "remove";
             preferences.importModuleSpecifier = "non-relative";
             preferences.importModuleSpecifierEnding = "auto";
