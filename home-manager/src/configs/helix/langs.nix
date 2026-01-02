@@ -29,4 +29,5 @@
   astro = true;
   nginx = true;
   vue = true;
+  cs = true;
 }
