@@ -82,6 +82,14 @@ lib.mkIf (isEnable) {
                 tab-width = 2;
                 unit = "";
               };
+              formatter = {
+                command = "prettier";
+                args = [
+                  "--parser"
+                  "typescript"
+                  "--write"
+                ];
+              };
             }
           ]
         else
