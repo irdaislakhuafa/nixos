@@ -155,6 +155,7 @@ in
     pkgs.docker
     pkgs.docker-compose
     pkgs.distrobox
+    pkgs.virt-manager
   ];
 
   # docker
@@ -168,9 +169,36 @@ in
     daemon = {
       settings = {
         "data-root" = dataRootDir;
+        "dns" = [ ];
+        "group" = "docker";
+        "hosts" = [ "fd://" ];
+        "live-restore" = true;
+        "log-driver" = "journald";
+        # "default-address-pools" = [
+        #   {
+        #     # "base" = "192.168.200.0/24";
+        #     "base" = "172.30.0.0/16";
+        #     "size" = 24;
+        #   }
+        # ];
+        "bip" = "100.100.0.1/16";
       };
     };
   };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    nss = {
+      enable = true;
+      enableGuest = true;
+    };
+    qemu = {
+      # package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+      ovmf.enable = true;
+    };
+  };
+  virtualisation.spiceUSBRedirection.enable = true;
 
   services.dockerRegistry.enable = false;
 }

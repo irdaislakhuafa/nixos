@@ -5,33 +5,27 @@
   ...
 }:
 {
+  imports = (import ../../../importer.nix { dir = builtins.toPath ./.; });
+
   environment.systemPackages = with pkgs; [
     iwd
     # openvpn
     wirelesstools
-    bluetuith
+    # bluetuith
     # impala
     inputs.iwmenu.packages.${pkgs.system}.default
   ];
 
   networking.hostName = "developer";
-  networking.useNetworkd = true;
-  networking.useDHCP = true;
-  networking.domain = "~.";
-  networking.nameservers = [
-    "8.8.8.8"
-    "1.1.1.1"
-  ];
+  networking.useNetworkd = false;
+  networking.useDHCP = false;
 
   networking.wireless.iwd = {
     package = pkgs.iwd;
     enable = true;
     settings = {
-      Settings = {
-        AutoConnect = true;
-      };
       Network = rec {
-        EnableIPv6 = true;
+        EnableIPv6 = false;
         EnableDHCPv6 = EnableIPv6;
         RoutePriorityOffset = 300;
         NameResolvingService = "systemd";
@@ -41,16 +35,11 @@
         IgnorePeerSignalStrength = false;
         EnableNetworkConfiguration = true;
         DisablePowerSave = true;
+        AutoConnect = true;
       };
     };
   };
-  services.resolved = {
-    enable = true;
-  };
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
-  services.blueman.enable = false;
+  services.resolved.enable = true;
   services.pulseaudio.extraModules = with pkgs; [
     pulseaudio-modules-bt
   ];
