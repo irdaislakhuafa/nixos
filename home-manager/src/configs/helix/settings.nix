@@ -35,6 +35,8 @@
     };
     auto-completion = true;
     idle-timeout = 250;
+    completion-timeout = 1;
+    completion-replace = true;
     preview-completion-insert = true;
     auto-info = true;
     true-color = true;
@@ -52,7 +54,10 @@
         "spinner"
         # "version-control"
       ];
-      center = [ "file-name" "file-modification-indicator" ];
+      center = [
+        "file-name"
+        "file-modification-indicator"
+      ];
       right = [
         "file-modification-indicator"
         "read-only-indicator"
@@ -74,6 +79,15 @@
     completion-trigger-len = 1;
     file-picker = {
       hidden = false; # ignore hidden files
+    };
+    auto-pairs = {
+      "(" = ")";
+      "{" = "}";
+      "[" = "]";
+      "\"" = "\"";
+      "`" = "`";
+      "<" = ">";
+      "'" = "'";
     };
   };
   keys = import ./keys.nix { };
