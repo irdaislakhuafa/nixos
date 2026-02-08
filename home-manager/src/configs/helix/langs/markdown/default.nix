@@ -27,6 +27,14 @@ lib.mkIf (isEnable) {
           unit = " ";
         };
         auto-format = true;
+        formatter = {
+          command = "prettier";
+          args = [
+            "--parser"
+            "markdown"
+            "--write"
+          ];
+        };
       }
     ];
 

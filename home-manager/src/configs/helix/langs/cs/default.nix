@@ -6,7 +6,8 @@ in
 lib.mkIf (isEnable) {
   home.packages = [
     pkgs.csharp-ls
-    pkgs.dotnet-runtime
+    # pkgs.dotnet-runtime
+    pkgs.dotnet-sdk
     pkgs.omnisharp-roslyn
     pkgs.netcoredbg
   ];
@@ -39,8 +40,8 @@ lib.mkIf (isEnable) {
           unit = "\t";
         };
         language-servers = [
-          # "omnisharp"
-          "csharp-ls"
+          "omnisharp"
+          # "csharp-ls"
         ];
         debugger = {
           name = "netcoredbg";

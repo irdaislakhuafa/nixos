@@ -31,6 +31,7 @@
         NameResolvingService = "systemd";
       };
       General = {
+        # DNS = "1.1.1.1";
         UseDefaultInterface = false;
         IgnorePeerSignalStrength = false;
         EnableNetworkConfiguration = true;
