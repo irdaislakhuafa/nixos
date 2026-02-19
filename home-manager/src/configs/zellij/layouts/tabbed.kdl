@@ -1,4 +1,6 @@
-
 layout {
-    tab
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane
 }
