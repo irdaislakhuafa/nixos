@@ -3,7 +3,8 @@
   global = {
     lsp = [
       "scls"
-      # "helix-gpt"
+      "helix-gpt"
+      "typos"
     ];
   };
   java = true;
@@ -30,4 +31,7 @@
   nginx = true;
   vue = true;
   cs = true;
+  fish = true;
+  prisma = true;
+  typos = true;
 }

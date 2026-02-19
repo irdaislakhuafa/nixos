@@ -24,8 +24,10 @@
       display-messages = true;
       display-inlay-hints = true;
       display-progress-messages = true;
+      auto-signature-help = false;
+      display-signature-help-docs = false;
     };
-    auto-format = true;
+    auto-format = false;
     auto-save = {
       focus-lost = true;
       after-delay = {

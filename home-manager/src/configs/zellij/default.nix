@@ -9,4 +9,8 @@
     enable = true;
     text = builtins.readFile ./layouts/naked.kdl;
   };
+  home.file.".config/zellij/layouts/tabbed.kdl" = {
+    enable = true;
+    text = builtins.readFile ./layouts/tabbed.kdl;
+  };
 }
