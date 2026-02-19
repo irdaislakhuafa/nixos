@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: rec {
+{ pkgs, config, ... }:
+rec {
   environment.systemPackages = with pkgs; [
     home-manager
   ];
@@ -10,6 +11,8 @@
   users.groups = {
     developer = { };
     docker = { };
+    scanner = { };
+    lp = { };
   };
 
   users.users = rec {
@@ -25,6 +28,8 @@
         "input"
         "libvirtd"
         "kvm"
+        "scanner"
+        "lp"
       ];
       hashedPassword = "$6$V4KN67wwRfn8/ykm$.Ny0zPHGfRKHZNSreWEPUDGET3LQxPphR7ENwf9hm.9jhxiUAEKfRV1rzSg2EkcQ68EuPhHymhRzf8DLm.uMq0"; # hashed with `mkpassword -m sha-512`
     };
@@ -36,4 +41,3 @@
   services.getty.helpLine = "Welcome Developer, Lets Start Your Journey Today :)";
   services.getty.autologinUser = "${users.users.i.name}";
 }
-

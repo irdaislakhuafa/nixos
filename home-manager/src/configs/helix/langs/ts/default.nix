@@ -33,7 +33,7 @@ lib.mkIf (isEnable) {
             "node_modules"
           ];
           language-servers = [
-            "vtsls"
+            "ts"
             "vscode-eslint-language-server"
             "emmet"
           ] ++ langs.global.lsp;
@@ -59,7 +59,6 @@ lib.mkIf (isEnable) {
               name = "tsx";
               scope = "source.tsx";
               injection-regex = "(tsx)";
-              # language-id = "typescriptreact";
               file-types = [ "tsx" ];
               roots = [
                 "package.json"
@@ -72,7 +71,7 @@ lib.mkIf (isEnable) {
                 end = "*/";
               };
               language-servers = [
-                "vtsls"
+                "ts"
                 "vscode-eslint-language-server"
                 "scls"
                 "emmet"
@@ -101,7 +100,7 @@ lib.mkIf (isEnable) {
         command = "typescript-language-server";
         args = [ "--stdio" ];
         config = {
-          provideFormatter = true;
+          provideFormatter = false;
           format = {
             semicolon = "insert";
             convertTabsToSpaces = true;
@@ -140,7 +139,7 @@ lib.mkIf (isEnable) {
             inlayHints.propertyDeclarationTypes.enabled = true;
             inlayHints.functionLikeReturnTypes = true;
             inlayHints.enumMemberValues.enabled = true;
-            format.enable = true;
+            format.enable = false;
             format.semicolons = "remove";
             preferences.importModuleSpecifier = "non-relative";
             preferences.importModuleSpecifierEnding = "auto";
