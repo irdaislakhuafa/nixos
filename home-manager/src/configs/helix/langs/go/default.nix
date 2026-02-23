@@ -42,7 +42,10 @@ lib.mkIf (isEnable) {
           start = "/*";
           end = "*/";
         };
-        language-servers = [ "gopls" ] ++ langs.global.lsp;
+        language-servers = [
+          "gopls"
+          "sonarlint"
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 2;
           unit = " ";

@@ -3,7 +3,7 @@
   global = {
     lsp = [
       "scls"
-      "helix-gpt"
+      # "helix-gpt"
       "typos"
     ];
   };
@@ -34,4 +34,5 @@
   fish = true;
   prisma = true;
   typos = true;
+  sonarlint = true;
 }
