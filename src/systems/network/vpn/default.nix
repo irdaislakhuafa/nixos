@@ -1,8 +1,21 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 let
   isEnable = true;
+
+  # chrome with chaining proxy
+  vpn-chome = (
+    pkgs.writeShellScriptBin "vpn-chrome" ''
+      google-chrome-stable \
+        --proxy-server="socks5://127.0.0.1:1080" \
+        --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" \
+        --user-data-dir="/tmp/bri-profile" \
+        $@
+    ''
+  );
 in
 lib.mkIf (isEnable) {
+  environment.systemPackages = [ vpn-chome ];
+
   # warp vpn
   services.cloudflare-warp.enable = true;
   services.cloudflare-warp.openFirewall = true;
