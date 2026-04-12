@@ -44,7 +44,10 @@ lib.mkIf (isEnable) {
           "pom.xml"
           "build.gradle"
         ];
-        language-servers = [ "jdtls" ] ++ langs.global.lsp;
+        language-servers = [
+          "jdtls"
+          "sonarlint"
+        ] ++ langs.global.lsp;
         indent = {
           tab-width = 4;
           unit = " ";
