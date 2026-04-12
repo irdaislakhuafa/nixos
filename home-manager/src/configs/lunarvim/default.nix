@@ -1,5 +1,8 @@
-{ pkgs, ... }:
-{
+{ pkgs, lib, ... }:
+let
+  isEnable = false;
+in
+lib.mkIf (isEnable) {
   home.packages = with pkgs; [
     lunarvim
     lazygit

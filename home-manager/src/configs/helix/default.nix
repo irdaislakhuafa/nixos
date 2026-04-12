@@ -12,6 +12,7 @@ in
 {
   home.packages = [
     pkgs.serpl
+    pinnedPkgs.prettier
   ];
 
   home.file.".config/helix/themes/ariake_dark.toml" = {

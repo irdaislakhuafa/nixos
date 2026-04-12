@@ -3,13 +3,13 @@ let
   langs = import ../../langs.nix { };
   isEnable = langs.typos;
 in
-lib.mkIf (isEnable) {
+lib.mkIf (true) {
   home.packages = [
     pkgs.typos-lsp
   ];
 
   programs.helix.languages = {
-    language-servers = {
+    language-server = {
       typos = {
         command = "typos-lsp";
         config = {

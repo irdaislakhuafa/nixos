@@ -36,7 +36,8 @@ lib.mkIf (isEnable) {
           language-servers =
             langs.global.lsp
             ++ (if (isUsePhpActor) then [ "phpactor" ] else [ ])
-            ++ (if (isUseIntelephense) then [ "intelephense" ] else [ ]);
+            ++ (if (isUseIntelephense) then [ "intelephense" ] else [ ])
+            ++ [ "sonarlint" ];
           indent = {
             tab-width = 4;
             unit = " ";
@@ -53,7 +54,10 @@ lib.mkIf (isEnable) {
               name = "blade";
               injection-regex = "blade";
               scope = "source.blade.php";
-              language-servers = [ "scls" ];
+              language-servers = [
+                "scls"
+                "sonarlint"
+              ];
               file-types = [
                 { glob = "*.blade.php"; }
                 "blade"

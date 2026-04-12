@@ -2,11 +2,11 @@
 {
   services.printing = {
     enable = true;
-    drivers = [ pkgs.hplip ];
+    # drivers = [ pkgs.hplip ];
   };
   hardware.sane = {
     enable = true;
-    extraBackends = [ pkgs.hplipWithPlugin ];
+    # extraBackends = [ pkgs.hplipWithPlugin ];
   };
   programs.system-config-printer.enable = true;
   environment.systemPackages = [
