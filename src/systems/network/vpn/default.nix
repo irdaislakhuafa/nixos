@@ -7,14 +7,13 @@ let
     pkgs.writeShellScriptBin "vpn-chrome" ''
       google-chrome-stable \
         --proxy-server="socks5://127.0.0.1:1080" \
-        --host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE 127.0.0.1" \
         --user-data-dir="/tmp/bri-profile" \
         $@
     ''
   );
 in
 lib.mkIf (isEnable) {
-  environment.systemPackages = [ vpn-chome ];
+  environment.systemPackages = [ vpn-chome pkgs.gost ];
 
   # warp vpn
   services.cloudflare-warp.enable = true;
@@ -26,15 +25,17 @@ lib.mkIf (isEnable) {
     bri-http = {
       enable = false;
       type = "http";
-      host = "192.168.170.246";
+      host = "127.0.0.1";
       port = 8080;
     };
     bri-socks = {
       enable = true;
       type = "socks5";
-      # host = "192.168.170.246";
       host = "127.0.0.1";
       port = 1080;
     };
+  };
+  environment.shellAliases = {
+    pc = "proxychains4";
   };
 }
