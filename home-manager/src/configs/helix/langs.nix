@@ -34,5 +34,5 @@
   fish = true;
   prisma = true;
   typos = true;
-  sonarlint = true;
+  sonarlint = false;
 }
