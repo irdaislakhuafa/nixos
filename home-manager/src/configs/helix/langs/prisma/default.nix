@@ -2,11 +2,9 @@
 let
   langs = import ../../langs.nix { };
   isEnable = langs.prisma;
-
-  fetchedPinnedPkgs = builtins.fetchGit rec {
-    url = "https://github.com/NixOS/nixpkgs";
-    rev = "da289b19d0cbe59c3d3a060bcc990dc955124c64";
-    name = "prisma-language-server-${rev}";
+  fetchedPinnedPkgs = builtins.fetchTarball rec {
+    url = "https://github.com/NixOS/nixpkgs/archive/da289b19d0cbe59c3d3a060bcc990dc955124c64.tar.gz";
+    sha256 = "0yw56b5xvf4vjbn6ss5g7ibnrsadmy10qhggw5h0ncx2klv7827m";
   };
   pinnedPkgs = import fetchedPinnedPkgs {
     inherit (pkgs) system config;
