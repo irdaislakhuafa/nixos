@@ -206,6 +206,17 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
+
+    // room plugins
+    shared_except "locked" {
+        bind "w" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
+                floating true
+                ignore_case true
+                quick_jump true
+            }
+        }
+    }
 }
 
 // Plugin aliases - can be used to change the implementation of Zellij
