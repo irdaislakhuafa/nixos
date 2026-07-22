@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs;[
-    vscode
+    # vscode
   ];
   home.file.".config/code-flags.conf" = {
     enable = true;
