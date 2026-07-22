@@ -12,6 +12,8 @@ in
 {
   home.packages = [
     pkgs.serpl
+    pkgs.jq
+    pkgs.sleek
     pinnedPkgs.prettier
   ];
 
