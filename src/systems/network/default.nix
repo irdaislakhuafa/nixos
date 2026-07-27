@@ -37,6 +37,10 @@
         EnableNetworkConfiguration = true;
         DisablePowerSave = true;
         AutoConnect = true;
+        Country = "ID";
+      };
+      Blacklist = {
+        InitialTimeout = 0;
       };
     };
   };
