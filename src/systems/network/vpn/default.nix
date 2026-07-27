@@ -13,11 +13,15 @@ let
   );
 in
 lib.mkIf (isEnable) {
-  environment.systemPackages = [ vpn-chome pkgs.gost ];
+  environment.systemPackages = [
+    vpn-chome
+    pkgs.gost
+    pkgs.tun2socks
+  ];
 
   # warp vpn
-  services.cloudflare-warp.enable = true;
-  services.cloudflare-warp.openFirewall = true;
+  services.cloudflare-warp.enable = false;
+  services.cloudflare-warp.openFirewall = false;
 
   # chaining proxy from another source
   programs.proxychains.enable = true;
