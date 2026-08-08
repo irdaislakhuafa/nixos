@@ -40,7 +40,7 @@ For usage or how to apply this configuration you can use command below.
   if you got error like `"Current user is not owner of this repository"`, you need to add this repository as safe directory with commands below.
   
   ```sh
-  $ doas git config --global --add --safe.directory $(pwd)
+  $ doas git config --global --add safe.directory $(pwd)
   ```
 
   `pwd` will print current working directory, if you not on this repository directory you can change `$(pwd)` with path to this reposiroty directory like `/home/$USERNAME/nixos`.
