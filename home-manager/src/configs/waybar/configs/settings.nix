@@ -1,8 +1,11 @@
-{ pkgs, ... }: [
+{ pkgs, ... }:
+[
   {
     output = [
       "eDP-1"
       "HDMI-A-1"
+      "DP-1"
+      "*"
     ];
     layer = "top";
     position = "top"; # Waybar position (top|bottom|left|right)

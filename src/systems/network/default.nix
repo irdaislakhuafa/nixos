@@ -18,7 +18,7 @@
 
   networking.hostName = "developer";
   networking.useNetworkd = false;
-  networking.useDHCP = false;
+  networking.useDHCP = true;
 
   networking.wireless.iwd = {
     package = pkgs.iwd;
@@ -60,6 +60,7 @@
     })
   '';
 
+  # wpa_supplicant, i use iwd so i don't need this
   networking.wireless.enable = false;
   networking.networkmanager.enable = false;
 

@@ -155,7 +155,6 @@ in
     pkgs.docker
     pkgs.docker-compose
     pkgs.distrobox
-    pkgs.virt-manager
   ];
 
   # docker
@@ -185,20 +184,6 @@ in
       };
     };
   };
-
-  virtualisation.libvirtd = {
-    enable = true;
-    nss = {
-      enable = true;
-      enableGuest = true;
-    };
-    qemu = {
-      # package = pkgs.qemu_kvm;
-      swtpm.enable = true;
-      ovmf.enable = true;
-    };
-  };
-  virtualisation.spiceUSBRedirection.enable = true;
 
   services.dockerRegistry.enable = false;
 }
