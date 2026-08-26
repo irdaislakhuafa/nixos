@@ -5,7 +5,7 @@
   ...
 }:
 let
-  settings = import ../settings.nix { inherit config; };
+  settings = import ../settings.nix { inherit config pkgs; };
 in
 {
   systemd.user.services.swaybg = lib.mkIf settings.isEnableAutoStart {

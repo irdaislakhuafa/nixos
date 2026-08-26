@@ -1,12 +1,14 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs;[
-    intel-gpu-tools
-  ];
+{ pkgs, lib, ... }:
+let
+  isEnable = true;
+in
+lib.mkIf (isEnable) {
   hardware.intel-gpu-tools.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.graphics.extraPackages = with pkgs;[
+  hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
-    intel-media-sdk
-    intel-vaapi-driver
+    vpl-gpu-rt # enable qsv
+    intel-compute-runtime
   ];
+  boot.kernelParams = [ "i915.enable_guc=3" ];
 }
