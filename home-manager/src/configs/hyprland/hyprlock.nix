@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  settings = import ./settings.nix { inherit config; };
+  settings = import ./settings.nix { inherit config pkgs; };
 in
 {
   home.file.".config/${settings.dirName}/logo.png".source = settings.locker.image.path;
@@ -16,6 +16,9 @@ in
           ready_message = "Scan fingerprint to unlock";
           present_message = "Scanning fingerprint";
         };
+      };
+      animations = {
+        enable = true;
       };
       general = {
         disable_loading_bar = false;

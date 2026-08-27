@@ -5,7 +5,7 @@
   ...
 }:
 let
-  settings = import ../settings.nix { inherit config; };
+  settings = import ../settings.nix { inherit config pkgs; };
 in
 {
   systemd.user.services.swaybg = lib.mkIf settings.isEnableAutoStart {
@@ -17,7 +17,7 @@ in
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill -i ${settings.dir}/wallpaper.png";
+      ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill -i ${settings.wallpaper.path}";
       Restart = "on-failure";
     };
   };

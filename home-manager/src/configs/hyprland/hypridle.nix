@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  settings = import ./settings.nix { inherit config; };
+  settings = import ./settings.nix { inherit config pkgs; };
 in
 {
   services.hypridle.enable = true;
