@@ -15,8 +15,8 @@ in
 lib.mkIf (isEnable) {
   environment.systemPackages = [
     vpn-chome
-    pkgs.gost
-    pkgs.tun2socks
+    pkgs.gost # use as proxy to redirect specific connection
+    pkgs.sshuttle # redirect all connection over ssh. need to combine with proxychains4 `pc sshuttle --dns -r user@ip -x 22 0/0`
   ];
 
   # warp vpn
