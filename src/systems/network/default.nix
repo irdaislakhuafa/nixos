@@ -20,6 +20,10 @@
   networking.useNetworkd = false;
   networking.useDHCP = true;
 
+  # Force disable power saving at the kernel driver level (change iwlwifi if using AMD/Realtek)
+  boot.extraModprobeConfig = ''
+    options iwlwifi power_save=0
+  '';
   networking.wireless.iwd = {
     package = pkgs.iwd;
     enable = true;
@@ -31,16 +35,21 @@
         NameResolvingService = "systemd";
       };
       General = {
-        # DNS = "1.1.1.1";
         UseDefaultInterface = false;
         IgnorePeerSignalStrength = false;
         EnableNetworkConfiguration = true;
         DisablePowerSave = true;
         AutoConnect = true;
         Country = "ID";
+        AddressRandomization = true;
+        AutoconnectNetworkInterval = 5;
       };
       Blacklist = {
         InitialTimeout = 0;
+      };
+      Rank = {
+        BandModifier5GHz = 1.5;
+        BandModifier2_4GHz = 1.0;
       };
     };
   };

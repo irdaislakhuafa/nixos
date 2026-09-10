@@ -25,6 +25,8 @@ lib.mkIf (isEnable) {
 
   # chaining proxy from another source
   programs.proxychains.enable = true;
+  programs.proxychains.proxyDNS = true; # Enables proxy DNS routing to prevent leaks
+  programs.proxychains.chain.type = "dynamic";
   programs.proxychains.proxies = {
     bri-http = {
       enable = false;
