@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   styles = import ./styles.nix { };
-  activeStyle = styles.glassy_night;
+  activeStyle = styles.glassy_night_minimal;
 in
 {
   home.packages = with pkgs; [
