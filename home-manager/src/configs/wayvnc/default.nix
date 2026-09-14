@@ -19,7 +19,7 @@ lib.mkIf (isEnable) {
       address=0.0.0.0
       port=5900
       enable_auth=true
-      username=
+      username=irdaislakhuafa
       password=00000000
       private_key_file=${configDir}/key.pem
       certificate_file=${configDir}/cert.pem
