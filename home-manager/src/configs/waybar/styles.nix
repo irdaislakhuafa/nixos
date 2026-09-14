@@ -4,5 +4,6 @@ let
 in
 {
   default = "${dir}/default.css";
-  glassy = "${dir}/glassy.css";
+  glassy_light = "${dir}/glassy_light.css";
+  glassy_night = "${dir}/glassy_night.css";
 }

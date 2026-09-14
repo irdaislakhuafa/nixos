@@ -7,8 +7,10 @@
 let
   isEnable = true;
   settings = import ./settings.nix { inherit config pkgs; };
+  styles = import ./styles.nix { };
+  activeStyle = styles.glassy_night;
   hyprlandAutoStart = import ./configs/modules/autostart.nix { inherit config pkgs; };
-  hyprlandConfig = (import ./configs/default.nix { }) + hyprlandAutoStart;
+  hyprlandConfig = (import ./configs/default.nix { activeStyle = activeStyle; }) + hyprlandAutoStart;
 in
 if (isEnable) then
   {

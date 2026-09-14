@@ -1,0 +1,284 @@
+/* =============================================================================
+ * Apple Dark Glassmorphism Waybar Theme (Compact / Dark Glass Version)
+ * Rounded, smoked black glass, transparent & modern Apple-inspired aesthetics
+ * GTK3 CSS Compliant
+ * ============================================================================= */
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Roboto", "FontAwesome", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Entire Waybar window - completely transparent floating bar container */
+window#waybar {
+  background-color: transparent;
+  background: transparent;
+  color: #ffffff;
+  box-shadow: none;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Common Dark Glassy Apple Capsule Style for Modules - Compact Sizing */
+#workspaces,
+#window,
+#clock,
+#custom-clock,
+#battery,
+#cpu,
+#memory,
+#custom-memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#submap,
+#scratchpad,
+#idle_inhibitor,
+#mpd {
+  background: rgba(18, 18, 25, 0.35);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  color: #ffffff;
+  box-shadow: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.75, 0.64, 1);
+}
+
+/* Module Hover Effect - Jelly Spring Stretch & Dark Glass Highlight */
+#workspaces:hover,
+#window:hover,
+#clock:hover,
+#custom-clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#custom-memory:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-media:hover,
+#tray:hover,
+#submap:hover,
+#scratchpad:hover,
+#idle_inhibitor:hover,
+#mpd:hover {
+  background: rgba(38, 38, 52, 0.55);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  padding: 3px 11px;
+  margin: 1px 0px;
+  font-size: 11.5px;
+  transition: all 0.3s cubic-bezier(0.34, 1.85, 0.64, 1);
+}
+
+/* Module Click / Active Effect - Jelly Compression Squish */
+#workspaces:active,
+#window:active,
+#clock:active,
+#custom-clock:active,
+#battery:active,
+#cpu:active,
+#memory:active,
+#custom-memory:active,
+#temperature:active,
+#backlight:active,
+#network:active,
+#pulseaudio:active,
+#custom-media:active,
+#tray:active,
+#submap:active,
+#scratchpad:active,
+#idle_inhibitor:active,
+#mpd:active {
+  background: rgba(55, 55, 75, 0.70);
+  padding: 1px 5px;
+  margin: 3px 3px;
+  font-size: 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transition: all 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -----------------------------------------------------------------------------
+ * Workspaces - Apple Style Rounded Number Buttons with Jelly Physics (Compact)
+ * ----------------------------------------------------------------------------- */
+#workspaces {
+  padding: 1px 3px;
+  margin: 2px 2px;
+  background: rgba(12, 12, 18, 0.35);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  transition: all 0.35s cubic-bezier(0.34, 1.75, 0.64, 1);
+}
+
+#workspaces button {
+  padding: 2px 7px;
+  margin: 1px 1px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.70);
+  font-weight: 600;
+  font-size: 10.5px;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.75, 0.64, 1);
+}
+
+/* Workspace Hover - Jelly Elastic Bounce */
+#workspaces button:hover {
+  background: rgba(50, 50, 68, 0.50);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+  padding: 3px 9px;
+  margin: 0px 0px;
+  font-size: 11px;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.34, 1.9, 0.64, 1);
+}
+
+/* Workspace Click / Press - Jelly Squish Down */
+#workspaces button:active {
+  background: rgba(65, 65, 88, 0.65);
+  padding: 0px 4px;
+  margin: 2px 2px;
+  font-size: 9.5px;
+  border-radius: 8px;
+  transition: all 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active / Focused Workspace - Apple Accent Pill */
+#workspaces button.active,
+#workspaces button.focused {
+  background: linear-gradient(135deg, #007aff 0%, #0a84ff 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Active Workspace Hover - Extra Jelly POP */
+#workspaces button.active:hover,
+#workspaces button.focused:hover {
+  padding: 3px 10px;
+  margin: 0px -1px;
+  font-size: 11.5px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Urgent Workspace */
+#workspaces button.urgent {
+  background: linear-gradient(135deg, #ff3b30 0%, #ff453a 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Workspace state modifications */
+#workspaces button.empty {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* -----------------------------------------------------------------------------
+ * Window Title Module
+ * ----------------------------------------------------------------------------- */
+#window {
+  font-weight: 600;
+  background: rgba(12, 12, 18, 0.30);
+  border: 1px solid transparent;
+}
+
+/* -----------------------------------------------------------------------------
+ * Custom Clock Module (Center Apple Glass Pill)
+ * ----------------------------------------------------------------------------- */
+#custom-clock,
+#clock {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  background: rgba(22, 22, 32, 0.40);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+/* -----------------------------------------------------------------------------
+ * Battery Module States
+ * ----------------------------------------------------------------------------- */
+#battery.charging,
+#battery.plugged {
+  color: #34c759;
+  border-color: rgba(52, 199, 89, 0.4);
+}
+
+#battery.warning:not(.charging) {
+  color: #ffcc00;
+  border-color: rgba(255, 204, 0, 0.4);
+}
+
+@keyframes blink {
+  to {
+    background-color: rgba(255, 59, 48, 0.35);
+    color: #ffffff;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: rgba(255, 59, 48, 0.2);
+  color: #ff3b30;
+  border-color: rgba(255, 59, 48, 0.6);
+  animation-name: blink;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------------------------------
+ * Submap / Mode Module
+ * ----------------------------------------------------------------------------- */
+#mode,
+#submap {
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.8), rgba(255, 159, 10, 0.9));
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* -----------------------------------------------------------------------------
+ * Tray Module
+ * ----------------------------------------------------------------------------- */
+#tray {
+  padding: 2px 6px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* -----------------------------------------------------------------------------
+ * Label Focus
+ * ----------------------------------------------------------------------------- */
+label:focus {
+  background-color: transparent;
+}

@@ -1,6 +1,6 @@
 /* =============================================================================
- * Apple Glassmorphism Waybar Theme (Compact / Small Bar Version)
- * Rounded, glassy, transparent & modern Apple-inspired aesthetics with Jelly Physics
+ * Apple Light Glassmorphism Waybar Theme (Compact / Light Glass Version)
+ * Rounded, white glass, transparent & modern Apple-inspired aesthetics
  * GTK3 CSS Compliant
  * ============================================================================= */
 
@@ -20,6 +20,8 @@ window#waybar {
   background-color: transparent;
   background: transparent;
   color: #ffffff;
+  box-shadow: none;
+  border: none;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -28,7 +30,7 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-/* Common Glassy Apple Capsule Style for Modules - Compact Sizing */
+/* Common Light Glassy Apple Capsule Style for Modules - Compact Sizing */
 #workspaces,
 #window,
 #clock,
@@ -49,17 +51,17 @@ window#waybar.hidden {
 #scratchpad,
 #idle_inhibitor,
 #mpd {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid transparent;
   border-radius: 14px;
   padding: 2px 8px;
   margin: 2px 2px;
   color: #ffffff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: none;
   transition: all 0.35s cubic-bezier(0.34, 1.75, 0.64, 1);
 }
 
-/* Module Hover Effect - Jelly Spring Stretch & Glassy Highlight */
+/* Module Hover Effect - Jelly Spring Stretch & Light Glass Highlight */
 #workspaces:hover,
 #window:hover,
 #clock:hover,
@@ -78,9 +80,9 @@ window#waybar.hidden {
 #scratchpad:hover,
 #idle_inhibitor:hover,
 #mpd:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.38);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.40);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.40);
   padding: 3px 11px;
   margin: 1px 0px;
   font-size: 11.5px;
@@ -106,11 +108,11 @@ window#waybar.hidden {
 #scratchpad:active,
 #idle_inhibitor:active,
 #mpd:active {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.32);
   padding: 1px 5px;
   margin: 3px 3px;
   font-size: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transition: all 0.08s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -121,7 +123,7 @@ window#waybar.hidden {
   padding: 1px 3px;
   margin: 2px 2px;
   background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid transparent;
   border-radius: 14px;
   transition: all 0.35s cubic-bezier(0.34, 1.75, 0.64, 1);
 }
@@ -131,7 +133,7 @@ window#waybar.hidden {
   margin: 1px 1px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.80);
   font-weight: 600;
   font-size: 10.5px;
   border: 1px solid transparent;
@@ -144,7 +146,7 @@ window#waybar.hidden {
   background: rgba(255, 255, 255, 0.25);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.30);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   padding: 3px 9px;
   margin: 0px 0px;
   font-size: 11px;
@@ -169,7 +171,7 @@ window#waybar.hidden {
   color: #ffffff;
   font-weight: 700;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 2px 7px rgba(0, 122, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 /* Active Workspace Hover - Extra Jelly POP */
@@ -178,7 +180,7 @@ window#waybar.hidden {
   padding: 3px 10px;
   margin: 0px -1px;
   font-size: 11.5px;
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 /* Urgent Workspace */
@@ -187,12 +189,12 @@ window#waybar.hidden {
   color: #ffffff;
   font-weight: 700;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 2px 7px rgba(255, 59, 48, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 /* Workspace state modifications */
 #workspaces button.empty {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* -----------------------------------------------------------------------------
@@ -200,8 +202,8 @@ window#waybar.hidden {
  * ----------------------------------------------------------------------------- */
 #window {
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid transparent;
 }
 
 /* -----------------------------------------------------------------------------
@@ -211,9 +213,9 @@ window#waybar.hidden {
 #clock {
   font-weight: 600;
   letter-spacing: 0.2px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 /* -----------------------------------------------------------------------------
