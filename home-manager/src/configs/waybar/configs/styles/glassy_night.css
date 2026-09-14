@@ -206,6 +206,23 @@ window#waybar.hidden {
   border: 1px solid transparent;
 }
 
+#window.empty,
+#window.solo,
+#window.hidden,
+#hyprland-window.empty,
+#hyprland-window.solo,
+#hyprland-window.hidden,
+window#waybar.empty #window {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  border-color: transparent;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  opacity: 0;
+}
+
 /* -----------------------------------------------------------------------------
  * Custom Clock Module (Center Apple Glass Pill)
  * ----------------------------------------------------------------------------- */
