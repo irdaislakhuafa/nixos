@@ -18,6 +18,7 @@ if (isEnable) then
       ./services/default.nix
       ./hyprlock.nix
       ./hypridle.nix
+      ./scripts.nix
     ];
 
     home.packages = [
