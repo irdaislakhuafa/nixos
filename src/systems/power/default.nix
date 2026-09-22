@@ -4,7 +4,23 @@
   services.logind.powerKeyLongPress = "poweroff";
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "ondemand";
+
+    # Configure the governor used to regulate the frequency of the available CPUs.
+    # Often used values: "ondemand", "powersave", "performance"
+    cpuFreqGovernor = "performance";
+
+    resumeCommands = ''
+      systemctl restart iwd;
+      rfkill unblock wifi;
+    '';
+    powerDownCommands = ''
+      rfkill block all;
+    '';
+
+    # SCSI link power management policy. The kernel default is "max_performance".
+    # "med_power_with_dipm" is supported by kernel versions 4.15 and newer.
+    # Values: null or one of "min_power", "max_performance", "medium_power", "med_power_with_dipm"
+    scsiLinkPolicy = "max_performance";
   };
   services.tlp.enable = false;
   services.tlp.settings = lib.mkIf (config.services.tlp.enable) {
