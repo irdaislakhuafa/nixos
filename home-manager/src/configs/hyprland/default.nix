@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -19,6 +20,7 @@ if (isEnable) then
       ./hyprlock.nix
       ./hypridle.nix
       ./scripts.nix
+      ./plugins.nix
     ];
 
     home.packages = [

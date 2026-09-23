@@ -8,23 +8,42 @@
   # See https://wiki.hyprland.org/Configuring/Keywords/ for more
   $mod = SUPER
 
+  # load the modules
   ${
     with builtins;
     let
-      modulesDir = toPath ./modules;
-      skipFiles = [
+      dir = toPath ./modules;
+      skip = [
         "autostart.nix"
         "decoration.conf" # skip the decoration for activeStyle variable
       ];
-      readDirAttrs = readDir "${modulesDir}";
-      modulesFiles = filter (
-        file: (readDirAttrs.${file} == "regular") && (all (elem: file != elem) skipFiles)
-      ) (attrNames readDirAttrs);
-      modulesContent = map (cfg: (readFile "${modulesDir}/${cfg}") + "\n") (modulesFiles);
-      combinedContent = foldl' (acc: value: acc + value) "" modulesContent;
-      styleContent =
-        if activeStyle != null then readFile activeStyle else readFile "${modulesDir}/decoration.conf";
+      dirs = readDir "${dir}";
+      files = filter (file: (dirs.${file} == "regular") && (all (elem: file != elem) skip)) (
+        attrNames dirs
+      );
+      modules = map (cfg: (readFile "${dir}/${cfg}") + "\n") (files);
+      merged = foldl' (acc: value: acc + value) "" modules;
+      decoration =
+        if activeStyle != null then readFile activeStyle else readFile "${dir}/decoration.conf";
     in
-    combinedContent + "\n" + styleContent
+    merged + "\n" + decoration
+  }
+
+  # load the plugins
+  plugin {
+    ${
+      with builtins;
+      let
+        dir = toPath ./plugins;
+        dirs = readDir "${dir}";
+        skip = [ ];
+        files = filter (file: (dirs.${file} == "regular") && (all (elem: file != elem) skip)) (
+          attrNames dirs
+        );
+        plugins = map (cfg: (readFile "${dir}/${cfg}") + "\n") (files);
+        merged = foldl' (acc: value: acc + value) "" plugins;
+      in
+      merged
+    }
   }
 ''

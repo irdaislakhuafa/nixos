@@ -26,6 +26,17 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+
+    # hyprland plugins
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ## easymotion
+    hyprland-easymotion = {
+      url = "github:zakk4223/hyprland-easymotion";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =
