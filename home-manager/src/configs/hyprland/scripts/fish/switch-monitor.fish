@@ -13,7 +13,7 @@ if test -z "$resolution"
 end
 
 # choose position
-set positions auto-left auto auto-right
+set positions auto auto-left auto-right auto-up auto-down
 set position (echo $positions | string split ' ' | rofi -dmenu -p "Select Position")
 if test -z "$position"
     return
