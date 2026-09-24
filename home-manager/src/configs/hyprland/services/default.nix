@@ -31,7 +31,7 @@ in
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.clipse}/bin/clipse -listen-shell";
+      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipse}/bin/clipse -wl-store";
       Restart = "always";
     };
   };
