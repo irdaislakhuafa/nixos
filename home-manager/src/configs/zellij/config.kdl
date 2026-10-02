@@ -208,7 +208,7 @@ keybinds clear-defaults=true {
     }
 
     // room plugins
-    shared_except "locked" {
+    shared_except "normal" {
         bind "Alt w" {
             LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
                 floating true

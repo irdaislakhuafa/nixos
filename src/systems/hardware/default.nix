@@ -3,6 +3,7 @@
   # enable hardware like wlan and etc
   hardware.enableRedistributableFirmware = true;
   hardware.alsa.enablePersistence = lib.mkForce true;
+  hardware.uinput.enable = true;
   boot.kernelParams = [ "snd_hda_intel.power_save=0" ];
   services.pulseaudio.enable = lib.mkForce false;
   environment.systemPackages = with pkgs; [
