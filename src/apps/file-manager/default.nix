@@ -90,8 +90,8 @@
         ];
         view-img = [
           {
-            run = ''imv "$@"'';
-            desc = "View Image with IMV";
+            run = ''swayimg "$@"'';
+            desc = "View Image with swayimg";
             orphan = true;
           }
         ];

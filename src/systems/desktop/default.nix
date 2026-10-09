@@ -18,7 +18,7 @@
     addedAssociations = {
       "application/pdf" = [ "org.qutebrowser.qutebrowser.desktop" ];
       "video/*" = [ "mpv.desktop" ];
-      "image/*" = [ "imv.desktop" ];
+      "image/*" = [ "swayimg.desktop" ];
       "text/html" = [ "org.qutebrowser.qutebrowser.desktop" ];
       "x-scheme-handler/http" = [ "org.qutebrowser.qutebrowser.desktop" ];
       "x-scheme-handler/https" = [ "org.qutebrowser.qutebrowser.desktop" ];
