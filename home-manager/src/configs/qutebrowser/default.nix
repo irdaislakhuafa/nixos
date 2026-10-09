@@ -7,7 +7,7 @@ let
   pinnedPkgs = import fetchedPinnedPkgs {
     inherit (pkgs) system config;
   };
-
+  defaultPage = "file://${builtins.toPath ./startpage.html}";
 in
 
 {
@@ -120,6 +120,107 @@ in
       window.transparent = true;
 
       content.fullscreen.window = true;
+
+      # Where to show the downloaded files.
+      # Type: VerticalPosition
+      # Valid values:
+      #   - top
+      #   - bottom
+      downloads.position = "bottom";
+
+      # Duration (in milliseconds) to wait before removing finished downloads.
+      # If set to -1, downloads are never removed.
+      # Type: Int
+      downloads.remove_finished = -1;
+
+      # Editor (and arguments) to use for the `edit-*` commands. The following
+      # placeholders are defined:  * `{file}`: Filename of the file to be
+      # edited. * `{line}`: Line in which the caret is found in the text. *
+      # `{column}`: Column in which the caret is found in the text. *
+      # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+      # Same as `{column}`, but starting from index 0.
+      # Type: ShellCommand
+      editor.command = [
+        "kitty"
+        "-e"
+        "hx"
+        "{file}:{line}:{column0}"
+      ];
+
+      # Mode to use for hints.
+      # Type: String
+      # Valid values:
+      #   - number: Use numeric hints. (In this mode you can also type letters from the hinted element to filter and reduce the number of elements that are hinted.)
+      #   - letter: Use the characters in the `hints.chars` setting.
+      #   - word: Use hints words based on the html elements and the extra words.
+      hints.mode = "letter";
+
+      # When/how to show the scrollbar.
+      # Type: String
+      # Valid values:
+      #   - always: Always show the scrollbar.
+      #   - never: Never show the scrollbar.
+      #   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+      #   - overlay: Show an overlay scrollbar. On macOS, this is unavailable and equal to `when-searching`; with the QtWebKit backend, this is equal to `never`. Enabling/disabling overlay scrollbars requires a restart.
+      scrolling.bar = "always";
+
+      # Enable smooth scrolling for web pages. Note smooth scrolling does not
+      # work with the `:scroll-px` command.
+      # Type: Bool
+      scrolling.smooth = false;
+
+      # When to show the statusbar.
+      # Type: String
+      # Valid values:
+      #   - always: Always show the statusbar.
+      #   - never: Always hide the statusbar.
+      #   - in-mode: Show the statusbar when in modes other than normal mode.
+      statusbar.show = "always";
+
+      # How to behave when the last tab is closed. If the
+      # `tabs.tabs_are_windows` setting is set, this is ignored and the
+      # behavior is always identical to the `close` value.
+      # Type: String
+      # Valid values:
+      #   - ignore: Don't do anything.
+      #   - blank: Load a blank page.
+      #   - startpage: Load the start page.
+      #   - default-page: Load the default page.
+      #   - close: Close the window.
+      tabs.last_close = "default-page";
+
+      # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
+      # for a blank page.
+      # Type: FuzzyUrl
+      # url.default_page = "https://search.brave.com/";
+      url.default_page = defaultPage;
+      url.start_pages = defaultPage;
+
+      # Width (in pixels) of the progress indicator (0 to disable).
+      # Type: Int
+      tabs.indicator.width = 3;
+
+      # Value to use for `prefers-color-scheme:` for websites. The "light"
+      # value is only available with QtWebEngine 5.15.2+. On older versions,
+      # it is the same as "auto". The "auto" value is broken on QtWebEngine
+      # 5.15.2 due to a Qt bug. There, it will fall back to "light"
+      # unconditionally.
+      # Type: String
+      # Valid values:
+      #   - auto: Use the system-wide color scheme setting.
+      #   - light: Force a light theme.
+      #   - dark: Force a dark theme.
+      colors.webpage.preferred_color_scheme = "dark";
+
+      # Render all web contents using a dark theme. On QtWebEngine < 6.7, this
+      # setting requires a restart and does not support URL patterns, only the
+      # global setting is applied. Example configurations from Chromium's
+      # `chrome://flags`: - "With simple HSL/CIELAB/RGB-based inversion": Set
+      # `colors.webpage.darkmode.algorithm` accordingly, and   set
+      # `colors.webpage.darkmode.policy.images` to `never`.  - "With selective
+      # image inversion": qutebrowser default settings.
+      # Type: Bool
+      colors.webpage.darkmode.enabled = false;
     };
   };
 }
