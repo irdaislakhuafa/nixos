@@ -1,48 +1,99 @@
 # Overview
 
-This is my NixOS configuration files.
+This repository contains my personal NixOS and Home Manager configurations. It uses Nix Flakes with a pinned `nixpkgs` commit hash to ensure reproducible builds across updates.
 
-## Installation
-My configuration use nix flakes, so you just need to clone this repository without need to add new nix-channel or something else.
+## Architecture
+
+The configuration is modular and makes use of an automated directory importer helper (`importer.nix`) so you never have to manually register every single configuration file in an explicit imports list.
+
+- **`flake.nix`**: The root flake entry point. Defines inputs (`nixpkgs`, `home-manager`, `scls`, `iwmenu`, `flake-utils`) and outputs:
+  - `nixosConfigurations.developer`: System configuration targeting host `developer`.
+  - `homeConfigurations.i`: Home Manager configuration targeting user `i`.
+- **`importer.nix`**: A helper script that automatically reads all subdirectories in a given folder and imports their `default.nix` files.
+- **`src/`**: NixOS system-wide configurations. Everything placed here is automatically included via `src/default.nix`.
+  - **`src/systems/`**: Core OS subsystems (boot, networking, hardware, graphics, audio, users, security, etc.).
+  - **`src/apps/`**: System-level applications and services (virtualization, builders, etc.).
+- **`home-manager/`**: User environment configurations.
+  - **`home-manager/home.nix`**: Entry point for Home Manager, which automatically loads all modules inside `home-manager/src/configs/`.
+  - **`home-manager/src/configs/`**: User tools and desktop applications (Hyprland, Waybar, Helix, Neovim, Fish, Git, etc.).
+
+## Adding a New Nix Configuration
+
+Because the repository uses automatic directory scanning (`importer.nix`), adding a new configuration module is straightforward.
+
+### Important: Git Tracking Requirement
+
+Nix flakes only evaluate files tracked by Git. When you create new configuration files or directories, you must stage them with git before rebuilding:
 
 ```sh
-$ git clone https://github.com/irdaislakhuafa/nixos.git 
+$ git add src/systems/my-service/
+# or
+$ git add .
+```
+
+### 1. Adding a System-Wide NixOS Module
+
+1. Create a new directory under `src/systems/` or `src/apps/`, for example: `src/systems/my-service/`.
+2. Inside that directory, create a `default.nix` file defining your NixOS module options:
+   ```nix
+   { config, pkgs, ... }:
+   {
+     # Your NixOS configuration options here
+   }
+   ```
+3. The configuration will be discovered and loaded automatically on the next system rebuild.
+
+### 2. Adding a Home Manager Module
+
+1. Create a new directory under `home-manager/src/configs/`, for example: `home-manager/src/configs/my-tool/`.
+2. Inside that directory, create a `default.nix` file defining your Home Manager options:
+   ```nix
+   { config, pkgs, ... }:
+   {
+     # Your Home Manager configuration options here
+   }
+   ```
+3. The module will be discovered and loaded automatically on the next home-manager switch.
+
+## Installation
+
+Clone this repository:
+
+```sh
+$ git clone https://github.com/irdaislakhuafa/nixos.git
 $ cd ./nixos
 ```
 
-## Usages
-After you clone this repository and entering this repository with `cd ./nixos` make sure you have `gnumake` package installed.
-This configuration is includes `home-manager` configurations and `nixos` configurations.
-- `home-manager`: home manager configuration is on `./home-manager` directory.
-- `nixos`: nixos configration in on `src` directory.
+## Usage
 
-For usage or how to apply this configuration you can use command below.
-- `home-manager`
+Make sure you have `gnumake` installed. You can apply system or user configurations using the provided Makefile commands.
 
-  ```sh
-  $ make flake-home-switch
-  ```
+### 1. Apply NixOS System Configuration
 
-- `nixos`
+If you use `doas`:
 
-  if you use `doas` instead of `sudo`.
-  
-  ```sh
-  $ doas make flake-build-switch
-  ```
+```sh
+$ doas make flake-build-switch
+```
 
-  if you use `sudo` instead of `doas`.
-  
-  ```sh
-  $ sudo make flake-build-switch
-  ```
+If you use `sudo`:
 
-  if you got error like `"Current user is not owner of this repository"`, you need to add this repository as safe directory with commands below.
-  
-  ```sh
-  $ doas git config --global --add safe.directory $(pwd)
-  ```
+```sh
+$ sudo make flake-build-switch
+```
 
-  `pwd` will print current working directory, if you not on this repository directory you can change `$(pwd)` with path to this reposiroty directory like `/home/$USERNAME/nixos`.
+### 2. Apply Home Manager Configuration
 
-  if all problem is gone, then try to run command `doas make flake-build-swith` again or replace `doas` with `sudo` if you use `sudo`. 
+```sh
+$ make flake-home-switch
+```
+
+### Git Safe Directory Notice
+
+If you encounter an error stating `"Current user is not owner of this repository"`, you must add the repository as a safe directory in git:
+
+```sh
+$ doas git config --global --add safe.directory $(pwd)
+```
+
+Replace `$(pwd)` with the absolute path to your repository directory (such as `/home/USERNAME/nixos`) if you are running the command from outside the repository folder. After adding it to safe directories, rerun your build command.
