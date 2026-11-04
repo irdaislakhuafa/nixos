@@ -18,6 +18,7 @@
     A-space = [
       ":run-shell-command echo -n \"%{buffer_name}\" | sed \"s@~/@@g\" | sed \"s@$PWD@@g\" | wl-copy"
       ":run-shell-command echo \"Path copied!\""
+      ":run-shell-command notify-send \"Clipboard\" \"Path cipied!\""
     ];
     A-t = {
       "=" = [ ":pipe column -t -s '=' -o ' = '" ]; # tabularize with separator =

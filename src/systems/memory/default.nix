@@ -9,7 +9,7 @@
     memoryPercent = 300;
   };
   services.zram-generator.enable = true;
-  systemd.oomd.enable = true;
+  systemd.oomd.enable = false;
   systemd.oomd.enableRootSlice = config.systemd.oomd.enable;
   systemd.oomd.enableSystemSlice = config.systemd.oomd.enable;
   systemd.oomd.enableUserSlices = config.systemd.oomd.enable;
@@ -30,7 +30,7 @@
   #   };
   # };
   services.earlyoom = {
-    enable = false;
+    enable = true;
     enableNotifications = true;
     enableDebugInfo = true;
     freeMemThreshold = 30; # Minimum available memory (in percent).
@@ -38,6 +38,7 @@
     extraArgs = [
       "-g"
       "-r 3" # report memory each 3s
+      "--avoid" "(^|/)Hyprland$" # ignore Hyprland
     ];
   };
 }
