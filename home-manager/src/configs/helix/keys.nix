@@ -1,4 +1,13 @@
 { ... }:
+let
+  # Copy `path#line` (no selection) or `path#start-end` (selection block).
+  # Expansions can't live inside the `:run-shell-command` argument (they'd be
+  # passed through literally), so build the whole location string first via
+  # `%sh{...}` and only THEN hand the result to wl-copy + notify-send.
+  copyFileLoc = [
+    ":run-shell-command echo -n %sh{start=%{selection_line_start}; end=%{selection_line_end}; if [ $start -gt $end ]; then t=$start; start=$end; end=$t; fi; if [ $start = $end ]; then echo -n \"%{buffer_name}#$start\"; else echo -n \"%{buffer_name}#$start-$end\"; fi} | wl-copy; notify-send \"Clipboard\" \"File location copied!\""
+  ];
+in
 {
   normal = {
     w = [ ":u" ];
@@ -29,5 +38,7 @@
       "-" = [ ":pipe column -t -s '-' -o ' - '" ]; # tabularize with separator -
     };
   };
-  select = { };
+  select = {
+    A-space = copyFileLoc;
+  };
 }
