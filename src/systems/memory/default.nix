@@ -37,7 +37,7 @@
     freeSwapThreshold = 30; # Minimum free swap space (in percent) before sending SIGTERM.
     extraArgs = [
       "-g"
-      "-r 3" # report memory each 3s
+      "-r 60" # report memory each 3s
       "--avoid" "(^|/)Hyprland$" # ignore Hyprland
     ];
   };

@@ -38,6 +38,10 @@ in
     fuse
     fuse3
     simple-mtpfs
+    ddrescue
+    smartmontools
+    testdisk
+    gptfdisk
   ]++aliases;
   services.udisks2.enable = true;
   services.udisks2.mountOnMedia = false;
